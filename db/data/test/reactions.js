@@ -1,4 +1,4 @@
-export const reactions = [
+const reactions = [
     {
         id: 1,
         reaction_type: "😭",
@@ -10,3 +10,4 @@ export const reactions = [
         user_id: 2,
     },
 ];
+module.exports = reactions;

@@ -1,4 +1,4 @@
-export const replies = [
+const replies = [
     {
         reply_id: 1,
         comment_id: 1,
@@ -9,3 +9,4 @@ export const replies = [
         created_at: "2024-03-01T21:02:00.000Z",
     },
 ];
+module.exports = replies;

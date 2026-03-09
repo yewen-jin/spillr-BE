@@ -1,4 +1,4 @@
-export const pollVotes = [
+const pollVotes = [
     {
         id: 1,
         poll_id: 1,
@@ -7,3 +7,4 @@ export const pollVotes = [
         user_id: 2,
     },
 ];
+module.exports = pollVotes;

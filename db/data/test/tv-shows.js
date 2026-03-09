@@ -1,4 +1,4 @@
-export const tvShows = [
+const tvShows = [
     {
         id: 1,
         name: "Severance",
@@ -9,3 +9,4 @@ export const tvShows = [
         tv_show_img_url: "https://image.tmdb.org/t/p/w500/severance.jpg",
     },
 ];
+module.exports = tvShows;

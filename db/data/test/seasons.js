@@ -1,4 +1,4 @@
-export const seasons = [
+const seasons = [
     {
         id: 1,
         tv_show_id: 1,
@@ -8,3 +8,4 @@ export const seasons = [
         air_date: "2022-02-18",
     },
 ];
+module.exports = seasons;

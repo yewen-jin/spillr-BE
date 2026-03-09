@@ -1,4 +1,4 @@
-export const episodes = [
+const episodes = [
     {
         id: 1,
         season_id: 1,
@@ -10,3 +10,4 @@ export const episodes = [
         thread_opened: true,
     },
 ];
+module.exports = episodes;

@@ -1,4 +1,4 @@
-export const friends = [
+const friends = [
     {
         friends_id: 1,
         user_id_1: 1,
@@ -6,3 +6,4 @@ export const friends = [
         status: "accepted",
     },
 ];
+module.exports = friends;

@@ -1,4 +1,4 @@
-export const notifications = [
+const notifications = [
     {
         notification_id: 1,
         reply_id: 1,
@@ -8,3 +8,4 @@ export const notifications = [
         user_id: 1,
     },
 ];
+module.exports = notifications;
