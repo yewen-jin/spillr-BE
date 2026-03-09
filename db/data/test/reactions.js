@@ -1,6 +1,6 @@
 const reactions = [
     {
-        id: 1,
+        reaction_id: 1,
         reaction_type: "😭",
         comment_id: 1,
         episode_id: null,

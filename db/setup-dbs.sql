@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS spillr;
+CREATE DATABASE spillr;
+
+DROP DATABASE IF EXISTS spillr_test;
+CREATE DATABASE spillr_test;

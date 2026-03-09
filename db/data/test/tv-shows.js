@@ -1,6 +1,6 @@
 const tvShows = [
     {
-        id: 1,
+        tv_show_id: 1,
         name: "Severance",
         description:
             "A thriller drama about work-life separation taken to the extreme.",
