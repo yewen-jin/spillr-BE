@@ -1,28 +1,30 @@
 {
-    "name": "spillr-be",
-    "version": "1.0.0",
-    "description": "express server for spillr app",
-    "homepage": "https://github.com/yewen-jin/spillr-BE#readme",
-    "bugs": {
-        "url": "https://github.com/yewen-jin/spillr-BE/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yewen-jin/spillr-BE.git"
-    },
-    "license": "ISC",
-    "author": "",
-    "type": "commonjs",
-    "main": "index.js",
-    "scripts": {
-        "test": "jest",
-        "setup-dbs": "psql -f ./db/setup-dbs.sql"
-    },
-    "dependencies": {
-        "express": "^5.2.1",
-        "jest": "^30.2.0",
-        "pg": "^8.20.0",
-        "pg-format": "^1.0.4",
-        "supertest": "^7.2.2"
-    }
+  "name": "spillr-be",
+  "version": "1.0.0",
+  "description": "express server for spillr app",
+  "homepage": "https://github.com/yewen-jin/spillr-BE#readme",
+  "bugs": {
+    "url": "https://github.com/yewen-jin/spillr-BE/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yewen-jin/spillr-BE.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "setup-dbs": "psql -f ./db/setup-dbs.sql",
+    "seed": "node ./db/seed/run-seed.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jest": "^30.2.0",
+    "pg": "^8.20.0",
+    "pg-format": "^1.0.4",
+    "supertest": "^7.2.2"
+  }
 }
