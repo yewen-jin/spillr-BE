@@ -1,8 +1,10 @@
-const fetchShowInfoByID = require("./fetchShowInfoByID");
-const fetchSeasonsByID = require("./fetchSeasonsByID");
-const fetchShowIdByName = require("./fetchShowIdByName");
-const fetchEpisodesBySeasonID = require("./fetchEpisodesBySeasonID");
-const sleep = require("./sleep");
+const {
+  fetchShowIdByName,
+  fetchShowInfoByID,
+  fetchSeasonsByID,
+  fetchEpisodesBySeasonID,
+} = require("../api/tvMeze");
+const { sleep } = require("./data-utils.js");
 
 async function cleanData(showName) {
   try {
@@ -17,13 +19,7 @@ async function cleanData(showName) {
       const seasonEpisodes = await fetchEpisodesBySeasonID(season.season_id);
       episodes.push(seasonEpisodes);
     }
-
-    // await Promise.all(
-    //   seasons.map(async (season) => {
-    //     await sleep(1000);
-    //     return await fetchEpisodesBySeasonID(season.season_id);
-    //   }),
-    // );
+    // cannot use a promise.all here because of the rate limit of the API,so we need to wait for each request to finish before making the next one
 
     const seasons_clean = seasons.map((season, index) => ({
       ...season,

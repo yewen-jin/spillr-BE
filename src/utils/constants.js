@@ -1,3 +1,5 @@
+const path = require("path");
+
 const TV_SHOWS_LIST_1 = [
   "Four in a Bed",
   "Gogglebox",
@@ -52,4 +54,29 @@ const TV_SHOWS_LIST_2 = [
   "Come Dine with Me",
 ];
 
-module.exports = { TV_SHOWS_LIST_1, TV_SHOWS_LIST_2 };
+const FILE_PATH_TV_SHOWS = path.join(
+  process.cwd(),
+  "../db/data/dev/tv-shows.js",
+);
+const FILE_PATH_SEASONS = path.join(process.cwd(), "../db/data/dev/seasons.js");
+const FILE_PATH_EPISODES = path.join(
+  process.cwd(),
+  "../db/data/dev/episodes.js",
+);
+
+const TVMAZE_API = {
+  BASE_URL: "https://api.tvmaze.com",
+  SEARCH_SHOWS: "/search/shows?q=",
+  SHOW_ID: (showId) => `/shows/${showId}`,
+  SHOW_SEASONS: (showId) => `/shows/${showId}/seasons`,
+  SEASON_EPISODES: (seasonId) => `/seasons/${seasonId}/episodes`,
+};
+
+module.exports = {
+  TV_SHOWS_LIST_1,
+  TV_SHOWS_LIST_2,
+  FILE_PATH_TV_SHOWS,
+  FILE_PATH_SEASONS,
+  FILE_PATH_EPISODES,
+  TVMAZE_API,
+};
