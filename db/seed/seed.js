@@ -29,26 +29,26 @@ const seed = async ({
   await db.query(`DROP TABLE IF EXISTS users`);
   await db.query(`CREATE TABLE users(
     user_id SERIAL PRIMARY KEY NOT NULL,
-    name VARCHAR(1000),
-    username VARCHAR(40),
-    avatar_url VARCHAR(1000),
+    name VARCHAR(3000),
+    username VARCHAR(1000),
+    avatar_url VARCHAR(3000),
     language VARCHAR(40)
     ) `);
 
   await db.query(`CREATE TABLE tv_shows(
     tv_show_id INT PRIMARY KEY NOT NULL,
-    name VARCHAR(1000) NOT NULL,
-    description VARCHAR(1000),
+    name VARCHAR(3000) NOT NULL,
+    description VARCHAR(3000),
     number_of_seasons INT,
     number_of_episodes INT,
-    tv_show_img_url VARCHAR(1000)
+    tv_show_img_url VARCHAR(3000)
     ) `);
 
   await db.query(`CREATE TABLE seasons(
        season_id INT PRIMARY KEY NOT NULL,
        tv_show_id INT REFERENCES tv_shows(tv_show_id) NOT NULL,
        season_number INT NOT NULL,
-       season_img_url VARCHAR(1000),
+       season_img_url VARCHAR(3000),
        is_airing BOOL DEFAULT FALSE,
        air_date TIMESTAMP
        ) `);
@@ -59,11 +59,11 @@ const seed = async ({
        episode_number INT,
        runtime_total INT,
        release_date DATE,
-       release_time TIMESTAMP,
-       episode_url VARCHAR(1000),
+       release_time TIME,
+       episode_url VARCHAR(3000),
        is_premier BOOL DEFAULT FALSE,
        thread_opened BOOL DEFAULT FALSE,
-       synopsis VARCHAR(1000)
+       synopsis VARCHAR(3000)
       )`);
 
   await db.query(`CREATE TABLE subscriptions(
@@ -82,7 +82,7 @@ const seed = async ({
   await db.query(`CREATE TABLE comments(
       comment_id SERIAL PRIMARY KEY NOT NULL,
       user_id INT REFERENCES users(user_id),
-      body VARCHAR(350) NOT NULL,
+      body VARCHAR(3000) NOT NULL,
       episode_id INT REFERENCES episodes(episode_id),
       runtime_seconds INT NOT NULL,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -94,7 +94,7 @@ const seed = async ({
       reply_id SERIAL PRIMARY KEY NOT NULL,
       comment_id INT REFERENCES comments(comment_id),
       user_id INT REFERENCES users(user_id),
-      body VARCHAR(350) NOT NULL,
+      body VARCHAR(3000) NOT NULL,
       episode_id INT REFERENCES episodes(episode_id),
       runtime_seconds INT NOT NULL,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -102,7 +102,7 @@ const seed = async ({
 
   await db.query(`CREATE TABLE reactions(
       reaction_id SERIAL PRIMARY KEY NOT NULL,
-      reaction_type VARCHAR(40) NOT NULL,
+      reaction_type VARCHAR(3000) NOT NULL,
       comment_id INT REFERENCES comments(comment_id) DEFAULT NULL,
       episode_id INT REFERENCES episodes(episode_id) DEFAULT NULL,
       reply_id INT REFERENCES comments(comment_id) DEFAULT NULL,
@@ -115,12 +115,12 @@ const seed = async ({
       poll_id SERIAL PRIMARY KEY NOT NULL,
       user_id INT REFERENCES users(user_id),
       episode_id INT REFERENCES episodes(episode_id),
-      img_url VARCHAR(1000),
+      img_url VARCHAR(3000),
       is_open BOOL DEFAULT TRUE,
       poll_name VARCHAR(1000),
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      field_1 VARCHAR(1000),
-      field_2 VARCHAR(1000)
+      field_1 VARCHAR(3000),
+      field_2 VARCHAR(3000)
       )`);
 
   await db.query(`CREATE TABLE poll_votes(
@@ -195,7 +195,7 @@ const seed = async ({
       episode.runtime_total,
       episode.releaseDate,
       episode.releaseTime,
-      episode.episodeIMG_URL.original,
+      episode.episodeIMG_URL ? episode.episodeIMG_URL.original : null,
       episode.isPremier,
       episode.synopsis,
     ];
@@ -291,7 +291,6 @@ const seed = async ({
       poll.user_id,
       poll.episode_id,
       poll.img_url,
-      poll.is_open,
       poll.poll_name,
       poll.field_1,
       poll.field_2,
@@ -299,7 +298,7 @@ const seed = async ({
   });
 
   let pollsQuery = format(
-    "INSERT INTO polls(user_id, episode_id, img_url, is_open, poll_name, field_1, field_2) VALUES %L RETURNING *",
+    "INSERT INTO polls(user_id, episode_id, img_url, poll_name, field_1, field_2) VALUES %L RETURNING *",
     formattedPolls,
   );
 
