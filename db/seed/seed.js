@@ -30,7 +30,7 @@ const seed = async ({
   await db.query(`CREATE TABLE users(
     user_id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(3000),
-    username VARCHAR(1000),
+    username VARCHAR(1000) UNIQUE NOT NULL,
     avatar_url VARCHAR(3000),
     language VARCHAR(40)
     ) `);
@@ -46,7 +46,7 @@ const seed = async ({
 
   await db.query(`CREATE TABLE seasons(
        season_id INT PRIMARY KEY NOT NULL,
-       tv_show_id INT REFERENCES tv_shows(tv_show_id) NOT NULL,
+       tv_show_id INT REFERENCES tv_shows(tv_show_id) ON DELETE CASCADE,
        season_number INT NOT NULL,
        season_img_url VARCHAR(3000),
        is_airing BOOL DEFAULT FALSE,
@@ -55,7 +55,7 @@ const seed = async ({
 
   await db.query(`CREATE TABLE episodes(
        episode_id INT PRIMARY KEY NOT NULL,
-       season_id INT REFERENCES seasons(season_id) NOT NULL,
+       season_id INT REFERENCES seasons(season_id) ON DELETE CASCADE,
        episode_number INT,
        runtime_total INT,
        release_date DATE,
@@ -68,22 +68,22 @@ const seed = async ({
 
   await db.query(`CREATE TABLE subscriptions(
       subscription_id SERIAL PRIMARY KEY NOT NULL,
-      user_id INT REFERENCES users(user_id),
-      tv_show_id INT REFERENCES tv_shows(tv_show_id)
+      user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+      tv_show_id INT REFERENCES tv_shows(tv_show_id) ON DELETE CASCADE
       )`);
 
   await db.query(`CREATE TABLE friends(
       friends_id SERIAL PRIMARY KEY NOT NULL,
-      user_id_1 INT REFERENCES users(user_id),
-      user_id_2 INT REFERENCES users(user_id),
+      user_id_1 INT REFERENCES users(user_id) ON DELETE CASCADE,
+      user_id_2 INT REFERENCES users(user_id) ON DELETE CASCADE,
       is_accepted BOOL DEFAULT FALSE
       )`);
 
   await db.query(`CREATE TABLE comments(
       comment_id SERIAL PRIMARY KEY NOT NULL,
-      user_id INT REFERENCES users(user_id),
+      user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
       body VARCHAR(3000) NOT NULL,
-      episode_id INT REFERENCES episodes(episode_id),
+      episode_id INT REFERENCES episodes(episode_id) ON DELETE CASCADE,
       runtime_seconds INT NOT NULL,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       is_live BOOL NOT NULL,
@@ -92,10 +92,10 @@ const seed = async ({
 
   await db.query(`CREATE TABLE replies(
       reply_id SERIAL PRIMARY KEY NOT NULL,
-      comment_id INT REFERENCES comments(comment_id),
+      comment_id INT REFERENCES comments(comment_id) ON DELETE CASCADE,
       user_id INT REFERENCES users(user_id),
       body VARCHAR(3000) NOT NULL,
-      episode_id INT REFERENCES episodes(episode_id),
+      episode_id INT REFERENCES episodes(episode_id) ON DELETE CASCADE,
       runtime_seconds INT NOT NULL,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )`);
@@ -103,9 +103,9 @@ const seed = async ({
   await db.query(`CREATE TABLE reactions(
       reaction_id SERIAL PRIMARY KEY NOT NULL,
       reaction_type VARCHAR(3000) NOT NULL,
-      comment_id INT REFERENCES comments(comment_id) DEFAULT NULL,
-      episode_id INT REFERENCES episodes(episode_id) DEFAULT NULL,
-      reply_id INT REFERENCES comments(comment_id) DEFAULT NULL,
+      comment_id INT REFERENCES comments(comment_id) ON DELETE CASCADE DEFAULT NULL,
+      episode_id INT REFERENCES episodes(episode_id) ON DELETE CASCADE DEFAULT NULL,
+      reply_id INT REFERENCES replies(reply_id) DEFAULT NULL,
       runtime_seconds INT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       user_id INT REFERENCES users(user_id)
@@ -113,8 +113,8 @@ const seed = async ({
 
   await db.query(`CREATE TABLE polls(
       poll_id SERIAL PRIMARY KEY NOT NULL,
-      user_id INT REFERENCES users(user_id),
-      episode_id INT REFERENCES episodes(episode_id),
+      user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+      episode_id INT REFERENCES episodes(episode_id) ON DELETE CASCADE,
       img_url VARCHAR(3000),
       is_open BOOL DEFAULT TRUE,
       poll_name VARCHAR(1000),
@@ -125,17 +125,17 @@ const seed = async ({
 
   await db.query(`CREATE TABLE poll_votes(
       poll_vote_id SERIAL PRIMARY KEY NOT NULL,
-      poll_id INT REFERENCES polls(poll_id),
-      user_id INT REFERENCES users(user_id),
+      poll_id INT REFERENCES polls(poll_id) ON DELETE CASCADE,
+      user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
       field_1 BOOL DEFAULT FALSE,
       field_2 BOOL DEFAULT FALSE
       )`);
 
   await db.query(`CREATE TABLE notifications(
       notification_id SERIAL PRIMARY KEY NOT NULL,
-      reaction_id INT REFERENCES reactions(reaction_id),
-      reply_id INT REFERENCES replies(reply_id),
-      user_id INT REFERENCES users(user_id),
+      reaction_id INT REFERENCES reactions(reaction_id) ON DELETE CASCADE,
+      reply_id INT REFERENCES replies(reply_id) ON DELETE CASCADE,
+      user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       status VARCHAR(50) NOT NULL
       )`);
