@@ -1,4 +1,4 @@
-const tvShows = [
+const tv_shows = [
   {
     tv_show_id: 8540,
     name: "Four in a Bed",
@@ -719,4 +719,5 @@ const tvShows = [
     number_of_episodes: 1865,
   },
 ];
-module.exports = tvShows;
+
+module.exports = tv_shows;
