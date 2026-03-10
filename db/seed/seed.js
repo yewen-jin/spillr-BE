@@ -158,7 +158,7 @@ const seed = async ({
       tvShow.description,
       tvShow.number_of_seasons,
       tvShow.number_of_episodes,
-      tvShow.tv_show_img_url,
+      tvShow.TVShowIMG_URL.original,
     ];
   });
 
@@ -175,8 +175,8 @@ const seed = async ({
       season.tv_show_id,
       season.season_number,
       season.season_img_url,
-      season.is_airing,
-      season.air_date,
+      season.isContinuing,
+      season.airdate,
     ];
   });
 
@@ -193,17 +193,16 @@ const seed = async ({
       episode.episode_number,
       episode.season_id,
       episode.runtime_total,
-      episode.release_date,
-      episode.release_time,
-      episode.episode_url,
-      episode.is_premier,
-      episode.thread_opened,
+      episode.releaseDate,
+      episode.releaseTime,
+      episode.episodeIMG_URL.original,
+      episode.isPremier,
       episode.synopsis,
     ];
   });
 
   let episodesQuery = format(
-    "INSERT INTO episodes(episode_id, episode_number, season_id, runtime_total, release_date, release_time, episode_url, is_premier, thread_opened, synopsis) VALUES %L RETURNING *",
+    "INSERT INTO episodes(episode_id, episode_number, season_id, runtime_total, release_date, release_time, episode_url, is_premier, synopsis) VALUES %L RETURNING *",
     formattedEpisodes,
   );
 
