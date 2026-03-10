@@ -17,12 +17,13 @@
   "scripts": {
     "test": "jest",
     "setup-dbs": "psql -f ./db/setup-dbs.sql",
-    "seed": "node ./db/seed/run-seed.js"
+    "seed": "node ./db/seed/run-seed.js",
+    "seed-prod": "NODE_ENV=production npm run seed"
   },
   "dependencies": {
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "jest": "^30.2.0",
+    "jest": "^30.3.0",
     "pg": "^8.20.0",
     "pg-format": "^1.0.4",
     "supertest": "^7.2.2"
