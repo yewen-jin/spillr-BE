@@ -1,6 +1,6 @@
 const polls = [
   {
-    user_id: 1,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
     episode_id: 3129600,
     img_url: null,
     is_open: true,
@@ -9,7 +9,7 @@ const polls = [
     field_2: "Who Killed Archie Mitchell",
   },
   {
-    user_id: 2,
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
     episode_id: 3129600,
     img_url: null,
     is_open: false,
@@ -18,7 +18,7 @@ const polls = [
     field_2: "Nick Cotton",
   },
   {
-    user_id: 3,
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
     episode_id: 3129601,
     img_url: null,
     is_open: true,
@@ -27,7 +27,7 @@ const polls = [
     field_2: "Lucas Johnson",
   },
   {
-    user_id: 4,
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
     episode_id: 3129604,
     img_url: null,
     is_open: true,
@@ -36,7 +36,7 @@ const polls = [
     field_2: "No",
   },
   {
-    user_id: 5,
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
     episode_id: 3129606,
     img_url: null,
     is_open: true,
@@ -45,7 +45,7 @@ const polls = [
     field_2: "Kat and Alfie",
   },
   {
-    user_id: 1,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
     episode_id: 3129606,
     img_url: null,
     is_open: false,
@@ -54,4 +54,5 @@ const polls = [
     field_2: "No, they deserved better",
   },
 ];
+
 module.exports = polls;

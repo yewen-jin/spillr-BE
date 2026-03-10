@@ -1,146 +1,136 @@
 const pollVotes = [
-  // votes on poll 1 - Best EastEnders whodunnit ever?
   {
     poll_id: 1,
     field_1: true,
     field_2: false,
-    user_id: 2,
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
     poll_id: 1,
     field_1: true,
     field_2: false,
-    user_id: 3,
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
     poll_id: 1,
     field_1: false,
     field_2: true,
-    user_id: 4,
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
     poll_id: 1,
     field_1: false,
     field_2: true,
-    user_id: 5,
-  },
-
-  // votes on poll 2 - Most shocking return?
-  {
-    poll_id: 2,
-    field_1: true,
-    field_2: false,
-    user_id: 1,
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
   },
   {
     poll_id: 2,
     field_1: true,
     field_2: false,
-    user_id: 3,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  },
+  {
+    poll_id: 2,
+    field_1: true,
+    field_2: false,
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
     poll_id: 2,
     field_1: false,
     field_2: true,
-    user_id: 4,
-  },
-
-  // votes on poll 3 - Worse villain?
-  {
-    poll_id: 3,
-    field_1: false,
-    field_2: true,
-    user_id: 1,
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
     poll_id: 3,
     field_1: false,
     field_2: true,
-    user_id: 2,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  },
+  {
+    poll_id: 3,
+    field_1: false,
+    field_2: true,
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
     poll_id: 3,
     field_1: true,
     field_2: false,
-    user_id: 5,
-  },
-
-  // votes on poll 4 - Did Denise ever get the ending she deserved?
-  {
-    poll_id: 4,
-    field_1: false,
-    field_2: true,
-    user_id: 1,
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
   },
   {
     poll_id: 4,
     field_1: false,
     field_2: true,
-    user_id: 2,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
     poll_id: 4,
     field_1: false,
     field_2: true,
-    user_id: 3,
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+  },
+  {
+    poll_id: 4,
+    field_1: false,
+    field_2: true,
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
     poll_id: 4,
     field_1: true,
     field_2: false,
-    user_id: 5,
-  },
-
-  // votes on poll 5 - Most iconic EastEnders couple?
-  {
-    poll_id: 5,
-    field_1: true,
-    field_2: false,
-    user_id: 1,
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
   },
   {
     poll_id: 5,
     field_1: true,
     field_2: false,
-    user_id: 2,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  },
+  {
+    poll_id: 5,
+    field_1: true,
+    field_2: false,
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
     poll_id: 5,
     field_1: false,
     field_2: true,
-    user_id: 3,
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
     poll_id: 5,
     field_1: false,
     field_2: true,
-    user_id: 4,
-  },
-
-  // votes on poll 6 - Did the show handle Christian and Syed well?
-  {
-    poll_id: 6,
-    field_1: false,
-    field_2: true,
-    user_id: 1,
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
     poll_id: 6,
     field_1: false,
     field_2: true,
-    user_id: 2,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
     poll_id: 6,
     field_1: false,
     field_2: true,
-    user_id: 4,
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+  },
+  {
+    poll_id: 6,
+    field_1: false,
+    field_2: true,
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
     poll_id: 6,
     field_1: true,
     field_2: false,
-    user_id: 5,
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
   },
 ];
+
 module.exports = pollVotes;

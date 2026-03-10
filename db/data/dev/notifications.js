@@ -1,146 +1,143 @@
 const notifications = [
-  // reply notifications — notifying the comment owner
   {
-    reply_id: 1, // reply to comment 1
+    reply_id: 1,
     reaction_id: null,
     status: "read",
     created_at: "2024-03-01T20:09:00.000Z",
-    user_id: 1, // user 1 owns comment 1
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
-    reply_id: 2, // reply to comment 1
+    reply_id: 2,
     reaction_id: null,
     status: "not read",
     created_at: "2024-03-01T20:10:00.000Z",
-    user_id: 1, // user 1 owns comment 1
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
-    reply_id: 3, // reply to comment 2
+    reply_id: 3,
     reaction_id: null,
     status: "read",
     created_at: "2024-03-01T20:17:00.000Z",
-    user_id: 2, // user 2 owns comment 2
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
-    reply_id: 4, // reply to comment 3
+    reply_id: 4,
     reaction_id: null,
     status: "not read",
     created_at: "2024-03-01T20:24:00.000Z",
-    user_id: 3, // user 3 owns comment 3
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
-    reply_id: 5, // reply to comment 3
+    reply_id: 5,
     reaction_id: null,
     status: "not read",
     created_at: "2024-03-01T20:25:00.000Z",
-    user_id: 3, // user 3 owns comment 3
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
-    reply_id: 6, // reply to comment 8
+    reply_id: 6,
     reaction_id: null,
     status: "read",
     created_at: "2024-03-08T20:07:00.000Z",
-    user_id: 3, // user 3 owns comment 8
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
-    reply_id: 7, // reply to comment 9
+    reply_id: 7,
     reaction_id: null,
     status: "not read",
     created_at: "2024-03-08T20:13:00.000Z",
-    user_id: 4, // user 4 owns comment 9
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
-    reply_id: 8, // reply to comment 10
+    reply_id: 8,
     reaction_id: null,
     status: "read",
     created_at: "2024-03-08T20:19:00.000Z",
-    user_id: 5, // user 5 owns comment 10
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
   },
   {
-    reply_id: 9, // reply to comment 11
+    reply_id: 9,
     reaction_id: null,
     status: "not read",
     created_at: "2024-03-08T20:27:00.000Z",
-    user_id: 1, // user 1 owns comment 11
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
-    reply_id: 10, // reply to comment 11
+    reply_id: 10,
     reaction_id: null,
     status: "not read",
     created_at: "2024-03-08T20:28:00.000Z",
-    user_id: 1, // user 1 owns comment 11
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
-
-  // reaction notifications — notifying the comment owner
   {
     reply_id: null,
-    reaction_id: 1, // reaction to comment 1
+    reaction_id: 1,
     status: "read",
     created_at: "2024-03-01T20:09:00.000Z",
-    user_id: 1, // user 1 owns comment 1
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
     reply_id: null,
-    reaction_id: 2, // reaction to comment 1
+    reaction_id: 2,
     status: "read",
     created_at: "2024-03-01T20:10:00.000Z",
-    user_id: 1, // user 1 owns comment 1
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
     reply_id: null,
-    reaction_id: 3, // reaction to comment 2
+    reaction_id: 3,
     status: "not read",
     created_at: "2024-03-01T20:16:00.000Z",
-    user_id: 2, // user 2 owns comment 2
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
     reply_id: null,
-    reaction_id: 4, // reaction to comment 2
+    reaction_id: 4,
     status: "not read",
     created_at: "2024-03-01T20:17:00.000Z",
-    user_id: 2, // user 2 owns comment 2
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
     reply_id: null,
-    reaction_id: 5, // reaction to comment 3
+    reaction_id: 5,
     status: "read",
     created_at: "2024-03-01T20:23:00.000Z",
-    user_id: 3, // user 3 owns comment 3
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
     reply_id: null,
-    reaction_id: 6, // reaction to comment 8
+    reaction_id: 6,
     status: "not read",
     created_at: "2024-03-08T20:07:00.000Z",
-    user_id: 3, // user 3 owns comment 8
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
     reply_id: null,
-    reaction_id: 7, // reaction to comment 10
+    reaction_id: 7,
     status: "not read",
     created_at: "2024-03-08T20:19:00.000Z",
-    user_id: 5, // user 5 owns comment 10
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
   },
   {
     reply_id: null,
-    reaction_id: 8, // reaction to comment 14
+    reaction_id: 8,
     status: "read",
     created_at: "2024-03-15T20:09:00.000Z",
-    user_id: 4, // user 4 owns comment 14
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
     reply_id: null,
-    reaction_id: 9, // reaction to comment 17
+    reaction_id: 9,
     status: "not read",
     created_at: "2024-03-15T20:34:00.000Z",
-    user_id: 2, // user 2 owns comment 17
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
     reply_id: null,
-    reaction_id: 10, // reaction to comment 21
+    reaction_id: 10,
     status: "not read",
     created_at: "2024-03-22T20:31:00.000Z",
-    user_id: 1, // user 1 owns comment 21
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
 ];
 

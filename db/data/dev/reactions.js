@@ -7,7 +7,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 420,
     created_at: "2024-03-01T20:09:00.000Z",
-    user_id: 3,
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
     reaction_type: "dead",
@@ -16,7 +16,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 420,
     created_at: "2024-03-01T20:10:00.000Z",
-    user_id: 4,
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
     reaction_type: "fire",
@@ -25,7 +25,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 900,
     created_at: "2024-03-01T20:16:00.000Z",
-    user_id: 5,
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
   },
   {
     reaction_type: "crying",
@@ -34,7 +34,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 900,
     created_at: "2024-03-01T20:17:00.000Z",
-    user_id: 1,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
     reaction_type: "hundredpoints",
@@ -43,7 +43,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 1320,
     created_at: "2024-03-01T20:23:00.000Z",
-    user_id: 2,
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
     reaction_type: "fire",
@@ -52,7 +52,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 360,
     created_at: "2024-03-08T20:07:00.000Z",
-    user_id: 1,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
     reaction_type: "crying",
@@ -61,7 +61,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 1080,
     created_at: "2024-03-08T20:19:00.000Z",
-    user_id: 3,
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
     reaction_type: "dead",
@@ -70,7 +70,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 480,
     created_at: "2024-03-15T20:09:00.000Z",
-    user_id: 2,
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
     reaction_type: "hundredpoints",
@@ -79,7 +79,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 1920,
     created_at: "2024-03-15T20:34:00.000Z",
-    user_id: 5,
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
   },
   {
     reaction_type: "fire",
@@ -88,7 +88,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 1800,
     created_at: "2024-03-22T20:31:00.000Z",
-    user_id: 4,
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
 
   // reactions to episodes
@@ -99,7 +99,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 600,
     created_at: "2024-03-01T20:10:00.000Z",
-    user_id: 1,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
     reaction_type: "crying",
@@ -108,7 +108,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 1200,
     created_at: "2024-03-01T20:20:00.000Z",
-    user_id: 1,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
     reaction_type: "crying",
@@ -117,7 +117,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 1200,
     created_at: "2024-03-01T20:21:00.000Z",
-    user_id: 2,
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
     reaction_type: "crying",
@@ -126,7 +126,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 1200,
     created_at: "2024-03-01T20:22:00.000Z",
-    user_id: 3,
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
     reaction_type: "crying",
@@ -135,7 +135,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 1200,
     created_at: "2024-03-01T20:22:15.000Z",
-    user_id: 4,
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
     reaction_type: "crying",
@@ -144,9 +144,9 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 1200,
     created_at: "2024-03-01T20:22:30.000Z",
-    user_id: 5,
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
   },
-  // ^ five "crying" reactions within 30 seconds — should trigger reactionBurst
+  // ^ five crying reactions within 30 seconds — triggers reactionBurst
   {
     reaction_type: "dead",
     comment_id: null,
@@ -154,7 +154,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 480,
     created_at: "2024-03-08T20:08:00.000Z",
-    user_id: 3,
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
     reaction_type: "fire",
@@ -163,7 +163,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 720,
     created_at: "2024-03-15T20:12:00.000Z",
-    user_id: 4,
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
     reaction_type: "hundredpoints",
@@ -172,7 +172,7 @@ const reactions = [
     reply_id: null,
     runtime_seconds: 900,
     created_at: "2024-03-22T20:15:00.000Z",
-    user_id: 5,
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
   },
 
   // reactions to replies
@@ -183,7 +183,7 @@ const reactions = [
     reply_id: 1,
     runtime_seconds: 420,
     created_at: "2024-03-01T20:09:30.000Z",
-    user_id: 4,
+    user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
     reaction_type: "hundredpoints",
@@ -192,7 +192,7 @@ const reactions = [
     reply_id: 3,
     runtime_seconds: 900,
     created_at: "2024-03-08T20:07:30.000Z",
-    user_id: 2,
+    user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
     reaction_type: "fire",
@@ -201,7 +201,7 @@ const reactions = [
     reply_id: 6,
     runtime_seconds: 360,
     created_at: "2024-03-08T20:08:00.000Z",
-    user_id: 1,
+    user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
     reaction_type: "dead",
@@ -210,7 +210,7 @@ const reactions = [
     reply_id: 11,
     runtime_seconds: 1560,
     created_at: "2024-03-08T20:28:30.000Z",
-    user_id: 3,
+    user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
   },
   {
     reaction_type: "crying",
@@ -219,7 +219,7 @@ const reactions = [
     reply_id: 14,
     runtime_seconds: 480,
     created_at: "2024-03-15T20:10:00.000Z",
-    user_id: 5,
+    user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
   },
 ];
 

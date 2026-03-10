@@ -28,7 +28,7 @@ const seed = async ({
   await db.query(`DROP TABLE IF EXISTS tv_shows`);
   await db.query(`DROP TABLE IF EXISTS users`);
   await db.query(`CREATE TABLE users(
-    user_id SERIAL PRIMARY KEY NOT NULL,
+    user_id UUID PRIMARY KEY NOT NULL,
     name VARCHAR(3000),
     username VARCHAR(1000) UNIQUE NOT NULL,
     avatar_url VARCHAR(3000),
@@ -68,20 +68,20 @@ const seed = async ({
 
   await db.query(`CREATE TABLE subscriptions(
       subscription_id SERIAL PRIMARY KEY NOT NULL,
-      user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+      user_id UUID REFERENCES users(user_id) ON DELETE CASCADE,
       tv_show_id INT REFERENCES tv_shows(tv_show_id) ON DELETE CASCADE
       )`);
 
   await db.query(`CREATE TABLE friends(
       friends_id SERIAL PRIMARY KEY NOT NULL,
-      user_id_1 INT REFERENCES users(user_id) ON DELETE CASCADE,
-      user_id_2 INT REFERENCES users(user_id) ON DELETE CASCADE,
+      user_id_1 UUID REFERENCES users(user_id) ON DELETE CASCADE,
+      user_id_2 UUID REFERENCES users(user_id) ON DELETE CASCADE,
       is_accepted BOOL DEFAULT FALSE
       )`);
 
   await db.query(`CREATE TABLE comments(
       comment_id SERIAL PRIMARY KEY NOT NULL,
-      user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+      user_id UUID REFERENCES users(user_id) ON DELETE CASCADE,
       body VARCHAR(3000) NOT NULL,
       episode_id INT REFERENCES episodes(episode_id) ON DELETE CASCADE,
       runtime_seconds INT NOT NULL,
@@ -93,7 +93,7 @@ const seed = async ({
   await db.query(`CREATE TABLE replies(
       reply_id SERIAL PRIMARY KEY NOT NULL,
       comment_id INT REFERENCES comments(comment_id) ON DELETE CASCADE,
-      user_id INT REFERENCES users(user_id),
+      user_id UUID REFERENCES users(user_id),
       body VARCHAR(3000) NOT NULL,
       episode_id INT REFERENCES episodes(episode_id) ON DELETE CASCADE,
       runtime_seconds INT NOT NULL,
@@ -105,15 +105,15 @@ const seed = async ({
       reaction_type VARCHAR(3000) NOT NULL,
       comment_id INT REFERENCES comments(comment_id) ON DELETE CASCADE DEFAULT NULL,
       episode_id INT REFERENCES episodes(episode_id) ON DELETE CASCADE DEFAULT NULL,
-      reply_id INT REFERENCES replies(reply_id) DEFAULT NULL,
+      reply_id INT REFERENCES replies(reply_id) ON DELETE CASCADE DEFAULT NULL,
       runtime_seconds INT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      user_id INT REFERENCES users(user_id)
+      user_id UUID REFERENCES users(user_id) ON DELETE CASCADE
       )`);
 
   await db.query(`CREATE TABLE polls(
       poll_id SERIAL PRIMARY KEY NOT NULL,
-      user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+      user_id UUID REFERENCES users(user_id) ON DELETE CASCADE,
       episode_id INT REFERENCES episodes(episode_id) ON DELETE CASCADE,
       img_url VARCHAR(3000),
       is_open BOOL DEFAULT TRUE,
@@ -126,7 +126,7 @@ const seed = async ({
   await db.query(`CREATE TABLE poll_votes(
       poll_vote_id SERIAL PRIMARY KEY NOT NULL,
       poll_id INT REFERENCES polls(poll_id) ON DELETE CASCADE,
-      user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+      user_id UUID REFERENCES users(user_id) ON DELETE CASCADE,
       field_1 BOOL DEFAULT FALSE,
       field_2 BOOL DEFAULT FALSE
       )`);
@@ -135,17 +135,23 @@ const seed = async ({
       notification_id SERIAL PRIMARY KEY NOT NULL,
       reaction_id INT REFERENCES reactions(reaction_id) ON DELETE CASCADE,
       reply_id INT REFERENCES replies(reply_id) ON DELETE CASCADE,
-      user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+      user_id UUID REFERENCES users(user_id) ON DELETE CASCADE,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       status VARCHAR(50) NOT NULL
       )`);
 
   const formattedUsers = users.map((user) => {
-    return [user.username, user.name, user.language, user.avatar_url];
+    return [
+      user.user_id,
+      user.username,
+      user.name,
+      user.language,
+      user.avatar_url,
+    ];
   });
 
   let userQuery = format(
-    "INSERT INTO users(username, name, language, avatar_url) VALUES %L RETURNING *",
+    "INSERT INTO users(user_id, username, name, language, avatar_url) VALUES %L RETURNING *",
     formattedUsers,
   );
 
