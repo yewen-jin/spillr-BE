@@ -11,7 +11,7 @@ describe("/api/episodes/:episode_id/comments", () => {
   describe("GET", () => {
     test("gets all comments for a particular episode of a tv-show, when get is successful responds with status 200", async () => {
       const result = await request(app)
-        .get("/api/episodes/3129601/comments")
+        .get("/api/episodes/3129600/comments")
         .expect(200);
       const { body } = result;
       const { comments } = body;
@@ -28,7 +28,7 @@ describe("/api/episodes/:episode_id/comments", () => {
     });
     test("gets all comments for a particular episode of a tv-show in ascending order of runtime seconds", async () => {
       const result = await request(app)
-        .get("/api/episodes/3129601/comments")
+        .get("/api/episodes/3129600/comments")
         .expect(200);
       const { body } = result;
       const { comments } = body;
@@ -37,7 +37,7 @@ describe("/api/episodes/:episode_id/comments", () => {
     });
     test("FILTERS comments to a 180-second window around the viewer's current position when ?t=x is provided", async () => {
       const result = await request(app)
-        .get("/api/episodes/3129601/comments?t=500")
+        .get("/api/episodes/3129600/comments?t=500")
         .expect(200);
 
       //this is a comment you should see in the array
@@ -68,7 +68,7 @@ describe("/api/episodes/:episode_id/comments", () => {
     });
     test("if there are no comments within the 180 second time frame returns empty array and status 200", async () => {
       const result = await request(app)
-        .get("/api/episodes/3129601/comments?t=0")
+        .get("/api/episodes/3129600/comments?t=0")
         .expect(200);
 
       const { body } = result;
@@ -78,7 +78,7 @@ describe("/api/episodes/:episode_id/comments", () => {
     });
     test("a comment object contains a key of reactions_total - the total amount of any kind of reaction left on that particular comment", async () => {
       const result = await request(app)
-        .get("/api/episodes/3129601/comments?t=1060")
+        .get("/api/episodes/3129600/comments?t=1060")
         .expect(200);
 
       //this is a comment you should see in the array
@@ -103,7 +103,7 @@ describe("/api/episodes/:episode_id/comments", () => {
     });
     test("comment object contains a key of reactionsTotal_type - the total amount of a particular type of reaction left on that particular comment", async () => {
       const result = await request(app)
-        .get("/api/episodes/3129601/comments?t=1060")
+        .get("/api/episodes/3129600/comments?t=1060")
         .expect(200);
 
       //this is a comment you should see in the array
@@ -117,7 +117,7 @@ describe("/api/episodes/:episode_id/comments", () => {
         is_spoiler: false,
       };
       //example reactionsTotal_type key on a given comment object
-      //structure should be the COUNT of that reaction type on a key called *reaction_type* plus the word Total
+      //structure should be the COUNT of that reaction type on a key called *reaction_type* concatenated with the word Total
       const commentobject = {
         reactionsTotal_type: {
           angryTotal: 70,
