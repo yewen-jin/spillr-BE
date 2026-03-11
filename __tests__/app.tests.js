@@ -26,7 +26,15 @@ describe("/api/episodes/:episode_id/comments", () => {
         expect(typeof comment.is_live).toBe("boolean");
       });
     });
-    test("gets all comments for a particular episode of a tv-show in ascending order of runtime seconds", () => {});
+    test("gets all comments for a particular episode of a tv-show in ascending order of runtime seconds", async () => {
+      const result = await request(app)
+        .get("/api/episodes/3129601/comments")
+        .expect(200);
+      const { body } = result;
+      const { comments } = body;
+      expect(Array.isArray(comments)).toBe(true);
+      expect(comments).toBeSortedBy("runtime_seconds", { descending: false });
+    });
     test("filters comments to a 180-second window around the viewer's current position when ?t=x is provided", () => {});
     test("if there are no comments within the 180 second time frame returns empty array and status 200", () => {});
     test("comment object contains a key of reactions_total - the total amount of any kind of reaction left on that particular comment", () => {});
