@@ -15,6 +15,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon listen.js",
     "test": "jest",
     "setup-dbs": "psql -f ./db/setup-dbs.sql",
     "seed": "node ./db/seed/run-seed.js",
@@ -22,6 +23,7 @@
     "data-sync": "node ./scripts/syncShowData.js"
   },
   "dependencies": {
+    "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "pg": "^8.20.0",
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "jest": "^30.3.0",
+    "nodemon": "^3.1.14",
     "supertest": "^7.2.2"
   }
 }
