@@ -2,32 +2,40 @@ const db = require("../../db/connection.js");
 
 async function selectCommentsByEpisodeID(episode_id, time) {
   const queryValues = [episode_id];
-  const queryStr = `
+  let queryStr = `
     SELECT
     comments.*,
     profiles.username,
     profiles.avatar_url,
-    COUNT(DISTINCT replies.reply_id) AS reply_count,
-    COUNT(DISTINCT reactions.reaction_id) AS reaction_count
+    (SELECT COUNT(*)::int FROM replies WHERE replies.comment_id = comments.comment_id) AS reply_count,
+    (SELECT COUNT(*)::int FROM reactions WHERE reactions.comment_id = comments.comment_id) AS reactions_total,
+    COALESCE(
+      (SELECT JSON_BUILD_OBJECT(
+        'angryTotal', COUNT(*) FILTER (WHERE reaction_type = 'angry')::int,
+        'laughingTotal', COUNT(*) FILTER (WHERE reaction_type = 'laughing')::int,
+        'cryingTotal', COUNT(*) FILTER (WHERE reaction_type = 'crying')::int,
+        'fireTotal', COUNT(*) FILTER (WHERE reaction_type = 'fire')::int,
+        'deadTotal', COUNT(*) FILTER (WHERE reaction_type = 'dead')::int,
+        'heartTotal', COUNT(*) FILTER (WHERE reaction_type = 'heart')::int
+      ) FROM reactions WHERE reactions.comment_id = comments.comment_id),
+      '{"angryTotal":0,"laughingTotal":0,"cryingTotal":0,"fireTotal":0,"deadTotal":0,"heartTotal":0}'::json
+    ) AS "reactionsTotal_type"
     FROM comments
     JOIN profiles ON profiles.user_id = comments.user_id
-    LEFT JOIN replies ON replies.comment_id = comments.comment_id
-    LEFT JOIN reactions ON reactions.comment_id = comments.comment_id
     WHERE comments.episode_id = $1
     `;
   if (time) {
     queryStr += `
-    AND comments.runtime_seconds BETWEEN ($2 - 180) AND $2
+    AND comments.runtime_seconds BETWEEN GREATEST(0,$2 - 180) AND $2
     `;
     queryValues.push(Number(time));
   }
 
   queryStr += `
-    GROUP BY comments.comment_id, profiles.username, profiles.avatar_url
     ORDER BY
     comments.runtime_seconds ASC,
     reply_count DESC,
-    reaction_count DESC
+    reactions_total DESC
   `;
   const { rows } = await db.query(queryStr, queryValues);
   return rows;
@@ -37,7 +45,7 @@ async function selectEpisodeByID(episode_id) {
   const queryStr = `
     SELECT *
     FROM episodes
-    WHERE id = $1
+    WHERE episode_id = $1
   `;
   const { rows } = await db.query(queryStr, [episode_id]);
   return rows[0];

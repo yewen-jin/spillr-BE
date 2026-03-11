@@ -2,7 +2,7 @@ const db = require("../db/connection.js");
 const seed = require("../db/seed/seed");
 const data = require("../db/data/test/index");
 const request = require("supertest");
-const app = require("../src/app.js");
+const { app } = require("../src/app.js");
 
 beforeAll(() => seed(data)); //before all tests reseed the test database with data
 afterAll(() => db.end()); // after all close the db connections

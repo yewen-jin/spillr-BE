@@ -1,8 +1,8 @@
 const {
-  selectCommentSByEpisodeID,
+  selectCommentsByEpisodeID,
   selectEpisodeByID,
 } = require("../models/episodes.models.js");
-const { NotFoundError } = require("../utils/errors.js");
+const { NotFoundError } = require("../errors/customError.js");
 
 async function fetchCommentsByEpisodeService(episode_id, time) {
   try {

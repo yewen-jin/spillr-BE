@@ -1,14 +1,14 @@
 const {
   fetchCommentsByEpisodeService,
-} = require("../models/episodes.models.js");
+} = require("../services/episodes.services.js");
 const { HTTP_STATUS_CODES } = require("../utils/constants.js");
 
 async function getCommentsByEpisodeId(req, res, next) {
   const { episode_id } = req.params;
-  const { time } = req.query;
+  const { t } = req.query;
 
   try {
-    const comments = await fetchCommentsByEpisodeService(episode_id, time);
+    const comments = await fetchCommentsByEpisodeService(episode_id, t);
     res.status(HTTP_STATUS_CODES.OK).send({ comments });
   } catch (error) {
     next(error);
