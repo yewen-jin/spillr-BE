@@ -72,6 +72,16 @@ const TVMAZE_API = {
   SEASON_EPISODES: (seasonId) => `/seasons/${seasonId}/episodes`,
 };
 
+const HTTP_STATUS_CODES = {
+  OK: 200,
+  CREATED: 201,
+  NO_CONTENT: 204,
+  BAD_REQUEST: 400,
+  NOT_FOUND: 404,
+  CONFLICT: 409,
+  INTERNAL: 500,
+};
+
 module.exports = {
   TV_SHOWS_LIST_1,
   TV_SHOWS_LIST_2,
@@ -79,4 +89,5 @@ module.exports = {
   FILE_PATH_SEASONS,
   FILE_PATH_EPISODES,
   TVMAZE_API,
+  HTTP_STATUS_CODES,
 };
