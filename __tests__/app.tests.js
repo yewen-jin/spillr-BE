@@ -143,9 +143,90 @@ describe("/api/episodes/:episode_id/comments", () => {
 
 describe("/api/comments/:comment_id/replies", () => {
   describe("GET", () => {
-    test("gets all replies for a particular comment, when get is successful responds with status 200", () => {});
-    test("gets all replies for a particular comment in descending order of created_at", () => {});
-    test("reply object contains a key of reactions_total - the total amount of any kind of reaction left on that particular reply", () => {});
-    test("reply object contains a keys of reactions_x - the total amount of a particular type of reaction left on that particular reply", () => {});
+    test("gets all replies for a particular comment, when get is successful responds with status 200", async () => {
+      const result = await request(app)
+        .get("/api/comments/2/replies")
+        .expect(200);
+      const { body } = result;
+      const { replies } = body;
+      expect(Array.isArray(replies)).toBe(true);
+      replies.forEach((reply) => {
+        expect(typeof reply.user_id).toBe("string");
+        expect(typeof reply.body).toBe("string");
+        expect(typeof reply.comment_id).toBe("number");
+        expect(typeof reply.runtime_seconds).toBe("number");
+        expect(typeof reply.created_at).toBe("string");
+      });
+    });
+    test("gets all replies for a particular comment in descending order of created_at", async () => {
+      const result = await request(app)
+        .get("/api/comments/2/replies")
+        .expect(200);
+      const { body } = result;
+      const { replies } = body;
+      expect(Array.isArray(replies)).toBe(true);
+      expect(replies).toBeSortedBy("created_at", { descending: true });
+    });
+    test("reply object contains a key of reactions_total - the total amount of any kind of reaction left on that particular reply", async () => {
+      const result = await request(app)
+        .get("/api/comments/2/replies")
+        .expect(200);
+      const { body } = result;
+      const { replies } = body;
+      expect(Array.isArray(replies)).toBe(true);
+      replies.forEach((reply) => {
+        expect(typeof reply.reactions_total).toBe("number");
+      });
+    });
+    test("reply object contains a key of reactionsTotal_type - the total amount of a particular type of reaction left on that particular comment", async () => {
+      const result = await request(app)
+        .get("/api/comments/2/replies")
+        .expect(200);
+      const { body } = result;
+      const { replies } = body;
+      expect(Array.isArray(replies)).toBe(true);
+      replies.forEach((reply) => {
+        expect(typeof reply.reactionsTotal_type).toBe("object");
+      });
+    });
+  });
+});
+
+describe("/api/episodes/:episode_id/polls", () => {
+  describe("GET", () => {
+    test("endpoint returns all polls on a particular episode", async () => {
+      const result = await request(app)
+        .get("/api/episodes/3129600/polls")
+        .expect(200);
+
+      const { body } = result;
+      const { polls } = body;
+
+      expect(Array.isArray(polls)).toBe(true);
+      polls.forEach((poll) => {
+        expect(typeof poll.user_id).toBe("string");
+        expect(typeof poll.episode_id).toBe("string");
+        expect(typeof poll.poll_name).toBe("string");
+        expect(typeof poll.field_1).toBe("string");
+        expect(typeof poll.field_2).toBe("string");
+        expect(typeof poll.is_open).toBe("boolean");
+      });
+    });
+
+    test("each poll object includes poll_votes_count, poll_field_1_count, and poll_field_2_count", async () => {
+      const result = await request(app)
+        .get("/api/episodes/3129600/polls")
+        .expect(200);
+
+      const { body } = result;
+      const { polls } = body;
+
+      expect(Array.isArray(polls)).toBe(true);
+      polls.forEach((poll) => {
+        expect(typeof poll.poll_field_1_count).toBe("number");
+        expect(typeof poll.poll_field_2_count).toBe("number");
+        expect(typeof poll.poll_votes_count).toBe("number");
+      });
+    });
   });
 });
