@@ -76,7 +76,7 @@ describe("/api/episodes/:episode_id/comments", () => {
       expect(Array.isArray(comments)).toBe(true);
       expect(comments).toEqual([]);
     });
-    test("comment object contains a key of reactions_total - the total amount of any kind of reaction left on that particular comment", async () => {
+    test("a comment object contains a key of reactions_total - the total amount of any kind of reaction left on that particular comment", async () => {
       const result = await request(app)
         .get("/api/episodes/3129601/comments?t=1060")
         .expect(200);
