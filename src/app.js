@@ -10,7 +10,7 @@ app.use(cors());
 
 const { HTTP_STATUS_CODES } = require("./utils/constants.js");
 
-const episodesRouter = require("./routers/episodes.routers.js");
+const { episodesRouter } = require("./routes/episodes.routes.js");
 
 app.use("/api/episodes", episodesRouter);
 

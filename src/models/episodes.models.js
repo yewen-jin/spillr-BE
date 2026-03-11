@@ -1,26 +1,35 @@
 const db = require("../../db/connection.js");
 
-async function selectCommentsByEpisodeID(episode_id) {
+async function selectCommentsByEpisodeID(episode_id, time) {
+  const queryValues = [episode_id];
   const queryStr = `
     SELECT
     comments.*,
-    users.username,
-    users.avatar_url,
+    profiles.username,
+    profiles.avatar_url,
     COUNT(DISTINCT replies.reply_id) AS reply_count,
     COUNT(DISTINCT reactions.reaction_id) AS reaction_count
     FROM comments
-    JOIN users ON users.user_id = comments.user_id
+    JOIN profiles ON profiles.user_id = comments.user_id
     LEFT JOIN replies ON replies.comment_id = comments.comment_id
     LEFT JOIN reactions ON reactions.comment_id = comments.comment_id
     WHERE comments.episode_id = $1
+    `;
+  if (time) {
+    queryStr += `
     AND comments.runtime_seconds BETWEEN ($2 - 180) AND $2
-    GROUP BY comments.comment_id, users.username, users.avatar_url
+    `;
+    queryValues.push(Number(time));
+  }
+
+  queryStr += `
+    GROUP BY comments.comment_id, profiles.username, profiles.avatar_url
     ORDER BY
     comments.runtime_seconds ASC,
     reply_count DESC,
     reaction_count DESC
   `;
-  const { rows } = await db.query(queryStr, [episode_id]);
+  const { rows } = await db.query(queryStr, queryValues);
   return rows;
 }
 
@@ -35,6 +44,6 @@ async function selectEpisodeByID(episode_id) {
 }
 
 module.exports = {
-  selectCommentSByEpisodeID,
+  selectCommentsByEpisodeID,
   selectEpisodeByID,
 };

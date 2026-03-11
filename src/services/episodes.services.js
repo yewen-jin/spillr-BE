@@ -4,16 +4,20 @@ const {
 } = require("../models/episodes.models.js");
 const { NotFoundError } = require("../utils/errors.js");
 
-async function fetchCommentsByEpisodeService(episode_id) {
+async function fetchCommentsByEpisodeService(episode_id, time) {
   try {
     const episode = await selectEpisodeByID(episode_id);
     if (!episode) {
       throw new NotFoundError(`Episode with id ${episode_id} not found`);
     }
 
-    const comments = await selectCommentSByEpisodeID(episode_id);
+    const comments = await selectCommentsByEpisodeID(episode_id, time);
     return comments ? comments : [];
   } catch (error) {
     throw error;
   }
 }
+
+module.exports = {
+  fetchCommentsByEpisodeService,
+};
