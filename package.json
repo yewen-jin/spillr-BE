@@ -18,7 +18,8 @@
     "test": "jest",
     "setup-dbs": "psql -f ./db/setup-dbs.sql",
     "seed": "node ./db/seed/run-seed.js",
-    "seed-prod": "NODE_ENV=production npm run seed"
+    "seed-prod": "NODE_ENV=production npm run seed",
+    "data-sync": "node ./scripts/syncShowData.js"
   },
   "dependencies": {
     "dotenv": "^17.3.1",
