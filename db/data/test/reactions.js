@@ -37,7 +37,7 @@ const reactions = [
     user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   },
   {
-    reaction_type: "hundredpoints",
+    reaction_type: "crying",
     comment_id: 3,
     episode_id: null,
     reply_id: null,
@@ -73,7 +73,7 @@ const reactions = [
     user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
   },
   {
-    reaction_type: "hundredpoints",
+    reaction_type: "crying",
     comment_id: 17,
     episode_id: null,
     reply_id: null,
@@ -166,7 +166,7 @@ const reactions = [
     user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
-    reaction_type: "hundredpoints",
+    reaction_type: "crying",
     comment_id: null,
     episode_id: 3129606,
     reply_id: null,
@@ -186,7 +186,7 @@ const reactions = [
     user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
   },
   {
-    reaction_type: "hundredpoints",
+    reaction_type: "crying",
     comment_id: null,
     episode_id: null,
     reply_id: 3,

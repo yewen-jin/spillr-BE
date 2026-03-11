@@ -35,10 +35,109 @@ describe("/api/episodes/:episode_id/comments", () => {
       expect(Array.isArray(comments)).toBe(true);
       expect(comments).toBeSortedBy("runtime_seconds", { descending: false });
     });
-    test("filters comments to a 180-second window around the viewer's current position when ?t=x is provided", () => {});
-    test("if there are no comments within the 180 second time frame returns empty array and status 200", () => {});
-    test("comment object contains a key of reactions_total - the total amount of any kind of reaction left on that particular comment", () => {});
-    test("comment object contains a keys of reactions_x - the total amount of a particular type of reaction left on that particular comment", () => {});
+    test("FILTERS comments to a 180-second window around the viewer's current position when ?t=x is provided", async () => {
+      const result = await request(app)
+        .get("/api/episodes/3129601/comments?t=500")
+        .expect(200);
+
+      //this is a comment you should see in the array
+      const testDataObj = {
+        user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+        body: "The way they just casually dropped that Phil was shot… I gasped",
+        episode_id: 3129600,
+        runtime_seconds: 420,
+        created_at: "2024-03-01T20:07:00.000Z",
+        is_live: true,
+        is_spoiler: false,
+      };
+
+      const { body } = result;
+
+      const { comments } = body;
+      expect(Array.isArray(comments)).toBe(true);
+
+      comments.forEach((comment) => {
+        expect(typeof comment.user_id).toBe("string");
+        expect(typeof comment.body).toBe("string");
+        expect(typeof comment.episode_id).toBe("number");
+        expect(typeof comment.runtime_seconds).toBe("number");
+        expect(typeof comment.created_at).toBe("string");
+        expect(typeof comment.is_spoiler).toBe("boolean");
+        expect(typeof comment.is_live).toBe("boolean");
+      });
+    });
+    test("if there are no comments within the 180 second time frame returns empty array and status 200", async () => {
+      const result = await request(app)
+        .get("/api/episodes/3129601/comments?t=0")
+        .expect(200);
+
+      const { body } = result;
+      const { comments } = body;
+      expect(Array.isArray(comments)).toBe(true);
+      expect(comments).toEqual([]);
+    });
+    test("comment object contains a key of reactions_total - the total amount of any kind of reaction left on that particular comment", async () => {
+      const result = await request(app)
+        .get("/api/episodes/3129601/comments?t=1060")
+        .expect(200);
+
+      //this is a comment you should see in the array
+      const testDataObj = {
+        user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+        body: "Dirty Den coming back from the dead is still the most unhinged thing this show has ever done",
+        episode_id: 3129600,
+        runtime_seconds: 900,
+        created_at: "2024-03-01T20:15:00.000Z",
+        is_live: true,
+        is_spoiler: false,
+      };
+
+      const { body } = result;
+
+      const { comments } = body;
+      expect(Array.isArray(comments)).toBe(true);
+
+      comments.forEach((comment) => {
+        expect(typeof comment.reactions_total).toBe("number");
+      });
+    });
+    test("comment object contains a key of reactionsTotal_type - the total amount of a particular type of reaction left on that particular comment", async () => {
+      const result = await request(app)
+        .get("/api/episodes/3129601/comments?t=1060")
+        .expect(200);
+
+      //this is a comment you should see in the array
+      const testDataObj = {
+        user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+        body: "Dirty Den coming back from the dead is still the most unhinged thing this show has ever done",
+        episode_id: 3129600,
+        runtime_seconds: 900,
+        created_at: "2024-03-01T20:15:00.000Z",
+        is_live: true,
+        is_spoiler: false,
+      };
+      //example reactionsTotal_type key on a given comment object
+      //structure should be the COUNT of that reaction type on a key called *reaction_type* plus the word Total
+      const commentobject = {
+        reactionsTotal_type: {
+          angryTotal: 70,
+          laughingTotal: 6,
+          cryingTotal: 10,
+          fireTotal: 7,
+          deadTotal: 9,
+          heartTotal: 20,
+        },
+      };
+
+      const { body } = result;
+
+      const { comments } = body;
+      expect(Array.isArray(comments)).toBe(true);
+
+      comments.forEach((comment) => {
+        expect(typeof comment.reactionsTotal_type).toBe("object");
+      });
+    });
   });
 });
 
