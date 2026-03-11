@@ -10,9 +10,9 @@ app.use(cors());
 
 const { HTTP_STATUS_CODES } = require("./utils/constants.js");
 
-const tvShowsRouter = require("./routers/tvShowsRouter.js");
+const episodesRouter = require("./routers/episodes.routers.js");
 
-app.use("/api/tv-shows", tvShowsRouter);
+app.use("/api/episodes", episodesRouter);
 
 app.all(/(.*)/, (req, res) => {
   res.status(HTTP_STATUS_CODES.NOT_FOUND).send({ msg: "Route not found" });
