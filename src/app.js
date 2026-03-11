@@ -4,8 +4,11 @@ const { createServer } = require("node:http");
 const { join } = require("node:path");
 const cors = require("cors");
 
+const { initiateSocket } = require("./socket/index.js");
+
 const app = express();
 const server = createServer(app);
+initiateSocket(server);
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public")));
@@ -25,4 +28,4 @@ app.all(/(.*)/, (req, res) => {
   res.status(HTTP_STATUS_CODES.NOT_FOUND).send({ msg: "Route not found" });
 });
 
-module.exports = { app, server };
+module.exports = { app, server, initiateSocket };
