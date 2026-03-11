@@ -51,7 +51,21 @@ async function selectEpisodeByID(episode_id) {
   return rows[0];
 }
 
+async function selectPollsByEpisodeID(episode_id) {
+  const queryStr = `
+    SELECT polls.*,
+    (SELECT COUNT(*)::int FROM poll_votes WHERE poll_votes.poll_id = polls.poll_id) AS poll_votes_count,
+    (SELECT COUNT(*)::int FROM poll_votes WHERE poll_votes.poll_id = polls.poll_id AND poll_votes.field_1 = true) AS poll_field_1_count,
+    (SELECT COUNT(*)::int FROM poll_votes WHERE poll_votes.poll_id = polls.poll_id AND poll_votes.field_2 = true) AS poll_field_2_count
+    FROM polls
+    WHERE episode_id = $1;
+  `;
+  const { rows } = await db.query(queryStr, [episode_id]);
+  return rows;
+}
+
 module.exports = {
   selectCommentsByEpisodeID,
   selectEpisodeByID,
+  selectPollsByEpisodeID,
 };

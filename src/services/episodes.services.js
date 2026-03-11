@@ -1,6 +1,7 @@
 const {
   selectCommentsByEpisodeID,
   selectEpisodeByID,
+  selectPollsByEpisodeID,
 } = require("../models/episodes.models.js");
 const { NotFoundError } = require("../errors/customError.js");
 
@@ -18,6 +19,21 @@ async function fetchCommentsByEpisodeService(episode_id, time) {
   }
 }
 
+async function fetchPollsByEpisodeIDService(episode_id) {
+  try {
+    const episode = await selectEpisodeByID(episode_id);
+    if (!episode) {
+      throw new NotFoundError(`Episode with id ${episode_id} not found`);
+    }
+
+    const polls = await selectPollsByEpisodeID(episode_id);
+    return polls ? polls : [];
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   fetchCommentsByEpisodeService,
+  fetchPollsByEpisodeIDService,
 };

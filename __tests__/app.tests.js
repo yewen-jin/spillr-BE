@@ -205,7 +205,7 @@ describe("/api/episodes/:episode_id/polls", () => {
       expect(Array.isArray(polls)).toBe(true);
       polls.forEach((poll) => {
         expect(typeof poll.user_id).toBe("string");
-        expect(typeof poll.episode_id).toBe("string");
+        expect(typeof poll.episode_id).toBe("number");
         expect(typeof poll.poll_name).toBe("string");
         expect(typeof poll.field_1).toBe("string");
         expect(typeof poll.field_2).toBe("string");
