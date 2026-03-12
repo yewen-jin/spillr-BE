@@ -7,7 +7,7 @@ async function selectCommentsByEpisodeID(episode_id, time) {
     comments.*,
     profiles.username,
     profiles.avatar_url,
-    (SELECT COUNT(*)::int FROM replies WHERE replies.comment_id = comments.comment_id) AS reply_count,
+    (SELECT COUNT(*)::int FROM replies WHERE replies.comment_id = comments.comment_id) AS "repliesTotal",
     (SELECT COUNT(*)::int FROM reactions WHERE reactions.comment_id = comments.comment_id) AS reactions_total,
     COALESCE(
       (SELECT JSON_BUILD_OBJECT(
@@ -34,7 +34,7 @@ async function selectCommentsByEpisodeID(episode_id, time) {
   queryStr += `
     ORDER BY
     comments.runtime_seconds ASC,
-    reply_count DESC,
+    "repliesTotal" DESC,
     reactions_total DESC
   `;
   const { rows } = await db.query(queryStr, queryValues);
