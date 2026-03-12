@@ -119,7 +119,7 @@ describe("/api/episodes/:episode_id/comments", () => {
       //example reactionsTotal_type key on a given comment object
       //structure should be the COUNT of that reaction type on a key called *reaction_type* concatenated with the word Total
       const commentobject = {
-        reactionsTotal_type: {
+        reactionType_total: {
           angryTotal: 70,
           laughingTotal: 6,
           cryingTotal: 10,
@@ -128,6 +128,7 @@ describe("/api/episodes/:episode_id/comments", () => {
           heartTotal: 20,
         },
       };
+      //should be dynamic creates a reaction total for every reacion_type left on that comment
 
       const { body } = result;
 
@@ -135,7 +136,7 @@ describe("/api/episodes/:episode_id/comments", () => {
       expect(Array.isArray(comments)).toBe(true);
 
       comments.forEach((comment) => {
-        expect(typeof comment.reactionsTotal_type).toBe("object");
+        expect(typeof comment.reactionType_total).toBe("object");
       });
     });
   });
@@ -178,7 +179,7 @@ describe("/api/comments/:comment_id/replies", () => {
         expect(typeof reply.reactions_total).toBe("number");
       });
     });
-    test("reply object contains a key of reactionsTotal_type - the total amount of a particular type of reaction left on that particular comment", async () => {
+    test("reply object contains a key of a reactionType_total - the total amount of a particular type of reaction left on that particular comment", async () => {
       const result = await request(app)
         .get("/api/comments/2/replies")
         .expect(200);
@@ -186,7 +187,7 @@ describe("/api/comments/:comment_id/replies", () => {
       const { replies } = body;
       expect(Array.isArray(replies)).toBe(true);
       replies.forEach((reply) => {
-        expect(typeof reply.reactionsTotal_type).toBe("object");
+        expect(typeof reply.reactionType_total).toBe("object");
       });
     });
   });
@@ -227,6 +228,28 @@ describe("/api/episodes/:episode_id/polls", () => {
         expect(typeof poll.poll_field_2_count).toBe("number");
         expect(typeof poll.poll_votes_count).toBe("number");
       });
+    });
+  });
+  describe("/api/episodes/:episode_id/reactions", () => {
+    describe("GET", () => {
+      test("responds with 200 and a reactions summary object for a given episode", () => {});
+      test("reactions_total reflects only direct reactions to the episode, not to its comments or replies", () => {});
+      test("response object contains a reactionType_total key which is an object with keys xTotal example angryTotal key with the count of that type of reaction to the episode", () => {
+        //should be dynamic creates a reaction total for every reacion_type left on that comment
+      });
+      test("reactions_total equals the sum of all individual reaction type totals", () => {});
+
+      describe("?t=x", () => {
+        test("returns reaction counts within a 180-second window of the given timestamp", () => {});
+        test("reactions_total reflects only episode reactions within the timestamp window", () => {});
+        test("returns 200 with all totals as 0 when no reactions fall within the timestamp window", () => {});
+      });
+    });
+
+    describe("GET errors", () => {
+      test("responds with 404 when episode_id does not exist", () => {});
+      test("responds with 400 when episode_id is not a valid type", () => {});
+      test("responds with 400 when ?t=x is not a valid number", () => {});
     });
   });
 });
