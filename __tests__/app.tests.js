@@ -122,7 +122,7 @@ describe("/api/episodes/:episode_id/comments", () => {
         reactionType_total: {
           angryTotal: 70,
           laughingTotal: 6,
-          cryingTotal: 10,
+          sadTotal: 10,
           fireTotal: 7,
           deadTotal: 9,
           heartTotal: 20,
