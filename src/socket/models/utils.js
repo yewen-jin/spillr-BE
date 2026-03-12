@@ -21,4 +21,30 @@ const doesThisCommentExist = async (comment_id) => {
   return true;
 };
 
-module.exports = { isLive, doesThisCommentExist };
+const doesThisReplyExist = async (reply_id) => {
+  const { rows } = await db.query(`SELECT * FROM reply WHERE reply_id = $1`, [
+    reply_id,
+  ]);
+  if (!rows || rows.length === 0) {
+    return false;
+  }
+  return true;
+};
+
+const doesThisReactionExist = async (reaction_id) => {
+  const { rows } = await db.query(
+    `SELECT * FROM reactions WHERE reaction_id = $1`,
+    [reaction_id],
+  );
+  if (!rows || rows.length === 0) {
+    return false;
+  }
+  return true;
+};
+
+module.exports = {
+  isLive,
+  doesThisCommentExist,
+  doesThisReplyExist,
+  doesThisReactionExist,
+};

@@ -1,10 +1,16 @@
 const db = require("../../db/connection.js");
-const { isLive, doesThisCommentExist } = require("./utils.js");
+const {
+  isLive,
+  doesThisCommentExist,
+  doesThisReplyExist,
+  doesThisReactionExist,
+} = require("./utils.js");
+const { NotFoundError } = require("../../errors/customError.js");
 
 const insertComment = async (commentObj) => {
   const { episode_id, body, user_id, runtime_seconds, is_spoiler } = commentObj;
   if (!is_spoiler) {
-    const is_live = isLive(episode_id);
+    const is_live = await isLive(episode_id);
     const { rows } = await db.query(
       `INSERT INTO comments
     (user_id , body, episode_id, runtime_seconds, is_live) VALUES 
@@ -13,7 +19,7 @@ const insertComment = async (commentObj) => {
     );
     return rows[0];
   } else {
-    const is_live = isLive(episode_id);
+    const is_live = await isLive(episode_id);
     const { rows } = await db.query(
       `INSERT INTO comments
     (user_id , body, episode_id, runtime_seconds, is_live, is_spoiler) VALUES 
@@ -24,8 +30,19 @@ const insertComment = async (commentObj) => {
   }
 };
 
+const patchSpoiler = async (comment_id, is_spoiler) => {
+  if (await doesThisCommentExist(comment_id)) {
+    const { rows } = await db.query(
+      `UPDATE comments SET is_spoiler = $1 WHERE comment_id = $2 RETURNING *`,
+      [is_spoiler, comment_id],
+    );
+    return rows[0];
+  }
+  throw new NotFoundError(`Comment with id ${comment_id} not found`);
+};
+
 const deleteComment = async (comment_id) => {
-  if (doesThisCommentExist(comment_id) === true) {
+  if ((await doesThisCommentExist(comment_id)) === true) {
     const { rows } = await db.query(
       `DELETE FROM comments
      WHERE comment_id = $1
@@ -35,13 +52,13 @@ const deleteComment = async (comment_id) => {
 
     return rows[0];
   } else {
-    // comment has been delted message
+    throw new NotFoundError(`Comment with id ${comment_id} not found`);
   }
 };
 
 const addReply = async (replyObj) => {
-  if (doesThisCommentExist(comment_id) === true) {
-    const { comment_id, episode_id, user_id, body, runtime_seconds } = replyObj;
+  const { comment_id, episode_id, user_id, body, runtime_seconds } = replyObj;
+  if ((await doesThisCommentExist(comment_id)) === true) {
     const { rows } = await db.query(
       `INSERT INTO replies
     (comment_id , user_id, body, episode_id, runtime_seconds) VALUES 
@@ -50,8 +67,23 @@ const addReply = async (replyObj) => {
     );
     return rows[0];
   } else {
-    // send an error the comment doesn't exist
+    throw new NotFoundError(`Comment with id ${comment_id} not found`);
     // also need to error handle a reply with no body, user_id, no runtime-seconds, no episode id
+  }
+};
+
+const deleteReply = async (reply_id) => {
+  if ((await doesThisReplyExist(reply_id)) === true) {
+    const { rows } = await db.query(
+      `DELETE FROM replies
+     WHERE reply_id = $1
+     RETURNING *`,
+      [reply_id],
+    );
+
+    return rows[0];
+  } else {
+    throw new NotFoundError(`Reply with id ${reply_id} not found`);
   }
 };
 const addReaction = async (reactionObj) => {
@@ -65,16 +97,49 @@ const addReaction = async (reactionObj) => {
   } = reactionObj;
 
   if (!episode_id && !comment_id && !reply_id) {
-    return { msg: "no parent_id exists for this reaction" };
+    throw new NotFoundError(
+      "A reaction must target an episode, comment, or reply",
+    );
+  } else {
+    const { rows } = await db.query(
+      `INSERT INTO reactions
+    (reaction_type, comment_id, episode_id, reply_id, runtime_seconds, user_id) VALUES 
+    ($1,$2,$3,$4,$5,$6) RETURNING *`,
+      [
+        reaction_type,
+        comment_id ?? null,
+        episode_id ?? null,
+        reply_id ?? null,
+        runtime_seconds,
+        user_id,
+      ],
+    );
+
+    return rows[0];
   }
-
-  !episode_id ? (episode_id = null) : (episode_id = episode_id);
-  !comment_id ? (comment_id = null) : (comment_id = comment_id);
-  !reply_id ? (reply_id = null) : (reply_id = comment_id);
-
-  const { rows } = await db.query(``);
-  //insert into replies table this reply that has this comment_id and episode_id
-  return rows[0];
 };
 
-module.exports = { addReaction, addReply, deleteComment, insertComment };
+const removeReaction = async (reaction_id) => {
+  if ((await doesThisReactionExist(reaction_id)) === true) {
+    const { rows } = await db.query(
+      `DELETE FROM reactions
+     WHERE reaction_id = $1
+     RETURNING *`,
+      [reaction_id],
+    );
+
+    return rows[0];
+  } else {
+    throw new NotFoundError(`Reaction with id ${reaction_id} not found`);
+  }
+};
+
+module.exports = {
+  addReaction,
+  removeReaction,
+  addReply,
+  deleteReply,
+  deleteComment,
+  insertComment,
+  patchSpoiler,
+};
