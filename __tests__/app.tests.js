@@ -140,6 +140,33 @@ describe("/api/episodes/:episode_id/comments", () => {
         expect(typeof comment.reactionType_total).toBe("object");
       });
     });
+    test("comment object contains a key of repliesTotal - the total amount of replies left on that particular comment", async () => {
+      const result = await request(app)
+        .get("/api/episodes/3129600/comments?t=1060")
+        .expect(200);
+
+      //this is a comment you should see in the array
+      const testDataObj = {
+        user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+        body: "Dirty Den coming back from the dead is still the most unhinged thing this show has ever done",
+        episode_id: 3129600,
+        runtime_seconds: 900,
+        created_at: "2024-03-01T20:15:00.000Z",
+        is_live: true,
+        is_spoiler: false,
+      };
+
+      //should be dynamic creates a reaction total for every reacion_type left on that comment
+
+      const { body } = result;
+
+      const { comments } = body;
+      expect(Array.isArray(comments)).toBe(true);
+
+      comments.forEach((comment) => {
+        expect(typeof comment.repliesTotal).toBe("number");
+      });
+    });
   });
 });
 
