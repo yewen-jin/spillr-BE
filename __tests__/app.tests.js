@@ -128,6 +128,7 @@ describe("/api/episodes/:episode_id/comments", () => {
           heartTotal: 20,
         },
       };
+
       //should be dynamic creates a reaction total for every reacion_type left on that comment
 
       const { body } = result;
