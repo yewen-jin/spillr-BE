@@ -1,46 +1,47 @@
 {
-  "name": "spillr-be",
-  "version": "1.0.0",
-  "description": "express server for spillr app",
-  "homepage": "https://github.com/yewen-jin/spillr-BE#readme",
-  "bugs": {
-    "url": "https://github.com/yewen-jin/spillr-BE/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yewen-jin/spillr-BE.git"
-  },
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon listen.js",
-    "test": "NODE_ENV=test jest --runInBand",
-    "setup-dbs": "psql -f ./db/setup-dbs.sql",
-    "seed": "node ./db/seed/run-seed.js",
-    "seed-prod": "NODE_ENV=production npm run seed",
-    "data-sync": "node ./scripts/syncShowData.js"
-  },
-  "dependencies": {
-    "cors": "^2.8.6",
-    "dotenv": "^17.3.1",
-    "express": "^5.2.1",
-    "pg": "^8.20.0",
-    "pg-format": "^1.0.4",
-    "socket.io": "^4.8.3"
-  },
-  "devDependencies": {
-    "jest": "^30.3.0",
-    "jest-extended": "^7.0.0",
-    "jest-sorted": "^1.0.15",
-    "nodemon": "^3.1.14",
-    "supertest": "^7.2.2"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "jest-extended/all",
-      "jest-sorted"
-    ]
-  }
+    "name": "spillr-be",
+    "version": "1.0.0",
+    "description": "express server for spillr app",
+    "homepage": "https://github.com/yewen-jin/spillr-BE#readme",
+    "bugs": {
+        "url": "https://github.com/yewen-jin/spillr-BE/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yewen-jin/spillr-BE.git"
+    },
+    "license": "ISC",
+    "author": "",
+    "type": "commonjs",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon listen.js",
+        "start": "node listen.js",
+        "test": "NODE_ENV=test jest --runInBand",
+        "setup-dbs": "psql -f ./db/setup-dbs.sql",
+        "seed": "node ./db/seed/run-seed.js",
+        "seed-prod": "NODE_ENV=production npm run seed",
+        "data-sync": "node ./scripts/syncShowData.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.6",
+        "dotenv": "^17.3.1",
+        "express": "^5.2.1",
+        "pg": "^8.20.0",
+        "pg-format": "^1.0.4",
+        "socket.io": "^4.8.3"
+    },
+    "devDependencies": {
+        "jest": "^30.3.0",
+        "jest-extended": "^7.0.0",
+        "jest-sorted": "^1.0.15",
+        "nodemon": "^3.1.14",
+        "supertest": "^7.2.2"
+    },
+    "jest": {
+        "setupFilesAfterEnv": [
+            "jest-extended/all",
+            "jest-sorted"
+        ]
+    }
 }
