@@ -1,7 +1,6 @@
 const path = require("path");
 const express = require("express");
 const { createServer } = require("node:http");
-const { join } = require("node:path");
 const cors = require("cors");
 
 const { initiateSocket } = require("./socket/index.js");
@@ -17,8 +16,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(cors());
 
-app.get("/socket", (req, res) => {
-    res.sendFile(join(__dirname, "../public/index.html"));
+app.get("/chat", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/chat.html"));
 });
 
 const { HTTP_STATUS_CODES } = require("./utils/constants.js");
