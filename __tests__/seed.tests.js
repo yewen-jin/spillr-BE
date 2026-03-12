@@ -6,14 +6,14 @@ beforeAll(() => seed(data)); //before all tests reseed the test database with da
 afterAll(() => db.end()); // after all close the db connectionS
 
 describe("seed", () => {
-  describe("users table", () => {
-    test("users table exists", async () => {
+  describe("profiles table", () => {
+    test("profiles table exists", async () => {
       const query = await db.query(
         `SELECT EXISTS (
             SELECT FROM 
                 information_schema.tables 
             WHERE 
-                table_name = 'users'
+                table_name = 'profiles'
             );`,
       );
 
@@ -22,11 +22,11 @@ describe("seed", () => {
 
       expect(exists).toBe(true);
     });
-    test("users table has user_id column as UUID", async () => {
+    test("profiles table has user_id column as UUID", async () => {
       const query = await db.query(
         `SELECT *
      FROM information_schema.columns
-     WHERE table_name = 'users'
+     WHERE table_name = 'profiles'
 AND column_name = 'user_id';`,
       );
 
