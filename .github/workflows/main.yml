@@ -15,4 +15,4 @@ jobs:
             METHOD: GET
         steps:
             - id: ping-render-server
-              uses: curl https://spillr-be.onrender.com/
+              run: curl https://spillr-be.onrender.com/
