@@ -4,7 +4,11 @@ const mergeIntoDevData = require("../utils/mergeIntoDevData");
 const seedProd = require("../utils/seedProd");
 
 async function addShow(req, res, next) {
-  const { show_name } = req.body;
+  const show_name = req.body.show_name
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 
   if (!show_name) {
     return res
@@ -13,7 +17,7 @@ async function addShow(req, res, next) {
   }
 
   try {
-    // Step 1 — add tv-show name to constants list
+    // add tv-show name to constants list
     const wasAdded = await appendToConstantsList(show_name);
 
     if (!wasAdded) {
@@ -22,7 +26,7 @@ async function addShow(req, res, next) {
       });
     }
 
-    // Step 2 — fetch this one show via pipeline to tvMaze
+    // fetch this one show via pipeline to tvMaze
     console.log(`[addShow] Fetching "${show_name}" from TVmaze...`);
     const result = await cleanData(show_name);
 
@@ -34,10 +38,10 @@ async function addShow(req, res, next) {
 
     const { tv_show_clean, seasons_clean, episodes_clean } = result;
 
-    // Step 3 — merge into dev data files (no re-fetch of other shows)
+    //merge into dev data files (no re-fetch of other shows)
     await mergeIntoDevData(tv_show_clean, seasons_clean, episodes_clean);
 
-    // Step 4 — seed prod
+    // reseed prod
     await seedProd();
 
     return res.status(201).json({
