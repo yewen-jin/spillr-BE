@@ -88,9 +88,5 @@
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);
         });
-
-        socket.on("disconnect", () => {
-            socket.leave(chatRoom);
-        });
     </script>
 </html>
