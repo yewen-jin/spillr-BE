@@ -17,6 +17,7 @@ const commentsHandler = (socket, io) => {
         console.log(comment);
         insertComment(comment);
     });
+
     socket.on("delete comment", (comment) => {
         console.log(`delete comment`);
         io.emit("comment", "deleting comment:" + comment.comment_id);
