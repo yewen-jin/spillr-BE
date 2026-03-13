@@ -42,6 +42,7 @@ async function cleanData(showName) {
     };
   } catch (err) {
     console.error("fetch failed:", err);
+    throw err;
   }
 }
 

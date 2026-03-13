@@ -26,6 +26,9 @@ const TV_SHOWS_LIST_1 = [
   "Glow Up",
   "Interior Design Masters",
   "RuPaul's Drag Race UK",
+  "Breaking Bad",
+  "Skins",
+  "Survivor",
 ];
 
 const TV_SHOWS_LIST_2 = [
