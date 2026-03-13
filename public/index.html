@@ -75,13 +75,12 @@
         form.addEventListener("submit", (e) => {
             e.preventDefault();
             if (input.value) {
-                socket.emit("chat message", input.value);
-                socket.emit("hello", "world");
+                socket.emit("comment body", input.value);
                 input.value = "";
             }
         });
 
-        socket.on("chat message", (msg) => {
+        socket.on("comment body", (msg) => {
             console.log("received message from server:", msg);
             const item = document.createElement("li");
             item.textContent = msg;
