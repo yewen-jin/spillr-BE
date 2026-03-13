@@ -29,6 +29,7 @@ const TV_SHOWS_LIST_1 = [
   "Breaking Bad",
   "Skins",
   "Survivor",
+  "Outlander",
 ];
 
 const TV_SHOWS_LIST_2 = [

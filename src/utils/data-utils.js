@@ -21,7 +21,7 @@ function findShowIDByCountry(tvShows, countryCode) {
       return tvshow.show.id;
     }
   }
-  return null;
+  return tvShows[0]?.show.id; // fallback to first result for all countries
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
