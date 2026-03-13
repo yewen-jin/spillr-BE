@@ -19,16 +19,7 @@ async function addShow(req, res, next) {
   }
 
   try {
-    // add tv-show name to constants list
-    const wasAdded = await appendToConstantsList(show_name);
-
-    if (!wasAdded) {
-      return res.status(409).json({
-        msg: `"${show_name}" is already in the show list.`,
-      });
-    }
-
-    // fetch this one show via pipeline to tvMaze
+    // fetch first to verify it exists on TVmaze
     console.log(`[addShow] Fetching "${show_name}" from TVmaze...`);
     const result = await cleanData(show_name);
 
@@ -38,9 +29,18 @@ async function addShow(req, res, next) {
       });
     }
 
+    // only append to constants now we know it's valid
+    const wasAdded = await appendToConstantsList(show_name);
+
+    if (!wasAdded) {
+      return res.status(409).json({
+        msg: `"${show_name}" is already in the show list.`,
+      });
+    }
+
     const { tv_show_clean, seasons_clean, episodes_clean } = result;
 
-    //merge into dev data files (no re-fetch of other shows)
+    // merge into dev data files (no re-fetch of other shows)
     await mergeIntoDevData(tv_show_clean, seasons_clean, episodes_clean);
 
     // reseed prod
