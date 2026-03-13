@@ -1,13 +1,13 @@
 const { Server } = require("socket.io");
-// const commentsHandler = require("./handlers/comments.handler");
+const commentsHandler = require("./handlers/comments.handler");
 // const usersHandler = require("./handlers/users.handler");
-let io;
 
 const initiateSocket = (server) => {
-    io = new Server(server);
+    const io = new Server(server);
 
     io.on("connection", (socket) => {
         console.log("A user connected!");
+        commentsHandler(socket, io);
 
         socket.on("connection", (arg) => {
             console.log("hello", arg);
@@ -24,6 +24,4 @@ const initiateSocket = (server) => {
     });
 };
 
-const getIo = () => io;
-
-module.exports = { initiateSocket, getIo };
+module.exports = initiateSocket;
