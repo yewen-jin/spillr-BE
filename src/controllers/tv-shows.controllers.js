@@ -1,4 +1,4 @@
-const cleanData = require("../src/utils/data-cleaner");
+const cleanData = require("../utils/data-cleaner");
 const appendToConstantsList = require("../utils/appendToConstantsList");
 const mergeIntoDevData = require("../utils/mergeIntoDevData");
 const seedProd = require("../utils/seedProd");
