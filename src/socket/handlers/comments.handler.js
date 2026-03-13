@@ -25,16 +25,9 @@ const commentsHandler = () => {
             insertComment(comment);
         });
 
-        socket.on("reply", (replyBody) => {
-            // console.log(`received reply for comment ${reply.comment_id}`);
-            io.emit("reply", reply);
-            const reply = {};
-            reply.body = replyBody;
-            reply.comment_id = 1;
-            reply.episode_id = 3129600;
-            reply.user_id = "b2c3d4e5-f6a7-8901-bcde-f12345678901";
-            reply.runtime_seconds = 2;
-            reply.created_at = "2026-03-01T20:08:00.000Z";
+        socket.on("reply", (reply) => {
+            console.log(`received reply for comment ${reply.comment_id}`);
+            io.emit("reply", "new reply:" + reply.body);
             addReply(reply);
         });
 
