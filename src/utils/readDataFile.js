@@ -5,7 +5,7 @@ async function readDataFile(filePath) {
   let start;
   let end;
   for (let i = 0; i < content.length; i++) {
-    if (content[i] === "[") start = i;
+    if (content[i] === "[" && start === undefined) start = i;
     if (content[i] === "]") end = i;
   }
   return JSON.parse(content.slice(start, end + 1));
