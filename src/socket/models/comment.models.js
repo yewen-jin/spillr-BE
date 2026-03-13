@@ -15,9 +15,7 @@ const insertComment = async (commentObj) => {
   const missingField = requiredFields.find((required) => !commentObj[required]);
 
   if (missingField) {
-    return res.status(400).json({
-      msg: `${missingField} is required in request body`,
-    });
+    throw new Error(`${missingField} is required in request body`);
   }
 
   if (!is_spoiler) {
@@ -81,9 +79,7 @@ const addReply = async (replyObj) => {
   const missingField = requiredFields.find((required) => !replyObj[required]);
 
   if (missingField) {
-    return res.status(400).json({
-      msg: `${missingField} is required in request body`,
-    });
+    throw new Error(`${missingField} is required in request body`);
   }
 
   if ((await doesThisCommentExist(comment_id)) === true) {
