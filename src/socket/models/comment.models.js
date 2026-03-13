@@ -17,9 +17,8 @@ const insertComment = async (commentObj) => {
   if (missingField) {
     throw new Error(`${missingField} is required in request body`);
   }
-
+  const is_live = await isLive(episode_id);
   if (!is_spoiler) {
-    const is_live = await isLive(episode_id);
     const { rows } = await db.query(
       `INSERT INTO comments
     (user_id , body, episode_id, runtime_seconds, is_live) VALUES
@@ -28,7 +27,6 @@ const insertComment = async (commentObj) => {
     );
     return rows[0];
   } else {
-    const is_live = await isLive(episode_id);
     const { rows } = await db.query(
       `INSERT INTO comments
     (user_id , body, episode_id, runtime_seconds, is_live, is_spoiler) VALUES
