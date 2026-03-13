@@ -31,20 +31,22 @@ const commentsHandler = (socket, io) => {
 
     socket.on("delete reply", (reply) => {
         console.log(`received reply for comment ${reply.comment_id}`);
-        io.emit("delete reply", "removed reply:" + reply.body);
         deleteReply(reply.reply_id);
     });
 
     socket.on("add reaction", (reaction) => {
         console.log(``);
-        io.emit("add reaction", reaction);
         addReaction(reaction);
     });
 
     socket.on("remove reaction", (reaction) => {
-        console.log(``);
-        io.emit("remove reaction", reaction);
+        console.log(`remove reaction`);
         removeReaction(reaction.reaction_id);
+    });
+
+    socket.on("mark spoiler", (commentId) => {
+        console.log(`a spoiler notice has been marked`);
+        patchSpoiler(commentId, true);
     });
 };
 
