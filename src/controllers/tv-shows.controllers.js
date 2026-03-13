@@ -5,6 +5,8 @@ const seedProd = require("../utils/seedProd");
 
 async function addShow(req, res, next) {
   const show_name = req.body.show_name
+    .trim()
+    .replace(/\s+/g, " ")
     .toLowerCase()
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
