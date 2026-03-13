@@ -18,23 +18,24 @@ const commentsHandler = () => {
             console.log(">---writing to database--->");
         });
 
-        socket.on("comment body", (commentBody) => {
+        socket.on("comment", (comment) => {
             console.log(`received comment`);
-            const comment = {};
-            // episode_id, body, user_id, runtime_seconds, is_spoiler
-            comment.body = commentBody;
-            comment.episode_id = 469092;
-            comment.user_id = "a1b2c3d4-e5f6-7890-abcd-ef1234567890";
-            comment.runtime_seconds = 1;
-            comment.is_spoiler = false;
+            io.emit("comment", "new comment:" + comment.body);
             console.log(comment);
-            io.emit("comment", comment);
             insertComment(comment);
         });
 
-        socket.on("reply", (reply) => {
-            console.log(`received reply for comment ${reply.comment_id}`);
+        socket.on("reply", (replyBody) => {
+            // console.log(`received reply for comment ${reply.comment_id}`);
             io.emit("reply", reply);
+            const reply = {};
+            reply.body = replyBody;
+            reply.comment_id = 1;
+            reply.episode_id = 3129600;
+            reply.user_id = "b2c3d4e5-f6a7-8901-bcde-f12345678901";
+            reply.runtime_seconds = 2;
+            reply.created_at = "2026-03-01T20:08:00.000Z";
+            addReply(reply);
         });
 
         socket.on("reaction", (reaction) => {

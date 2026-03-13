@@ -70,17 +70,24 @@
         const socket = io();
         const form = document.getElementById("form");
         const input = document.getElementById("input");
+        const comment = {};
         const messages = document.getElementById("messages");
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();
             if (input.value) {
-                socket.emit("comment body", input.value);
+                comment.body = input.value;
+                comment.episode_id = 3129600;
+                comment.user_id = "a1b2c3d4-e5f6-7890-abcd-ef1234567890";
+                comment.runtime_seconds = 1;
+                comment.is_spoiler = false;
+                console.log("client sends:", comment);
+                socket.emit("comment", comment);
                 input.value = "";
             }
         });
 
-        socket.on("comment body", (msg) => {
+        socket.on("comment", (msg) => {
             console.log("received message from server:", msg);
             const item = document.createElement("li");
             item.textContent = msg;
