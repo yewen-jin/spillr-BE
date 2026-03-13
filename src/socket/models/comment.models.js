@@ -28,6 +28,7 @@ const insertComment = async (commentObj) => {
     );
     return rows[0];
   }
+  // also need to error handle a reply with no body, user_id, no runtime-seconds, no episode id
 };
 
 const patchSpoiler = async (comment_id, is_spoiler) => {
