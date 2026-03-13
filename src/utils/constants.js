@@ -55,15 +55,14 @@ const TV_SHOWS_LIST_2 = [
 ];
 
 const FILE_PATH_TV_SHOWS = path.join(
-  process.cwd(),
-  "../db/data/dev/tv-shows.js",
+  __dirname,
+  "../../db/data/dev/tv-shows.js",
 );
-const FILE_PATH_SEASONS = path.join(process.cwd(), "../db/data/dev/seasons.js");
+const FILE_PATH_SEASONS = path.join(__dirname, "../../db/data/dev/seasons.js");
 const FILE_PATH_EPISODES = path.join(
-  process.cwd(),
-  "../db/data/dev/episodes.js",
+  __dirname,
+  "../../db/data/dev/episodes.js",
 );
-
 const TVMAZE_API = {
   BASE_URL: "https://api.tvmaze.com",
   SEARCH_SHOWS: "/search/shows?q=",
