@@ -3,23 +3,23 @@ const commentsHandler = require("./handlers/comments.handler");
 const usersHandler = require("./handlers/users.handler");
 
 const initiateSocket = (server) => {
-    const io = new Server(server);
+  const io = new Server(server);
 
-    io.on("connection", (socket) => {
-        console.log("A user connected!");
+  io.on("connection", (socket) => {
+    console.log("A user connected!");
 
-        usersHandler(socket, io);
-        commentsHandler(socket, io);
+    usersHandler(socket, io);
+    commentsHandler(socket, io);
 
-        socket.on("chat message", (msg) => {
-            console.log("get message from client: " + msg);
-            io.emit("chat message", msg);
-        });
-
-        socket.on("disconnect", () => {
-            console.log("A user has disconnected");
-        });
+    socket.on("chat message", (msg) => {
+      console.log("get message from client: " + msg);
+      io.emit("chat message", msg);
     });
+
+    socket.on("disconnect", () => {
+      console.log("A user has disconnected");
+    });
+  });
 };
 
 module.exports = initiateSocket;

@@ -89,7 +89,7 @@
             if (commentInput.value) {
                 comment.body = commentInput.value;
                 console.log("client sends:", comment);
-                socket.emit("comment", comment);
+                socket.emit("comment:post", comment);
                 commentInput.value = "";
             }
         });
@@ -108,12 +108,12 @@
             if (replyInput.value) {
                 reply.body = replyInput.value;
                 console.log("client sends reply:", reply);
-                socket.emit("reply", reply);
+                socket.emit("reply:post", reply);
                 replyInput.value = "";
             }
         });
 
-        socket.on("comment", (msg) => {
+        socket.on("comment:new", (msg) => {
             console.log("received comment from server:", msg);
             const item = document.createElement("li");
             item.textContent = msg;
@@ -121,7 +121,7 @@
             window.scrollTo(0, document.body.scrollHeight);
         });
 
-        socket.on("reply", (msg) => {
+        socket.on("reply:new", (msg) => {
             console.log("received reply from server:", msg);
             const item = document.createElement("li");
             item.textContent = msg;
