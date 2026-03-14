@@ -180,7 +180,7 @@ const seed = async ({
       season.season_id,
       season.tv_show_id,
       season.season_number,
-      season.season_img_url,
+      season.seasonIMG_URL ? season.seasonIMG_URL.original : null,
       season.isContinuing,
       season.airdate,
     ];
