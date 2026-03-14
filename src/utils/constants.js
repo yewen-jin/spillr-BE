@@ -1,6 +1,38 @@
 const path = require("path");
 
 const TV_SHOWS_LIST_1 = [
+  "Dragons' Den",
+  "MasterChef",
+  "Celebrity MasterChef",
+  "MasterChef: The Professionals",
+  "The Great British Bake Off",
+  "The Great British Sewing Bee",
+  "Junior Bake Off",
+  "Come Dine with Me",
+];
+
+const TV_SHOWS_LIST_2 = [
+  "SAS: Who Dares Wins",
+  "Celebrity SAS: Who Dares Wins",
+  "Taskmaster",
+  "The 1% Club",
+  "Pointless Celebrities",
+  "Antiques Roadshow",
+  "Bargain Hunt",
+  "Escape to the Country",
+  "Grand Designs",
+];
+
+const TV_SHOW_LIST_3 = [
+  "Glow Up",
+  "Interior Design Masters",
+  "RuPaul's Drag Race UK",
+  "Breaking Bad",
+  "Skins",
+  "Survivor",
+];
+
+const TV_SHOW_LIST_4 = [
   "Four in a Bed",
   "Gogglebox",
   "Celebrity Gogglebox",
@@ -14,25 +46,8 @@ const TV_SHOWS_LIST_1 = [
   "Ex on the Beach",
   "Race Across the World",
   "Hunted",
-  "SAS: Who Dares Wins",
-  "Celebrity SAS: Who Dares Wins",
-  "Taskmaster",
-  "The 1% Club",
-  "Pointless Celebrities",
-  "Antiques Roadshow",
-  "Bargain Hunt",
-  "Escape to the Country",
-  "Grand Designs",
-  "Glow Up",
-  "Interior Design Masters",
-  "RuPaul's Drag Race UK",
-  "Breaking Bad",
-  "Skins",
-  "Survivor",
-  "Outlander",
 ];
-
-const TV_SHOWS_LIST_2 = [
+const TV_SHOW_LIST_5 = [
   "Coronation Street",
   "EastEnders",
   "Hollyoaks",
@@ -48,31 +63,25 @@ const TV_SHOWS_LIST_2 = [
   "Dancing on Ice",
   "The Voice",
   "The Apprentice",
-  "Dragons' Den",
-  "MasterChef",
-  "Celebrity MasterChef",
-  "MasterChef: The Professionals",
-  "The Great British Bake Off",
-  "The Great British Sewing Bee",
-  "Junior Bake Off",
-  "Come Dine with Me",
 ];
 
-const FILE_PATH_TV_SHOWS = path.join(
-  __dirname,
-  "../../db/data/dev/tv-shows.js",
-);
-const FILE_PATH_SEASONS = path.join(__dirname, "../../db/data/dev/seasons.js");
-const FILE_PATH_EPISODES = path.join(
-  __dirname,
-  "../../db/data/dev/episodes.js",
-);
+const FILE_PATH_TV_SHOWS = path.join(__dirname, "../../db/data/tv-shows.js");
+const FILE_PATH_SEASONS = path.join(__dirname, "../../db/data/seasons.js");
+const FILE_PATH_EPISODES = path.join(__dirname, "../../db/data/episodes.js");
 const TVMAZE_API = {
   BASE_URL: "https://api.tvmaze.com",
   SEARCH_SHOWS: "/search/shows?q=",
   SHOW_ID: (showId) => `/shows/${showId}`,
   SHOW_SEASONS: (showId) => `/shows/${showId}/seasons`,
   SEASON_EPISODES: (seasonId) => `/seasons/${seasonId}/episodes`,
+};
+
+const TVDB_API = {
+  BASE_URL: "https://api4.thetvdb.com/v4",
+  SEARCH_SHOWS: "/search",
+  SERIES_EXTENDED: (seriesId) => `/series/${seriesId}/extended`,
+  SERIES_EPISODES: (seriesId) => `/series/${seriesId}/episodes/official`,
+  TOKEN: process.env.TVDB_TOKEN,
 };
 
 const HTTP_STATUS_CODES = {
@@ -88,9 +97,13 @@ const HTTP_STATUS_CODES = {
 module.exports = {
   TV_SHOWS_LIST_1,
   TV_SHOWS_LIST_2,
+  TV_SHOW_LIST_3,
+  TV_SHOW_LIST_4,
+  TV_SHOW_LIST_5,
   FILE_PATH_TV_SHOWS,
   FILE_PATH_SEASONS,
   FILE_PATH_EPISODES,
   TVMAZE_API,
   HTTP_STATUS_CODES,
+  TVDB_API,
 };
