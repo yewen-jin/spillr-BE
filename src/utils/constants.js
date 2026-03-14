@@ -65,9 +65,15 @@ const TV_SHOW_LIST_5 = [
   "The Apprentice",
 ];
 
-const FILE_PATH_TV_SHOWS = path.join(__dirname, "../../db/data/tv-shows.js");
-const FILE_PATH_SEASONS = path.join(__dirname, "../../db/data/seasons.js");
-const FILE_PATH_EPISODES = path.join(__dirname, "../../db/data/episodes.js");
+const FILE_PATH_TV_SHOWS = path.join(
+  __dirname,
+  "../../db/data/dev/tv-shows.js",
+);
+const FILE_PATH_SEASONS = path.join(__dirname, "../../db/data/dev/seasons.js");
+const FILE_PATH_EPISODES = path.join(
+  __dirname,
+  "../../db/data/dev/episodes.js",
+);
 const TVMAZE_API = {
   BASE_URL: "https://api.tvmaze.com",
   SEARCH_SHOWS: "/search/shows?q=",
