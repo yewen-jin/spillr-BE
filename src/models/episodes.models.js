@@ -13,7 +13,7 @@ async function selectCommentsByEpisodeID(episode_id, time) {
       (SELECT JSON_BUILD_OBJECT(
         'angryTotal', COUNT(*) FILTER (WHERE reaction_type = 'angry')::int,
         'laughingTotal', COUNT(*) FILTER (WHERE reaction_type = 'laughing')::int,
-        'cryingTotal', COUNT(*) FILTER (WHERE reaction_type = 'crying')::int,
+        'sadTotal', COUNT(*) FILTER (WHERE reaction_type = 'sad')::int,
         'fireTotal', COUNT(*) FILTER (WHERE reaction_type = 'fire')::int,
         'deadTotal', COUNT(*) FILTER (WHERE reaction_type = 'dead')::int,
         'heartTotal', COUNT(*) FILTER (WHERE reaction_type = 'heart')::int
