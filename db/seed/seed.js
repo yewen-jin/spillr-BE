@@ -340,6 +340,24 @@ const seed = async ({
   );
 
   await db.query(notificationsQuery);
+
+  // $ will conflict with JS template literal syntax, using $$ instead to escape it
+  let createPolicyQuery = `
+    DO $$
+        DECLARE r RECORD;
+        BEGIN
+          FOR r IN
+            SELECT table_name FROM information_schema.tables
+            WHERE table_schema = 'public' AND table_type = 'BASE TABLE'
+          LOOP
+            EXECUTE format('ALTER TABLE %I ENABLE ROW LEVEL SECURITY;', r.table_name);
+            EXECUTE format('CREATE POLICY allow_read_all ON %I FOR SELECT TO PUBLIC USING (true);', r.table_name);
+          END LOOP;
+        END;
+        $$;
+ `;
+
+  await db.query(createPolicyQuery);
 };
 
 module.exports = seed;
