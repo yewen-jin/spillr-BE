@@ -69,3 +69,10 @@ module.exports = {
   selectEpisodeByID,
   selectPollsByEpisodeID,
 };
+
+// `SELECT *,
+//        airtime BETWEEN NOW() - INTERVAL '2 hours' AND NOW() + INTERVAL '2 hours' AS is_premier
+//      FROM episodes
+//      WHERE season_id = $1
+//      ORDER BY airtime ASC`,
+//     [season_id]

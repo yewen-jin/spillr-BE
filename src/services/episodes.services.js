@@ -37,3 +37,14 @@ module.exports = {
   fetchCommentsByEpisodeService,
   fetchPollsByEpisodeIDService,
 };
+
+// calculate is premier for episodes here, just get in model
+// const now = Date.now();
+//     const twoHours = 2 * 60 * 60 * 1000;
+
+//     return episodes.map((episode) => {
+//       const airDateTime = new Date(`${episode.releaseDate}T${episode.releaseTime}`);
+
+//       return {
+//         ...episode,
+// is_premier: Math.abs(airDateTime - now) <= twoHours

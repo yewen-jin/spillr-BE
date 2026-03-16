@@ -61,7 +61,6 @@ const seed = async ({
        release_date DATE,
        release_time TIME,
        episode_url VARCHAR(3000),
-       is_premier BOOL DEFAULT FALSE,
        thread_opened BOOL DEFAULT FALSE,
        synopsis VARCHAR(3000)
       )`);
@@ -202,13 +201,12 @@ const seed = async ({
       episode.releaseDate,
       episode.releaseTime,
       episode.episodeIMG_URL ? episode.episodeIMG_URL.original : null,
-      episode.isPremier,
       episode.synopsis,
     ];
   });
 
   let episodesQuery = format(
-    "INSERT INTO episodes(episode_id, episode_number, season_id, runtime_total, release_date, release_time, episode_url, is_premier, synopsis) VALUES %L RETURNING *",
+    "INSERT INTO episodes(episode_id, episode_number, season_id, runtime_total, release_date, release_time, episode_url, synopsis) VALUES %L RETURNING *",
     formattedEpisodes,
   );
 
