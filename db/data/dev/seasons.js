@@ -120,16 +120,316 @@ const seasons = [
     "number_of_episodes": 37
   },
   {
-    "season_id": 32948,
-    "tv_show_id": 11867,
+    "season_id": 3550,
+    "tv_show_id": 842,
     "season_number": 1,
     "seasonIMG_URL": {
       "medium": "https://artworks.thetvdb.com/banners/seasons/248683-1.jpg",
       "original": "https://artworks.thetvdb.com/banners/seasons/248683-1.jpg"
     },
     "isContinuing": false,
-    "airdate": "2016-01-13",
-    "number_of_episodes": 2
+    "airdate": "2011-05-24",
+    "number_of_episodes": 11
+  },
+  {
+    "season_id": 3551,
+    "tv_show_id": 842,
+    "season_number": 2,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-2-2.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-2-2.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2012-01-31",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 3552,
+    "tv_show_id": 842,
+    "season_number": 3,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-3.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-3.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2012-06-26",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 3553,
+    "tv_show_id": 842,
+    "season_number": 4,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-4.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-4.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2012-11-06",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 3554,
+    "tv_show_id": 842,
+    "season_number": 5,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-5-2.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-5-2.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2013-02-19",
+    "number_of_episodes": 9
+  },
+  {
+    "season_id": 3555,
+    "tv_show_id": 842,
+    "season_number": 6,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-6.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-6.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2013-07-09",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 3556,
+    "tv_show_id": 842,
+    "season_number": 7,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-7.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-7.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2013-09-17",
+    "number_of_episodes": 6
+  },
+  {
+    "season_id": 3557,
+    "tv_show_id": 842,
+    "season_number": 8,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-8-3.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-8-3.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2014-07-22",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 3558,
+    "tv_show_id": 842,
+    "season_number": 9,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-9.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-9.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2014-10-28",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 6687,
+    "tv_show_id": 842,
+    "season_number": 10,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-10.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-10.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2015-04-07",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 10014,
+    "tv_show_id": 842,
+    "season_number": 11,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-11.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-11.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2015-10-20",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 34448,
+    "tv_show_id": 842,
+    "season_number": 12,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-12.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-12.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2016-03-15",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 44629,
+    "tv_show_id": 842,
+    "season_number": 13,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/248683-13.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/248683-13.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2016-10-25",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 62681,
+    "tv_show_id": 842,
+    "season_number": 14,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/series/248683/seasons/704865/posters/60376ae6955e5.jpg",
+      "original": "https://artworks.thetvdb.com/banners/series/248683/seasons/704865/posters/60376ae6955e5.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2017-03-28",
+    "number_of_episodes": 12
+  },
+  {
+    "season_id": 73523,
+    "tv_show_id": 842,
+    "season_number": 15,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/series/248683/seasons/725225/posters/60376788c2d07.jpg",
+      "original": "https://artworks.thetvdb.com/banners/series/248683/seasons/725225/posters/60376788c2d07.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2017-08-29",
+    "number_of_episodes": 9
+  },
+  {
+    "season_id": 79315,
+    "tv_show_id": 842,
+    "season_number": 16,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/series/248683/seasons/742094/posters/60375f5ab9bd1.jpg",
+      "original": "https://artworks.thetvdb.com/banners/series/248683/seasons/742094/posters/60375f5ab9bd1.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2018-01-09",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 84931,
+    "tv_show_id": 842,
+    "season_number": 17,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/series/248683/seasons/764831/posters/60375f3e8765b.jpg",
+      "original": "https://artworks.thetvdb.com/banners/series/248683/seasons/764831/posters/60375f3e8765b.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2018-05-15",
+    "number_of_episodes": 12
+  },
+  {
+    "season_id": 89919,
+    "tv_show_id": 842,
+    "season_number": 18,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/series/248683/seasons/782897/posters/60375f21793d6.jpg",
+      "original": "https://artworks.thetvdb.com/banners/series/248683/seasons/782897/posters/60375f21793d6.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2018-10-16",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 95310,
+    "tv_show_id": 842,
+    "season_number": 19,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/series/248683/seasons/804906/posters/60375f867e0d8.jpg",
+      "original": "https://artworks.thetvdb.com/banners/series/248683/seasons/804906/posters/60375f867e0d8.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2019-04-02",
+    "number_of_episodes": 11
+  },
+  {
+    "season_id": 102308,
+    "tv_show_id": 842,
+    "season_number": 20,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/series/248683/seasons/831904/posters/60375f9cc5e49.jpg",
+      "original": "https://artworks.thetvdb.com/banners/series/248683/seasons/831904/posters/60375f9cc5e49.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2019-10-29",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 110915,
+    "tv_show_id": 842,
+    "season_number": 21,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/series/248683/seasons/1857259/posters/603761f4a7ed7.jpg",
+      "original": "https://artworks.thetvdb.com/banners/series/248683/seasons/1857259/posters/603761f4a7ed7.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2020-07-28",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 130407,
+    "tv_show_id": 842,
+    "season_number": 22,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532899.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532899.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2021-10-05",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 142809,
+    "tv_show_id": 842,
+    "season_number": 23,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532899.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532899.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2022-09-20",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 162734,
+    "tv_show_id": 842,
+    "season_number": 24,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532899.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532899.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2024-01-09",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 179081,
+    "tv_show_id": 842,
+    "season_number": 25,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532899.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532899.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2025-01-07",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 194907,
+    "tv_show_id": 842,
+    "season_number": 26,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532899.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532899.jpg"
+    },
+    "isContinuing": true,
+    "airdate": "2026-01-13",
+    "number_of_episodes": 10
   },
   {
     "season_id": 7426,
@@ -3168,88 +3468,16 @@ const seasons = [
     "number_of_episodes": 7
   },
   {
-    "season_id": 92628,
-    "tv_show_id": 40390,
+    "season_id": 168616,
+    "tv_show_id": 76670,
     "season_number": 1,
     "seasonIMG_URL": {
       "medium": "https://artworks.thetvdb.com/banners/seasonswide/5c9bf04b91a22.jpg",
       "original": "https://artworks.thetvdb.com/banners/seasonswide/5c9bf04b91a22.jpg"
     },
     "isContinuing": false,
-    "airdate": "2019-03-06",
-    "number_of_episodes": 8
-  },
-  {
-    "season_id": 109150,
-    "tv_show_id": 40390,
-    "season_number": 2,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/555/1388941.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/555/1388941.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2020-05-14",
-    "number_of_episodes": 8
-  },
-  {
-    "season_id": 119095,
-    "tv_show_id": 40390,
-    "season_number": 3,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/555/1388941.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/555/1388941.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2021-04-20",
-    "number_of_episodes": 9
-  },
-  {
-    "season_id": 134937,
-    "tv_show_id": 40390,
-    "season_number": 4,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/555/1388941.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/555/1388941.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2022-05-11",
-    "number_of_episodes": 8
-  },
-  {
-    "season_id": 151765,
-    "tv_show_id": 40390,
-    "season_number": 5,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/555/1388941.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/555/1388941.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2023-05-02",
-    "number_of_episodes": 8
-  },
-  {
-    "season_id": 156112,
-    "tv_show_id": 40390,
-    "season_number": 6,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/555/1388941.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/555/1388941.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2024-04-10",
-    "number_of_episodes": 6
-  },
-  {
-    "season_id": 184806,
-    "tv_show_id": 40390,
-    "season_number": 7,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/555/1388941.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/555/1388941.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2025-04-30",
-    "number_of_episodes": 8
+    "airdate": "2019-10-23",
+    "number_of_episodes": 21
   },
   {
     "season_id": 98835,
@@ -3420,76 +3648,64 @@ const seasons = [
     "number_of_episodes": 0
   },
   {
-    "season_id": 91568,
-    "tv_show_id": 39967,
+    "season_id": 753,
+    "tv_show_id": 169,
     "season_number": 1,
     "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/447/1118583.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/447/1118583.jpg"
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/405/1012791.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/405/1012791.jpg"
     },
     "isContinuing": false,
-    "airdate": "2019-01-02",
-    "number_of_episodes": 4
+    "airdate": "2008-01-20",
+    "number_of_episodes": 7
   },
   {
-    "season_id": 104063,
-    "tv_show_id": 39967,
+    "season_id": 754,
+    "tv_show_id": 169,
     "season_number": 2,
     "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/447/1118586.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/447/1118586.jpg"
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/405/1012792.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/405/1012792.jpg"
     },
     "isContinuing": false,
-    "airdate": "2020-01-08",
-    "number_of_episodes": 7
+    "airdate": "2009-03-08",
+    "number_of_episodes": 13
   },
   {
-    "season_id": 117645,
-    "tv_show_id": 39967,
+    "season_id": 755,
+    "tv_show_id": 169,
     "season_number": 3,
     "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/447/1118583.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/447/1118583.jpg"
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/405/1012793.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/405/1012793.jpg"
     },
     "isContinuing": false,
-    "airdate": "2021-01-04",
-    "number_of_episodes": 7
+    "airdate": "2010-03-21",
+    "number_of_episodes": 13
   },
   {
-    "season_id": 133837,
-    "tv_show_id": 39967,
+    "season_id": 756,
+    "tv_show_id": 169,
     "season_number": 4,
     "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/447/1118583.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/447/1118583.jpg"
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/405/1012794.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/405/1012794.jpg"
     },
     "isContinuing": false,
-    "airdate": "2022-01-17",
-    "number_of_episodes": 6
+    "airdate": "2011-07-17",
+    "number_of_episodes": 13
   },
   {
-    "season_id": 146508,
-    "tv_show_id": 39967,
+    "season_id": 757,
+    "tv_show_id": 169,
     "season_number": 5,
     "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/447/1118588.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/447/1118588.jpg"
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/405/1012795.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/405/1012795.jpg"
     },
     "isContinuing": false,
-    "airdate": "2023-01-10",
-    "number_of_episodes": 7
-  },
-  {
-    "season_id": 182508,
-    "tv_show_id": 39967,
-    "season_number": 6,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/447/1118583.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/447/1118583.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2025-04-01",
-    "number_of_episodes": 6
+    "airdate": "2012-07-15",
+    "number_of_episodes": 17
   },
   {
     "season_id": 2236,
@@ -4884,160 +5100,2104 @@ const seasons = [
     "number_of_episodes": 4
   },
   {
-    "season_id": 111051,
-    "tv_show_id": 48737,
-    "season_number": 2019,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/291/729720.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/291/729720.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2019-10-21",
-    "number_of_episodes": 1
-  },
-  {
-    "season_id": 111052,
-    "tv_show_id": 48737,
-    "season_number": 2020,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/291/729720.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/291/729720.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2020-08-19",
-    "number_of_episodes": 4
-  },
-  {
-    "season_id": 128428,
-    "tv_show_id": 48737,
-    "season_number": 2021,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/291/729720.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/291/729720.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2021-09-13",
-    "number_of_episodes": 1
-  },
-  {
-    "season_id": 181826,
-    "tv_show_id": 82655,
-    "season_number": 1,
-    "seasonIMG_URL": {
-      "medium": "https://artworks.thetvdb.com/banners/v4/season/2898/posters/62b53f76cc567.jpg",
-      "original": "https://artworks.thetvdb.com/banners/v4/season/2898/posters/62b53f76cc567.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2025-02-16",
-    "number_of_episodes": 3
-  },
-  {
-    "season_id": 192594,
-    "tv_show_id": 87830,
-    "season_number": 2008,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1485976.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485976.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2008-11-24",
-    "number_of_episodes": 5
-  },
-  {
-    "season_id": 192595,
-    "tv_show_id": 87830,
-    "season_number": 2009,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1485976.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485976.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2009-09-28",
-    "number_of_episodes": 5
-  },
-  {
-    "season_id": 192596,
-    "tv_show_id": 87830,
-    "season_number": 2010,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1485976.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485976.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2010-10-25",
-    "number_of_episodes": 5
-  },
-  {
-    "season_id": 192597,
-    "tv_show_id": 87830,
-    "season_number": 2011,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1485976.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485976.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2011-09-05",
-    "number_of_episodes": 5
-  },
-  {
-    "season_id": 192598,
-    "tv_show_id": 87830,
-    "season_number": 2012,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1485976.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485976.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2012-09-17",
-    "number_of_episodes": 5
-  },
-  {
-    "season_id": 192599,
-    "tv_show_id": 87830,
-    "season_number": 2013,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1485976.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485976.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2013-10-07",
-    "number_of_episodes": 5
-  },
-  {
-    "season_id": 192600,
-    "tv_show_id": 87830,
-    "season_number": 2020,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1485976.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485976.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2020-01-06",
-    "number_of_episodes": 1
-  },
-  {
-    "season_id": 192601,
-    "tv_show_id": 87830,
-    "season_number": 2025,
-    "seasonIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1485976.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485976.jpg"
-    },
-    "isContinuing": false,
-    "airdate": "2025-10-22",
-    "number_of_episodes": 1
-  },
-  {
-    "season_id": 82653,
-    "tv_show_id": 35525,
+    "season_id": 16327,
+    "tv_show_id": 5420,
     "season_number": 1,
     "seasonIMG_URL": {
       "medium": "https://artworks.thetvdb.com/banners/seasonswide/82529-1.jpg",
       "original": "https://artworks.thetvdb.com/banners/seasonswide/82529-1.jpg"
     },
     "isContinuing": false,
-    "airdate": "2002-05-24",
-    "number_of_episodes": 5
+    "airdate": "1985-03-18",
+    "number_of_episodes": 170
+  },
+  {
+    "season_id": 44032,
+    "tv_show_id": 5420,
+    "season_number": 2,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1986-01-20",
+    "number_of_episodes": 230
+  },
+  {
+    "season_id": 44033,
+    "tv_show_id": 5420,
+    "season_number": 3,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1987-01-12",
+    "number_of_episodes": 237
+  },
+  {
+    "season_id": 43999,
+    "tv_show_id": 5420,
+    "season_number": 4,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1988-01-13",
+    "number_of_episodes": 239
+  },
+  {
+    "season_id": 43993,
+    "tv_show_id": 5420,
+    "season_number": 5,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1989-01-17",
+    "number_of_episodes": 237
+  },
+  {
+    "season_id": 43992,
+    "tv_show_id": 5420,
+    "season_number": 6,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1990-01-11",
+    "number_of_episodes": 237
+  },
+  {
+    "season_id": 43986,
+    "tv_show_id": 5420,
+    "season_number": 7,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1991-01-21",
+    "number_of_episodes": 235
+  },
+  {
+    "season_id": 43940,
+    "tv_show_id": 5420,
+    "season_number": 8,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1992-01-06",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 43937,
+    "tv_show_id": 5420,
+    "season_number": 9,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1993-01-11",
+    "number_of_episodes": 245
+  },
+  {
+    "season_id": 43936,
+    "tv_show_id": 5420,
+    "season_number": 10,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1994-01-24",
+    "number_of_episodes": 220
+  },
+  {
+    "season_id": 43934,
+    "tv_show_id": 5420,
+    "season_number": 11,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1995-01-02",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 43933,
+    "tv_show_id": 5420,
+    "season_number": 12,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1996-01-22",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 43859,
+    "tv_show_id": 5420,
+    "season_number": 13,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1997-01-20",
+    "number_of_episodes": 225
+  },
+  {
+    "season_id": 43855,
+    "tv_show_id": 5420,
+    "season_number": 14,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1998-01-19",
+    "number_of_episodes": 225
+  },
+  {
+    "season_id": 43850,
+    "tv_show_id": 5420,
+    "season_number": 15,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1999-01-18",
+    "number_of_episodes": 225
+  },
+  {
+    "season_id": 43767,
+    "tv_show_id": 5420,
+    "season_number": 16,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2000-01-17",
+    "number_of_episodes": 235
+  },
+  {
+    "season_id": 43760,
+    "tv_show_id": 5420,
+    "season_number": 17,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2001-01-15",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 43725,
+    "tv_show_id": 5420,
+    "season_number": 18,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2002-01-21",
+    "number_of_episodes": 235
+  },
+  {
+    "season_id": 43723,
+    "tv_show_id": 5420,
+    "season_number": 19,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2003-01-20",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 43719,
+    "tv_show_id": 5420,
+    "season_number": 20,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2004-01-19",
+    "number_of_episodes": 235
+  },
+  {
+    "season_id": 43714,
+    "tv_show_id": 5420,
+    "season_number": 21,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2005-01-10",
+    "number_of_episodes": 245
+  },
+  {
+    "season_id": 43706,
+    "tv_show_id": 5420,
+    "season_number": 22,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2006-01-09",
+    "number_of_episodes": 245
+  },
+  {
+    "season_id": 43689,
+    "tv_show_id": 5420,
+    "season_number": 23,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2007-01-08",
+    "number_of_episodes": 245
+  },
+  {
+    "season_id": 43681,
+    "tv_show_id": 5420,
+    "season_number": 24,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2008-01-14",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 43612,
+    "tv_show_id": 5420,
+    "season_number": 25,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2009-01-19",
+    "number_of_episodes": 230
+  },
+  {
+    "season_id": 43592,
+    "tv_show_id": 5420,
+    "season_number": 26,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2010-01-11",
+    "number_of_episodes": 235
+  },
+  {
+    "season_id": 16328,
+    "tv_show_id": 5420,
+    "season_number": 27,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2011-01-10",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 16329,
+    "tv_show_id": 5420,
+    "season_number": 28,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2012-01-09",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 16330,
+    "tv_show_id": 5420,
+    "season_number": 29,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2013-01-07",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 16331,
+    "tv_show_id": 5420,
+    "season_number": 30,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2014-01-06",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 16332,
+    "tv_show_id": 5420,
+    "season_number": 31,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2015-01-05",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 27768,
+    "tv_show_id": 5420,
+    "season_number": 32,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2016-01-04",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 59477,
+    "tv_show_id": 5420,
+    "season_number": 33,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2017-01-09",
+    "number_of_episodes": 240
+  },
+  {
+    "season_id": 80019,
+    "tv_show_id": 5420,
+    "season_number": 34,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2018-01-08",
+    "number_of_episodes": 256
+  },
+  {
+    "season_id": 92480,
+    "tv_show_id": 5420,
+    "season_number": 35,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2019-01-01",
+    "number_of_episodes": 260
+  },
+  {
+    "season_id": 104372,
+    "tv_show_id": 5420,
+    "season_number": 36,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2020-01-01",
+    "number_of_episodes": 261
+  },
+  {
+    "season_id": 119646,
+    "tv_show_id": 5420,
+    "season_number": 37,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2021-01-04",
+    "number_of_episodes": 224
+  },
+  {
+    "season_id": 133883,
+    "tv_show_id": 5420,
+    "season_number": 38,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2022-01-03",
+    "number_of_episodes": 152
+  },
+  {
+    "season_id": 145069,
+    "tv_show_id": 5420,
+    "season_number": 39,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2023-09-18",
+    "number_of_episodes": 200
+  },
+  {
+    "season_id": 173306,
+    "tv_show_id": 5420,
+    "season_number": 40,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2024-09-02",
+    "number_of_episodes": 200
+  },
+  {
+    "season_id": 190416,
+    "tv_show_id": 5420,
+    "season_number": 41,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2025-09-01",
+    "number_of_episodes": 60
+  },
+  {
+    "season_id": 12863,
+    "tv_show_id": 4139,
+    "season_number": 1,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-1.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-1.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1960-12-09",
+    "number_of_episodes": 7
+  },
+  {
+    "season_id": 12864,
+    "tv_show_id": 4139,
+    "season_number": 2,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-2.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-2.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1961-01-04",
+    "number_of_episodes": 48
+  },
+  {
+    "season_id": 12865,
+    "tv_show_id": 4139,
+    "season_number": 3,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-3.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-3.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1962-02-12",
+    "number_of_episodes": 9
+  },
+  {
+    "season_id": 12866,
+    "tv_show_id": 4139,
+    "season_number": 4,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-4.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-4.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1963-03-20",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12867,
+    "tv_show_id": 4139,
+    "season_number": 5,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-5.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-5.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1964-02-05",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12868,
+    "tv_show_id": 4139,
+    "season_number": 6,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-6.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-6.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1965-01-27",
+    "number_of_episodes": 9
+  },
+  {
+    "season_id": 12869,
+    "tv_show_id": 4139,
+    "season_number": 7,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-7.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-7.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1966-01-19",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12870,
+    "tv_show_id": 4139,
+    "season_number": 8,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-8.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-8.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1967-01-16",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12871,
+    "tv_show_id": 4139,
+    "season_number": 9,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-9.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-9.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1968-01-01",
+    "number_of_episodes": 15
+  },
+  {
+    "season_id": 12872,
+    "tv_show_id": 4139,
+    "season_number": 10,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-10.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-10.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1969-01-27",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12873,
+    "tv_show_id": 4139,
+    "season_number": 11,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-11.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-11.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1970-01-05",
+    "number_of_episodes": 27
+  },
+  {
+    "season_id": 12874,
+    "tv_show_id": 4139,
+    "season_number": 12,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-12.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-12.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1971-01-04",
+    "number_of_episodes": 25
+  },
+  {
+    "season_id": 12875,
+    "tv_show_id": 4139,
+    "season_number": 13,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-13.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-13.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1972-04-05",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12876,
+    "tv_show_id": 4139,
+    "season_number": 14,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-14.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-14.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1973-01-01",
+    "number_of_episodes": 14
+  },
+  {
+    "season_id": 12877,
+    "tv_show_id": 4139,
+    "season_number": 15,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-15.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-15.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1974-02-25",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12878,
+    "tv_show_id": 4139,
+    "season_number": 16,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-16.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-16.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1975-01-06",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12879,
+    "tv_show_id": 4139,
+    "season_number": 17,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-17.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-17.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1976-01-21",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12880,
+    "tv_show_id": 4139,
+    "season_number": 18,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-18.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-18.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1977-01-24",
+    "number_of_episodes": 9
+  },
+  {
+    "season_id": 12881,
+    "tv_show_id": 4139,
+    "season_number": 19,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-19.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-19.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1978-01-02",
+    "number_of_episodes": 16
+  },
+  {
+    "season_id": 12882,
+    "tv_show_id": 4139,
+    "season_number": 20,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-20.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-20.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1979-01-08",
+    "number_of_episodes": 9
+  },
+  {
+    "season_id": 12883,
+    "tv_show_id": 4139,
+    "season_number": 21,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-21.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-21.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1980-02-11",
+    "number_of_episodes": 17
+  },
+  {
+    "season_id": 12884,
+    "tv_show_id": 4139,
+    "season_number": 22,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-22.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-22.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1981-03-09",
+    "number_of_episodes": 15
+  },
+  {
+    "season_id": 12885,
+    "tv_show_id": 4139,
+    "season_number": 23,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-23.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-23.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1982-01-04",
+    "number_of_episodes": 71
+  },
+  {
+    "season_id": 12886,
+    "tv_show_id": 4139,
+    "season_number": 24,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-24.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-24.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1983-01-03",
+    "number_of_episodes": 20
+  },
+  {
+    "season_id": 12887,
+    "tv_show_id": 4139,
+    "season_number": 25,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-25.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-25.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1984-01-04",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12888,
+    "tv_show_id": 4139,
+    "season_number": 26,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-26.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-26.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1985-01-09",
+    "number_of_episodes": 11
+  },
+  {
+    "season_id": 12889,
+    "tv_show_id": 4139,
+    "season_number": 27,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-27.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-27.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1986-01-01",
+    "number_of_episodes": 20
+  },
+  {
+    "season_id": 12890,
+    "tv_show_id": 4139,
+    "season_number": 28,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-28.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-28.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1987-02-02",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12891,
+    "tv_show_id": 4139,
+    "season_number": 29,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-29.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-29.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1988-03-02",
+    "number_of_episodes": 14
+  },
+  {
+    "season_id": 12892,
+    "tv_show_id": 4139,
+    "season_number": 30,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-30.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-30.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1989-02-01",
+    "number_of_episodes": 18
+  },
+  {
+    "season_id": 12893,
+    "tv_show_id": 4139,
+    "season_number": 31,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-31.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-31.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1990-01-01",
+    "number_of_episodes": 9
+  },
+  {
+    "season_id": 12894,
+    "tv_show_id": 4139,
+    "season_number": 32,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-32.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-32.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1991-03-15",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12895,
+    "tv_show_id": 4139,
+    "season_number": 33,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-33.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-33.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1992-01-01",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12896,
+    "tv_show_id": 4139,
+    "season_number": 34,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-34.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-34.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1993-02-08",
+    "number_of_episodes": 34
+  },
+  {
+    "season_id": 12897,
+    "tv_show_id": 4139,
+    "season_number": 35,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-35.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-35.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1994-01-03",
+    "number_of_episodes": 25
+  },
+  {
+    "season_id": 12898,
+    "tv_show_id": 4139,
+    "season_number": 36,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-36.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-36.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1995-01-06",
+    "number_of_episodes": 11
+  },
+  {
+    "season_id": 12899,
+    "tv_show_id": 4139,
+    "season_number": 37,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-37.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-37.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1996-01-17",
+    "number_of_episodes": 8
+  },
+  {
+    "season_id": 12900,
+    "tv_show_id": 4139,
+    "season_number": 38,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-38.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-38.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1997-02-14",
+    "number_of_episodes": 17
+  },
+  {
+    "season_id": 12901,
+    "tv_show_id": 4139,
+    "season_number": 39,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-39.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-39.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1998-01-30",
+    "number_of_episodes": 16
+  },
+  {
+    "season_id": 12902,
+    "tv_show_id": 4139,
+    "season_number": 40,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-40.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-40.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1999-01-01",
+    "number_of_episodes": 9
+  },
+  {
+    "season_id": 12903,
+    "tv_show_id": 4139,
+    "season_number": 41,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-41.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-41.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2000-01-01",
+    "number_of_episodes": 15
+  },
+  {
+    "season_id": 12904,
+    "tv_show_id": 4139,
+    "season_number": 42,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-42.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-42.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2001-01-14",
+    "number_of_episodes": 9
+  },
+  {
+    "season_id": 12905,
+    "tv_show_id": 4139,
+    "season_number": 43,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-43.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-43.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2002-01-02",
+    "number_of_episodes": 10
+  },
+  {
+    "season_id": 12906,
+    "tv_show_id": 4139,
+    "season_number": 44,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-44.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-44.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2003-01-12",
+    "number_of_episodes": 144
+  },
+  {
+    "season_id": 12907,
+    "tv_show_id": 4139,
+    "season_number": 45,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-45.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-45.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2004-01-01",
+    "number_of_episodes": 269
+  },
+  {
+    "season_id": 12908,
+    "tv_show_id": 4139,
+    "season_number": 46,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-46.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-46.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2005-01-02",
+    "number_of_episodes": 145
+  },
+  {
+    "season_id": 12909,
+    "tv_show_id": 4139,
+    "season_number": 47,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-47.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-47.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2006-01-01",
+    "number_of_episodes": 213
+  },
+  {
+    "season_id": 12910,
+    "tv_show_id": 4139,
+    "season_number": 48,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-48.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-48.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2007-01-12",
+    "number_of_episodes": 16
+  },
+  {
+    "season_id": 12911,
+    "tv_show_id": 4139,
+    "season_number": 49,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-49.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-49.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2008-01-02",
+    "number_of_episodes": 16
+  },
+  {
+    "season_id": 12912,
+    "tv_show_id": 4139,
+    "season_number": 50,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-50.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-50.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2009-01-02",
+    "number_of_episodes": 260
+  },
+  {
+    "season_id": 12913,
+    "tv_show_id": 4139,
+    "season_number": 51,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-51.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-51.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2010-01-01",
+    "number_of_episodes": 130
+  },
+  {
+    "season_id": 12914,
+    "tv_show_id": 4139,
+    "season_number": 52,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-52.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-52.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2011-01-03",
+    "number_of_episodes": 90
+  },
+  {
+    "season_id": 12915,
+    "tv_show_id": 4139,
+    "season_number": 53,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-53.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-53.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2012-01-02",
+    "number_of_episodes": 258
+  },
+  {
+    "season_id": 12916,
+    "tv_show_id": 4139,
+    "season_number": 54,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-54.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-54.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2013-01-02",
+    "number_of_episodes": 259
+  },
+  {
+    "season_id": 12917,
+    "tv_show_id": 4139,
+    "season_number": 55,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-55.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-55.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2014-01-01",
+    "number_of_episodes": 251
+  },
+  {
+    "season_id": 12918,
+    "tv_show_id": 4139,
+    "season_number": 56,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-56.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-56.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2015-01-02",
+    "number_of_episodes": 261
+  },
+  {
+    "season_id": 28904,
+    "tv_show_id": 4139,
+    "season_number": 57,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-57.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-57.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2016-01-01",
+    "number_of_episodes": 263
+  },
+  {
+    "season_id": 57689,
+    "tv_show_id": 4139,
+    "season_number": 58,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-58.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-58.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2017-01-01",
+    "number_of_episodes": 271
+  },
+  {
+    "season_id": 78640,
+    "tv_show_id": 4139,
+    "season_number": 59,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-59.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-59.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2018-01-01",
+    "number_of_episodes": 301
+  },
+  {
+    "season_id": 91726,
+    "tv_show_id": 4139,
+    "season_number": 60,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/71565-60.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/71565-60.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2019-01-01",
+    "number_of_episodes": 282
+  },
+  {
+    "season_id": 104235,
+    "tv_show_id": 4139,
+    "season_number": 61,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/598/1495734.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/598/1495734.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2020-01-01",
+    "number_of_episodes": 222
+  },
+  {
+    "season_id": 117487,
+    "tv_show_id": 4139,
+    "season_number": 62,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/598/1495734.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/598/1495734.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2021-01-01",
+    "number_of_episodes": 266
+  },
+  {
+    "season_id": 132685,
+    "tv_show_id": 4139,
+    "season_number": 63,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/598/1495734.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/598/1495734.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2022-01-03",
+    "number_of_episodes": 179
+  },
+  {
+    "season_id": 146369,
+    "tv_show_id": 4139,
+    "season_number": 64,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/598/1495734.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/598/1495734.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2023-01-02",
+    "number_of_episodes": 160
+  },
+  {
+    "season_id": 161890,
+    "tv_show_id": 4139,
+    "season_number": 65,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/598/1495734.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/598/1495734.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2023-12-31",
+    "number_of_episodes": 157
+  },
+  {
+    "season_id": 178976,
+    "tv_show_id": 4139,
+    "season_number": 66,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/598/1495734.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/598/1495734.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2025-01-01",
+    "number_of_episodes": 155
+  },
+  {
+    "season_id": 194417,
+    "tv_show_id": 4139,
+    "season_number": 67,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/598/1495734.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/598/1495734.jpg"
+    },
+    "isContinuing": true,
+    "airdate": "2026-01-01",
+    "number_of_episodes": 54
+  },
+  {
+    "season_id": 3266,
+    "tv_show_id": 793,
+    "season_number": 1985,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1985-02-19",
+    "number_of_episodes": 91
+  },
+  {
+    "season_id": 3267,
+    "tv_show_id": 793,
+    "season_number": 1986,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1986-01-02",
+    "number_of_episodes": 105
+  },
+  {
+    "season_id": 3268,
+    "tv_show_id": 793,
+    "season_number": 1987,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1987-01-01",
+    "number_of_episodes": 107
+  },
+  {
+    "season_id": 5289,
+    "tv_show_id": 793,
+    "season_number": 1988,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1988-01-05",
+    "number_of_episodes": 104
+  },
+  {
+    "season_id": 5290,
+    "tv_show_id": 793,
+    "season_number": 1989,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1989-01-03",
+    "number_of_episodes": 104
+  },
+  {
+    "season_id": 5291,
+    "tv_show_id": 793,
+    "season_number": 1990,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1990-01-02",
+    "number_of_episodes": 104
+  },
+  {
+    "season_id": 5292,
+    "tv_show_id": 793,
+    "season_number": 1991,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1991-01-01",
+    "number_of_episodes": 105
+  },
+  {
+    "season_id": 5293,
+    "tv_show_id": 793,
+    "season_number": 1992,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1992-01-02",
+    "number_of_episodes": 106
+  },
+  {
+    "season_id": 5294,
+    "tv_show_id": 793,
+    "season_number": 1993,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1993-01-05",
+    "number_of_episodes": 105
+  },
+  {
+    "season_id": 5295,
+    "tv_show_id": 793,
+    "season_number": 1994,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1994-01-04",
+    "number_of_episodes": 142
+  },
+  {
+    "season_id": 5296,
+    "tv_show_id": 793,
+    "season_number": 1995,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1995-01-02",
+    "number_of_episodes": 157
+  },
+  {
+    "season_id": 5297,
+    "tv_show_id": 793,
+    "season_number": 1996,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1996-01-01",
+    "number_of_episodes": 161
+  },
+  {
+    "season_id": 5298,
+    "tv_show_id": 793,
+    "season_number": 1997,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1997-01-02",
+    "number_of_episodes": 162
+  },
+  {
+    "season_id": 5299,
+    "tv_show_id": 793,
+    "season_number": 1998,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1998-01-01",
+    "number_of_episodes": 164
+  },
+  {
+    "season_id": 5300,
+    "tv_show_id": 793,
+    "season_number": 1999,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1999-01-04",
+    "number_of_episodes": 169
+  },
+  {
+    "season_id": 5301,
+    "tv_show_id": 793,
+    "season_number": 2000,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2000-01-03",
+    "number_of_episodes": 160
+  },
+  {
+    "season_id": 5302,
+    "tv_show_id": 793,
+    "season_number": 2001,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2001-01-01",
+    "number_of_episodes": 179
+  },
+  {
+    "season_id": 5303,
+    "tv_show_id": 793,
+    "season_number": 2002,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2002-01-01",
+    "number_of_episodes": 213
+  },
+  {
+    "season_id": 5304,
+    "tv_show_id": 793,
+    "season_number": 2003,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2003-01-01",
+    "number_of_episodes": 212
+  },
+  {
+    "season_id": 5305,
+    "tv_show_id": 793,
+    "season_number": 2004,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2004-01-01",
+    "number_of_episodes": 210
+  },
+  {
+    "season_id": 5306,
+    "tv_show_id": 793,
+    "season_number": 2005,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2005-01-03",
+    "number_of_episodes": 207
+  },
+  {
+    "season_id": 5307,
+    "tv_show_id": 793,
+    "season_number": 2006,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2006-01-02",
+    "number_of_episodes": 206
+  },
+  {
+    "season_id": 5308,
+    "tv_show_id": 793,
+    "season_number": 2007,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2007-01-01",
+    "number_of_episodes": 208
+  },
+  {
+    "season_id": 5309,
+    "tv_show_id": 793,
+    "season_number": 2008,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2008-01-01",
+    "number_of_episodes": 207
+  },
+  {
+    "season_id": 5310,
+    "tv_show_id": 793,
+    "season_number": 2009,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2009-01-01",
+    "number_of_episodes": 209
+  },
+  {
+    "season_id": 5311,
+    "tv_show_id": 793,
+    "season_number": 2010,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2010-01-01",
+    "number_of_episodes": 204
+  },
+  {
+    "season_id": 5312,
+    "tv_show_id": 793,
+    "season_number": 2011,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2011-01-01",
+    "number_of_episodes": 210
+  },
+  {
+    "season_id": 5313,
+    "tv_show_id": 793,
+    "season_number": 2012,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2012-01-01",
+    "number_of_episodes": 206
+  },
+  {
+    "season_id": 5314,
+    "tv_show_id": 793,
+    "season_number": 2013,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2013-01-01",
+    "number_of_episodes": 212
+  },
+  {
+    "season_id": 5315,
+    "tv_show_id": 793,
+    "season_number": 2014,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2014-01-01",
+    "number_of_episodes": 208
+  },
+  {
+    "season_id": 5316,
+    "tv_show_id": 793,
+    "season_number": 2015,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2015-01-01",
+    "number_of_episodes": 206
+  },
+  {
+    "season_id": 28340,
+    "tv_show_id": 793,
+    "season_number": 2016,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2016-01-01",
+    "number_of_episodes": 210
+  },
+  {
+    "season_id": 57688,
+    "tv_show_id": 793,
+    "season_number": 2017,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2017-01-01",
+    "number_of_episodes": 210
+  },
+  {
+    "season_id": 78639,
+    "tv_show_id": 793,
+    "season_number": 2018,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2018-01-01",
+    "number_of_episodes": 206
+  },
+  {
+    "season_id": 91692,
+    "tv_show_id": 793,
+    "season_number": 2019,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2019-01-01",
+    "number_of_episodes": 210
+  },
+  {
+    "season_id": 103507,
+    "tv_show_id": 793,
+    "season_number": 2020,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2020-01-01",
+    "number_of_episodes": 139
+  },
+  {
+    "season_id": 117697,
+    "tv_show_id": 793,
+    "season_number": 2021,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2021-01-01",
+    "number_of_episodes": 209
+  },
+  {
+    "season_id": 132470,
+    "tv_show_id": 793,
+    "season_number": 2022,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2022-01-03",
+    "number_of_episodes": 207
+  },
+  {
+    "season_id": 145730,
+    "tv_show_id": 793,
+    "season_number": 2023,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2023-01-01",
+    "number_of_episodes": 210
+  },
+  {
+    "season_id": 161199,
+    "tv_show_id": 793,
+    "season_number": 2024,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2024-01-01",
+    "number_of_episodes": 210
+  },
+  {
+    "season_id": 178300,
+    "tv_show_id": 793,
+    "season_number": 2025,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2025-01-01",
+    "number_of_episodes": 215
+  },
+  {
+    "season_id": 194376,
+    "tv_show_id": 793,
+    "season_number": 2026,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "isContinuing": true,
+    "airdate": "2026-01-01",
+    "number_of_episodes": 49
+  },
+  {
+    "season_id": 13047,
+    "tv_show_id": 4175,
+    "season_number": 1,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1995-10-23",
+    "number_of_episodes": 9
+  },
+  {
+    "season_id": 123431,
+    "tv_show_id": 4175,
+    "season_number": 2,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "1996-01-01",
+    "number_of_episodes": 3
+  },
+  {
+    "season_id": 13050,
+    "tv_show_id": 4175,
+    "season_number": 10,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2004-01-02",
+    "number_of_episodes": 261
+  },
+  {
+    "season_id": 13051,
+    "tv_show_id": 4175,
+    "season_number": 11,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2005-01-03",
+    "number_of_episodes": 265
+  },
+  {
+    "season_id": 13052,
+    "tv_show_id": 4175,
+    "season_number": 12,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2006-01-02",
+    "number_of_episodes": 259
+  },
+  {
+    "season_id": 13053,
+    "tv_show_id": 4175,
+    "season_number": 13,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2007-01-02",
+    "number_of_episodes": 259
+  },
+  {
+    "season_id": 13054,
+    "tv_show_id": 4175,
+    "season_number": 14,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2008-01-02",
+    "number_of_episodes": 262
+  },
+  {
+    "season_id": 13055,
+    "tv_show_id": 4175,
+    "season_number": 15,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2009-01-02",
+    "number_of_episodes": 261
+  },
+  {
+    "season_id": 13056,
+    "tv_show_id": 4175,
+    "season_number": 16,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/78006-16.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/78006-16.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2010-01-01",
+    "number_of_episodes": 262
+  },
+  {
+    "season_id": 13057,
+    "tv_show_id": 4175,
+    "season_number": 17,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/78006-17.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/78006-17.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2011-01-03",
+    "number_of_episodes": 260
+  },
+  {
+    "season_id": 13058,
+    "tv_show_id": 4175,
+    "season_number": 18,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/78006-18.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/78006-18.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2012-01-02",
+    "number_of_episodes": 262
+  },
+  {
+    "season_id": 13059,
+    "tv_show_id": 4175,
+    "season_number": 19,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/78006-19.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/78006-19.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2013-01-02",
+    "number_of_episodes": 261
+  },
+  {
+    "season_id": 13060,
+    "tv_show_id": 4175,
+    "season_number": 20,
+    "seasonIMG_URL": {
+      "medium": "https://artworks.thetvdb.com/banners/seasons/78006-20.jpg",
+      "original": "https://artworks.thetvdb.com/banners/seasons/78006-20.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2014-01-02",
+    "number_of_episodes": 259
+  },
+  {
+    "season_id": 13062,
+    "tv_show_id": 4175,
+    "season_number": 21,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2014-05-05",
+    "number_of_episodes": 259
+  },
+  {
+    "season_id": 29109,
+    "tv_show_id": 4175,
+    "season_number": 22,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2016-01-01",
+    "number_of_episodes": 260
+  },
+  {
+    "season_id": 58276,
+    "tv_show_id": 4175,
+    "season_number": 23,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2017-01-02",
+    "number_of_episodes": 257
+  },
+  {
+    "season_id": 79200,
+    "tv_show_id": 4175,
+    "season_number": 24,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2018-01-02",
+    "number_of_episodes": 257
+  },
+  {
+    "season_id": 91820,
+    "tv_show_id": 4175,
+    "season_number": 25,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2019-01-02",
+    "number_of_episodes": 194
+  },
+  {
+    "season_id": 108850,
+    "tv_show_id": 4175,
+    "season_number": 26,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2020-01-06",
+    "number_of_episodes": 93
+  },
+  {
+    "season_id": 131394,
+    "tv_show_id": 4175,
+    "season_number": 27,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2021-01-04",
+    "number_of_episodes": 256
+  },
+  {
+    "season_id": 134904,
+    "tv_show_id": 4175,
+    "season_number": 28,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2022-01-03",
+    "number_of_episodes": 258
+  },
+  {
+    "season_id": 145933,
+    "tv_show_id": 4175,
+    "season_number": 29,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2022-12-19",
+    "number_of_episodes": 61
+  },
+  {
+    "season_id": 162814,
+    "tv_show_id": 4175,
+    "season_number": 30,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2024-01-04",
+    "number_of_episodes": 229
+  },
+  {
+    "season_id": 179213,
+    "tv_show_id": 4175,
+    "season_number": 31,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": false,
+    "airdate": "2025-01-06",
+    "number_of_episodes": 154
+  },
+  {
+    "season_id": 194443,
+    "tv_show_id": 4175,
+    "season_number": 32,
+    "seasonIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "isContinuing": true,
+    "airdate": "2026-01-05",
+    "number_of_episodes": 32
   },
   {
     "season_id": 31851,

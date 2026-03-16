@@ -12,16 +12,16 @@ const tvShows = [
     "number_of_episodes": 184
   },
   {
-    "tv_show_id": 11867,
-    "name": "Geordie Shore: Their Journey",
+    "tv_show_id": 842,
+    "name": "Geordie Shore",
     "type": "Reality",
-    "description": "<p>In <b>Geordie Shore: Their Journey</b>, the cast of <i>Geordie Shore</i> past and present reunite to discuss their time on the show and for those who have left, what they have achieved since leaving the programme.</p>",
+    "description": "<p>Following on from the International success of <i>Jersey Shore</i>, <b>Geordie Shore</b> follows the real life dramas of a group of Newcastle's finest.</p>",
     "TVShowIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/39/99945.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/39/99945.jpg"
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532899.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532899.jpg"
     },
-    "number_of_seasons": 1,
-    "number_of_episodes": 2
+    "number_of_seasons": 26,
+    "number_of_episodes": 246
   },
   {
     "tv_show_id": 2098,
@@ -192,16 +192,16 @@ const tvShows = [
     "number_of_episodes": 257
   },
   {
-    "tv_show_id": 40390,
-    "name": "Glow Up: Britain's Next Make-Up Star",
+    "tv_show_id": 76670,
+    "name": "Glow Up",
     "type": "Reality",
-    "description": "<p><b>Glow Up: Britain's Next Make-Up Star</b> is a competition to look for the next big make-up star of tomorrow. Tapping into the huge online passion for extreme make-up transformations, the series will see a talented cast of hopefuls live and work together as they attempt to prove their potential to industry professionals from a multitude of worlds from fashion to film. With regular eliminations, the challenges will not only test their skills under pressure but also give them the opportunity to unleash their creative vision with jaw-dropping results.</p>",
+    "description": "<p>Make-up is no longer just foundation and mascara, and never before has interest in advanced make-up been greater. Join the hunt for Norway's next makeup star!</p>",
     "TVShowIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/555/1388941.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/555/1388941.jpg"
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/517/1294208.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/517/1294208.jpg"
     },
-    "number_of_seasons": 7,
-    "number_of_episodes": 55
+    "number_of_seasons": 1,
+    "number_of_episodes": 21
   },
   {
     "tv_show_id": 43250,
@@ -228,16 +228,16 @@ const tvShows = [
     "number_of_episodes": 78
   },
   {
-    "tv_show_id": 39967,
-    "name": "Bradley Walsh & Son: Breaking Dad",
-    "type": "Reality",
-    "description": "<p>Actor Bradley Walsh and his 20-year-old son Barney are hitting the road together for a brand-new four-part series, travelling over 2000 miles from Los Angeles to New Orleans.</p>",
+    "tv_show_id": 169,
+    "name": "Breaking Bad",
+    "type": "Scripted",
+    "description": "<p><b>Breaking Bad</b> follows protagonist Walter White, a chemistry teacher who lives in New Mexico with his wife and teenage son who has cerebral palsy. White is diagnosed with Stage III cancer and given a prognosis of two years left to live. With a new sense of fearlessness based on his medical prognosis, and a desire to secure his family's financial security, White chooses to enter a dangerous world of drugs and crime and ascends to power in this world. The series explores how a fatal diagnosis such as White's releases a typical man from the daily concerns and constraints of normal society and follows his transformation from mild family man to a kingpin of the drug trade.</p>",
     "TVShowIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/447/1118583.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/447/1118583.jpg"
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/501/1253519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/501/1253519.jpg"
     },
-    "number_of_seasons": 6,
-    "number_of_episodes": 37
+    "number_of_seasons": 5,
+    "number_of_episodes": 63
   },
   {
     "tv_show_id": 548,
@@ -336,49 +336,52 @@ const tvShows = [
     "number_of_episodes": 73
   },
   {
-    "tv_show_id": 48737,
-    "name": "Coronation Street Icons",
-    "type": "Variety",
-    "description": "<p><b>Coronation Street Icons</b> will consist of four episodes narrated by Sally Lindsay, each on a different cobbles legend.</p><p>The four that have been chosen are Ken Barlow, Sally Metcalfe, Liz McDonald and Roy Cropper, with respective actors William Roache, Sally Dynevor, Beverley Callard and David Neilson recalling stories alongside archive footage.</p>",
-    "TVShowIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/291/729720.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/291/729720.jpg"
-    },
-    "number_of_seasons": 3,
-    "number_of_episodes": 6
-  },
-  {
-    "tv_show_id": 82655,
-    "name": "Remembers... EastEnders",
-    "type": "Talk Show",
-    "description": "<p>Actors from the soap remember classic storylines. </p>",
-    "TVShowIMG_URL": null,
-    "number_of_seasons": 1,
-    "number_of_episodes": 3
-  },
-  {
-    "tv_show_id": 87830,
-    "name": "Hollyoaks Later",
+    "tv_show_id": 5420,
+    "name": "Neighbours",
     "type": "Scripted",
-    "description": "<p>`<b>Hollyoaks Later</b>' is a spinoff of long-running soap opera `Hollyoaks'. The programme, which airs in a late-night time slot, delves deeper into the lives, loves and misdemeanours of some of the `Hollyoaks' characters, who shed their teen images as they try to find their feet away from the village. Due to its late-night schedule, `Hollyoaks Later' offers raunchier storylines and events than its parent programme, which airs earlier in the day. </p>",
+    "description": "<p>The continuation of the long-running daily drama series—about the lives, loves, and challenges of the residents on Ramsay Street in Erinsborough, Australia, a fictional suburb of Melbourne. </p>",
     "TVShowIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/594/1485976.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485976.jpg"
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/471/1178200.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/471/1178200.jpg"
     },
-    "number_of_seasons": 8,
-    "number_of_episodes": 32
+    "number_of_seasons": 41,
+    "number_of_episodes": 9363
   },
   {
-    "tv_show_id": 35525,
-    "name": "Jeremy Clarkson Meets the Neighbours",
-    "type": "Documentary",
-    "description": "<p>Jeremy Clarkson drives a 1960s Jaguar E-Type around six European countries to discover just how different their lifestyles are to those in Britain, and whether the reality matches the stereotypical perception of each country.</p>",
+    "tv_show_id": 4139,
+    "name": "Coronation Street",
+    "type": "Scripted",
+    "description": "<p>Step onto the cobbles for all the drama, secrets and unforgettable moments from the world's longest running TV soap.</p>",
     "TVShowIMG_URL": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/150/375001.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/150/375001.jpg"
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/598/1495734.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/598/1495734.jpg"
     },
-    "number_of_seasons": 1,
-    "number_of_episodes": 5
+    "number_of_seasons": 67,
+    "number_of_episodes": 5263
+  },
+  {
+    "tv_show_id": 793,
+    "name": "EastEnders",
+    "type": "Scripted",
+    "description": "<p>Set in the East End of London, the show focuses on the tensions between love and family with stories ranging from hard-hitting social issues, to personal, human tragedies. And there's plenty of funny moments too. <br /><br />Classic characters old and new across thousands of episodes have shared a drink in The Queen Vic, shed tears of despair or joy, sat on Arthur's bench in the Square... and at some point or other they probably crossed paths with Ian Beale.</p>",
+    "TVShowIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15519.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg"
+    },
+    "number_of_seasons": 42,
+    "number_of_episodes": 7218
+  },
+  {
+    "tv_show_id": 4175,
+    "name": "Hollyoaks",
+    "type": "Scripted",
+    "description": "<p><b>Hollyoaks</b> follows the lives of a group of residents living in the fictional village of Chester.</p>",
+    "TVShowIMG_URL": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532924.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532924.jpg"
+    },
+    "number_of_seasons": 25,
+    "number_of_episodes": 5193
   },
   {
     "tv_show_id": 11363,

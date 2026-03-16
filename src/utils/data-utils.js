@@ -15,13 +15,39 @@ function compareDate(date) {
   }
 }
 
-function findShowIDByCountry(tvShows, countryCode) {
+function findShowIDByCountry(tvShows, seriesName, countryCode) {
   for (const tvshow of tvShows) {
-    if (tvshow.show.network?.country?.code === countryCode) {
+    if (
+      (tvshow.show.network?.country?.code === countryCode ||
+        tvshow.show.webChannel?.country?.code === countryCode ||
+        tvshow.show.officialSite?.includes("uk")) &&
+      tvshow.show.name?.toLowerCase() === seriesName.toLowerCase()
+    ) {
       return tvshow.show.id;
     }
   }
-  return tvShows[0]?.show.id; // fallback to first result for all countries
+  const tvShowFiltered = [];
+  for (const tvshow of tvShows) {
+    if (
+      tvshow.show.network?.country?.code === countryCode ||
+      tvshow.show.webChannel?.country?.code === countryCode ||
+      tvshow.show.officialSite?.includes("uk")
+    ) {
+      tvShowFiltered.push(tvshow);
+    }
+  }
+  if (tvShowFiltered[0]?.show?.name?.toLowerCase().includes("uk")) {
+    return tvShowFiltered[0]?.show.id;
+  }
+  for (const tvshow of tvShows) {
+    if (
+      tvshow.show.name?.toLowerCase() === seriesName.toLowerCase() &&
+      tvshow.show.language.toLowerCase() === "english"
+    ) {
+      return tvshow.show.id;
+    }
+  }
+  return tvShows[0]?.show.id;
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

@@ -40,10 +40,10 @@ const TV_SHOW_LIST_4 = [
   "Naked Attraction",
 ];
 const TV_SHOW_LIST_5 = [
+  "Neighbours",
   "Coronation Street",
   "EastEnders",
   "Hollyoaks",
-  "Neighbours",
   "Love Island",
   "Big Brother",
 ];
