@@ -64,10 +64,18 @@ async function selectPollsByEpisodeID(episode_id) {
   return rows;
 }
 
+async function selectEpisodesBySeasonId(season_id) {
+  const queryStr = `
+  SELECT * FROM episodes WHERE season_id = $1 ORDER BY episode_id ASC`;
+
+  const { rows } = await db.query(queryStr, [season_id]);
+  return rows;
+}
 module.exports = {
   selectCommentsByEpisodeID,
   selectEpisodeByID,
   selectPollsByEpisodeID,
+  selectEpisodesBySeasonId,
 };
 
 // `SELECT *,

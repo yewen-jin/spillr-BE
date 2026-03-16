@@ -309,3 +309,60 @@ describe("/api/episodes/:episode_id/polls", () => {
     });
   });
 });
+
+describe("/api/episodes/:episode_id", () => {
+  describe("GET", () => {
+    test("gets the episode for a particular episode id", async () => {
+      const result = await request(app).get("/api/episodes/469092").expect(200);
+      const { body } = result;
+      const { episode } = body;
+
+      expect(typeof episode.episode_id).toBe("number");
+      expect(typeof episode.episode_number).toBe("number");
+      expect(typeof episode.season_id).toBe("number");
+      expect(typeof episode.runtime_total).toBe("number");
+      expect(typeof episode.release_date).toBe("string");
+      expect(typeof episode.release_time).toBe("string");
+      expect(typeof episode.episode_url).toBe("object");
+      expect(typeof episode.is_premier).toBe("boolean");
+      expect(typeof episode.synopsis).toBe("string");
+    });
+  });
+});
+
+describe("/api/seasons/:season_id/episodes", () => {
+  describe("GET", () => {
+    test("gets all episodes for a particular season of a tv-show", async () => {
+      //  	"episodes": [
+      // {
+      // 	"episode_id": 469092,
+      // 	"season_id": 24875,
+      // 	"episode_number": 1,
+      // 	"runtime_total": 30,
+      // 	"release_date": "2010-11-22T00:00:00.000Z",
+      // 	"release_time": "17:00:00",
+      // 	"episode_url": null,
+      // 	"thread_opened": false,
+      // 	"synopsis": "",
+      // 	"is_premier": false
+      // },
+      const result = await request(app)
+        .get("/api/seasons/24875/episodes")
+        .expect(200);
+      const { body } = result;
+      const { episodes } = body;
+      expect(Array.isArray(episodes)).toBe(true);
+      episodes.forEach((episode) => {
+        expect(typeof episode.episode_id).toBe("number");
+        expect(typeof episode.episode_number).toBe("number");
+        expect(typeof episode.season_id).toBe("number");
+        expect(typeof episode.runtime_total).toBe("number");
+        expect(typeof episode.release_date).toBe("string");
+        expect(typeof episode.release_time).toBe("string");
+        expect(typeof episode.episode_url).toBe("object");
+        expect(typeof episode.is_premier).toBe("boolean");
+        expect(typeof episode.synopsis).toBe("string");
+      });
+    });
+  });
+});
