@@ -80,7 +80,6 @@ async function fetchEpisodesBySeasonID(ID) {
         releaseDate: airstampToDateTime(episode.airstamp).airdate,
         releaseTime: airstampToDateTime(episode.airstamp).airtime,
         episodeIMG_URL: episode.image,
-        isPremier: episode.airdate ? !compareDate(episode.airdate) : false,
         episode_name: episode.name,
         synopsis: episode.summary,
         season_number: episode.season,
