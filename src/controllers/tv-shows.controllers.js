@@ -1,7 +1,10 @@
 const cleanData = require("../utils/data-cleaner");
 const appendToConstantsList = require("../utils/appendToConstantsList");
 const checkShowExists = require("../utils/checkShowExists");
-const { insertTvShowData } = require("../models/tv-shows.model");
+const {
+  insertTvShowData,
+  fetchTrendingShows,
+} = require("../models/tv-shows.model");
 
 async function addShow(req, res, next) {
   const raw = req.body.show_name;
@@ -61,4 +64,23 @@ async function addShow(req, res, next) {
   }
 }
 
-module.exports = { addShow };
+async function getTrendingShows(req, res, next) {
+  const limit = parseInt(req.query.limit) || 5;
+  const sort_by = req.query.sort_by || "comments";
+  const order = req.query.order === "asc" ? "ASC" : "DESC";
+
+  const validSortBy = ["comments"];
+  if (!validSortBy.includes(sort_by)) {
+    return res.status(400).json({ msg: "Invalid sort_by value" });
+  }
+
+  try {
+    const shows = await fetchTrendingShows(limit, order);
+    res.status(200).json(shows);
+  } catch (err) {
+    console.error("[getTrendingShows] Failed:", err.message);
+    next(err);
+  }
+}
+
+module.exports = { addShow, getTrendingShows };

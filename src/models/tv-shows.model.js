@@ -52,4 +52,28 @@ const insertTvShowData = async (
   await db.query(episodesQuery);
 };
 
-module.exports = { insertTvShowData };
+const fetchTrendingShows = async (limit, order) => {
+  const query = `
+    SELECT 
+      ts.tv_show_id,
+      ts.name,
+      ts.description,
+      ts.number_of_seasons,
+      ts.number_of_episodes,
+      ts.tv_show_img_url,
+      COUNT(c.comment_id) AS comment_count
+    FROM comments c
+    JOIN episodes e ON c.episode_id = e.episode_id
+    JOIN seasons s ON e.season_id = s.season_id
+    JOIN tv_shows ts ON s.tv_show_id = ts.tv_show_id
+    WHERE c.created_at >= NOW() - INTERVAL '7 days'
+    GROUP BY ts.tv_show_id, ts.name, ts.description, ts.number_of_seasons, ts.number_of_episodes, ts.tv_show_img_url
+    ORDER BY comment_count ${order}
+    LIMIT $1;
+  `;
+
+  const { rows } = await db.query(query, [limit]);
+  return rows;
+};
+
+module.exports = { insertTvShowData, fetchTrendingShows };
