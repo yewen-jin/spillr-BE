@@ -1,5 +1,14 @@
 # spillr-BE
 
+## setting up environmental files:
+
+add the following 3 environmental files.
+```
+.env.test #this should be PGDATABASE=spillr_test
+.env.dev  #this should be PGDATABASE=spillr_dev
+.env.production #this should be DATABASE_URL=<supabase connection string>
+```
+
 ## start development server
 
 To start the local developmenet server, run the following command:
