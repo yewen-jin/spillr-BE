@@ -1,10 +1,14 @@
 const cleanData = require("../src/utils/data-cleaner");
+const { sleep } = require("../src/utils/data-utils.js");
 const {
   TV_SHOWS_LIST_1,
   TV_SHOWS_LIST_2,
   TV_SHOW_LIST_3,
   TV_SHOW_LIST_4,
   TV_SHOW_LIST_5,
+  TV_SHOW_LIST_6,
+  TV_SHOW_LIST_7,
+  TV_SHOW_LIST_8,
   FILE_PATH_TV_SHOWS,
   FILE_PATH_SEASONS,
   FILE_PATH_EPISODES,
@@ -40,6 +44,11 @@ async function main(...showNameLists) {
   } catch (err) {
     console.error("Error occurred while writing data:", err);
   }
+  try {
+    await sleep(5000);
+  } catch (error) {
+    console.error(error);
+  }
 }
 main(
   TV_SHOWS_LIST_1,
@@ -47,4 +56,7 @@ main(
   TV_SHOW_LIST_3,
   TV_SHOW_LIST_4,
   TV_SHOW_LIST_5,
+  TV_SHOW_LIST_6,
+  TV_SHOW_LIST_7,
+  TV_SHOW_LIST_8,
 );

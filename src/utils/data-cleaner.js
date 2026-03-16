@@ -47,7 +47,7 @@ async function cleanData(showName) {
 
     for (const season of seasons) {
       try {
-        await sleep(30);
+        await sleep(50);
         const seasonEpisodes = await fetchEpisodesBySeasonID(season.season_id);
         episodes.push(seasonEpisodes);
       } catch (error) {

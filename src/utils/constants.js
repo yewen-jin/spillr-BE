@@ -1,14 +1,13 @@
 const path = require("path");
 
 const TV_SHOWS_LIST_1 = [
-  "Dragons' Den",
-  "MasterChef",
-  "Celebrity MasterChef",
-  "MasterChef: The Professionals",
-  "The Great British Bake Off",
-  "The Great British Sewing Bee",
-  "Junior Bake Off",
-  "Come Dine with Me",
+  "Married at First Sight",
+  "Geordie Shore",
+  "The Only Way Is Essex",
+  "Made in Chelsea",
+  "Ex on the Beach",
+  "Race Across the World",
+  "Hunted",
 ];
 
 const TV_SHOWS_LIST_2 = [
@@ -17,7 +16,7 @@ const TV_SHOWS_LIST_2 = [
   "Taskmaster",
   "The 1% Club",
   "Pointless Celebrities",
-  "Antiques Roadshow",
+  "Come Dine with Me",
   "Bargain Hunt",
   "Escape to the Country",
   "Grand Designs",
@@ -39,13 +38,6 @@ const TV_SHOW_LIST_4 = [
   "First Dates",
   "First Dates Hotel",
   "Naked Attraction",
-  "Married at First Sight",
-  "Geordie Shore",
-  "The Only Way Is Essex",
-  "Made in Chelsea",
-  "Ex on the Beach",
-  "Race Across the World",
-  "Hunted",
 ];
 const TV_SHOW_LIST_5 = [
   "Coronation Street",
@@ -54,10 +46,26 @@ const TV_SHOW_LIST_5 = [
   "Neighbours",
   "Love Island",
   "Big Brother",
+];
+const TV_SHOW_LIST_6 = [
+  "Antiques Roadshow",
+  "Dragons' Den",
+  "MasterChef",
+  "Celebrity MasterChef",
+  "MasterChef: The Professionals",
+  "The Great British Bake Off",
+  "The Great British Sewing Bee",
+  "Junior Bake Off",
+];
+
+const TV_SHOW_LIST_7 = [
   "Celebrity Big Brother",
   "The Traitors",
   "I'm a Celebrity... Get Me Out of Here!",
   "Strictly Come Dancing",
+];
+
+const TV_SHOW_LIST_8 = [
   "Britain's Got Talent",
   "The X Factor",
   "Dancing on Ice",
@@ -106,6 +114,9 @@ module.exports = {
   TV_SHOW_LIST_3,
   TV_SHOW_LIST_4,
   TV_SHOW_LIST_5,
+  TV_SHOW_LIST_6,
+  TV_SHOW_LIST_7,
+  TV_SHOW_LIST_8,
   FILE_PATH_TV_SHOWS,
   FILE_PATH_SEASONS,
   FILE_PATH_EPISODES,
