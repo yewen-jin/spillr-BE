@@ -15,6 +15,9 @@ async function selectRepliesByCommentId(comment_id) {
   const queryStr = `
     SELECT 
     replies.*,
+    profiles.avatar_url,
+    profiles.username,
+    parent_profiles.username AS parent_username,
     (SELECT COUNT(*)::int FROM reactions WHERE reactions.reply_id = replies.reply_id) AS reactions_total,
     COALESCE(
       (SELECT JSON_BUILD_OBJECT(
@@ -28,11 +31,15 @@ async function selectRepliesByCommentId(comment_id) {
       '{"angryTotal":0,"laughingTotal":0,"cryingTotal":0,"fireTotal":0,"deadTotal":0,"heartTotal":0}'::json
     ) AS "reactionType_total"
     FROM replies
+    JOIN profiles ON replies.user_id = profiles.user_id
+    JOIN comments ON replies.comment_id = comments.comment_id
+    JOIN profiles AS parent_profiles ON comments.user_id = parent_profiles.user_id
     WHERE replies.comment_id = $1
     ORDER BY reactions_total DESC;
   `;
 
   const { rows } = await db.query(queryStr, [comment_id]);
+  console.log(rows[0]);
   return rows;
 }
 
