@@ -73,16 +73,16 @@
     </body>
     <script>
         const socket = io();
+        socket.connect();
+        socket.emit("room:join", 469092);
         const messages = document.getElementById("messages");
 
         const commentForm = document.getElementById("comment-form");
         const commentInput = document.getElementById("comment");
         const comment = {
-            episode_id: 469092,
             user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
             runtime_seconds: 1,
             is_spoiler: false,
-            // is_live: true,
         };
 
         commentForm.addEventListener("submit", (e) => {

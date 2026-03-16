@@ -16,9 +16,11 @@ const initiateSocket = (server) => {
     //   usersHandler(socket, io, userId);
     // });
 
-    // socket.on("room:join", (episodeId) => {
-    commentsHandler(socket, io);
-    // });
+    socket.on("room:join", (episodeId) => {
+      socket.join(String(episodeId));
+      console.log(`joined room: `, episodeId);
+      commentsHandler(socket, io, episodeId);
+    });
 
     socket.on("disconnect", () => {
       console.log("A user has disconnected");
