@@ -1,6 +1,9 @@
 const {
   selectRepliesByCommentId,
   selectCommentsByCommentId,
+  selectFriendIds,
+  selectFriendComments,
+  selectGeneralComments,
 } = require("../models/comments.models.js");
 const { NotFoundError } = require("../errors/customError.js");
 
@@ -18,6 +21,19 @@ async function fetchRepliesByCommentIdService(comment_id) {
   }
 }
 
+async function fetchCommentFeedService(user_id, offset) {
+  const friendIds = await selectFriendIds(user_id);
+
+  const friendComments = await selectFriendComments(friendIds);
+
+  const generalComments = await selectGeneralComments(friendIds, user_id);
+
+  const merged = [...friendComments, ...generalComments];
+
+  return merged.slice(offset, offset + 5);
+}
+
 module.exports = {
   fetchRepliesByCommentIdService,
+  fetchCommentFeedService,
 };
