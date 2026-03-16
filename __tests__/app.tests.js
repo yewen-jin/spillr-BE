@@ -280,4 +280,32 @@ describe("/api/episodes/:episode_id/polls", () => {
       test("responds with 400 when ?t=x is not a valid number", () => {});
     });
   });
+
+  // Test for user feed endpoint
+
+  describe("GET /api/comments/:user_id/feed", () => {
+    test("returns an array of comment objects with the correct shape", async () => {
+      const userId = "a1b2c3d4-e5f6-7890-abcd-ef1234567890";
+
+      const { body } = await request(app)
+        .get(`/api/comments/${userId}/feed`)
+        .expect(200);
+
+      expect(Array.isArray(body.comments)).toBe(true);
+
+      body.comments.forEach((comment) => {
+        expect(comment).toHaveProperty("comment_id");
+        expect(comment).toHaveProperty("user_id");
+        expect(comment).toHaveProperty("username");
+        expect(comment).toHaveProperty("avatar_url");
+        expect(comment).toHaveProperty("body");
+        expect(comment).toHaveProperty("episode_id");
+        expect(comment).toHaveProperty("runtime_seconds");
+        expect(comment).toHaveProperty("created_at");
+        expect(comment).toHaveProperty("is_live");
+        expect(comment).toHaveProperty("is_spoiler");
+        expect(comment).toHaveProperty("is_friend");
+      });
+    });
+  });
 });
