@@ -8,8 +8,7 @@ const {
 const { NotFoundError } = require("../../errors/customError.js");
 
 const insertComment = async (commentObj) => {
-  const { episode_id, body, user_id, runtime_seconds, is_spoiler, is_live } =
-    commentObj;
+  const { episode_id, body, user_id, runtime_seconds, is_spoiler } = commentObj;
   console.log(commentObj);
   const requiredFields = ["episode_id", "body", "user_id", "runtime_seconds"];
 
@@ -19,9 +18,7 @@ const insertComment = async (commentObj) => {
     throw new Error(`${missingField} is required in request body`);
   }
 
-  if (!is_live) {
-    is_live = await isLive(episode_id);
-  }
+  const is_live = await isLive(episode_id);
 
   if (!is_spoiler) {
     const { rows } = await db.query(
