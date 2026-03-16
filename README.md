@@ -5,7 +5,7 @@
 add the following 3 environmental files.
 ```
 .env.test #this should be PGDATABASE=spillr_test
-.env.dev  #this should be PGDATABASE=spillr_dev
+.env.dev  #this should be PGDATABASE=spillr
 .env.production #this should be DATABASE_URL=<supabase connection string>
 ```
 
