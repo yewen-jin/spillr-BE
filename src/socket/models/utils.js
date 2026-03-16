@@ -1,4 +1,5 @@
 const db = require("../../../db/connection.js");
+const { NotFoundError } = require("../../errors/customError.js");
 
 const isLive = async (episode_id) => {
   const { rows } = await db.query(
@@ -7,7 +8,7 @@ const isLive = async (episode_id) => {
   );
 
   if (!rows || rows.length === 0) {
-    return false;
+    throw new NotFoundError(`Episode with id ${episode_id} not found`);
   }
 
   const episode = rows[0];
