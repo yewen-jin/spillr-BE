@@ -12,13 +12,13 @@ const initiateSocket = (server) => {
       io.emit("chat message", msg);
     });
 
-    socket.on("user:connect", (userId) => {
-      usersHandler(socket, io, userId);
-    });
+    // socket.on("user:connect", (userId) => {
+    //   usersHandler(socket, io, userId);
+    // });
 
-    socket.on("room:join", (episodeId) => {
-      commentsHandler(socket, io, episodeId);
-    });
+    // socket.on("room:join", (episodeId) => {
+    commentsHandler(socket, io);
+    // });
 
     socket.on("disconnect", () => {
       console.log("A user has disconnected");
