@@ -2,6 +2,9 @@ const cleanData = require("../src/utils/data-cleaner");
 const {
   TV_SHOWS_LIST_1,
   TV_SHOWS_LIST_2,
+  TV_SHOW_LIST_3,
+  TV_SHOW_LIST_4,
+  TV_SHOW_LIST_5,
   FILE_PATH_TV_SHOWS,
   FILE_PATH_SEASONS,
   FILE_PATH_EPISODES,
@@ -38,4 +41,10 @@ async function main(...showNameLists) {
     console.error("Error occurred while writing data:", err);
   }
 }
-main(TV_SHOWS_LIST_1, TV_SHOWS_LIST_2);
+main(
+  TV_SHOWS_LIST_1,
+  TV_SHOWS_LIST_2,
+  TV_SHOW_LIST_3,
+  TV_SHOW_LIST_4,
+  TV_SHOW_LIST_5,
+);
