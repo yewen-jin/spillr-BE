@@ -13,11 +13,19 @@ const initiateSocket = (server) => {
     });
 
     socket.on("user:connect", (userId) => {
+      console.log(`${userId} joined`);
       usersHandler(socket, io, userId);
     });
 
     socket.on("room:join", (episodeId) => {
+      console.log(`joined episode room ${episodeId}`);
+      socket.join(`episode:${episodeId}`);
       commentsHandler(socket, io, episodeId);
+    });
+
+    socket.on("room:leave", (episodeId) => {
+      console.log(`left episode room ${episodeId}`);
+      socket.leave(`episode:${episodeId}`);
     });
 
     socket.on("disconnect", () => {
