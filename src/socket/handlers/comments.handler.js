@@ -8,7 +8,7 @@ const {
   patchSpoiler,
 } = require("../models/comment.models.js");
 
-const commentsHandler = (socket, io) => {
+const commentsHandler = (socket, io, episodeId) => {
   console.log("commentsHandler got connected!");
 
   socket.on("comment:post", (comment) => {
@@ -20,7 +20,7 @@ const commentsHandler = (socket, io) => {
 
   socket.on("comment:delete", (comment) => {
     console.log(`delete comment`);
-    io.to(`episode:${comment.episode_id}`).emit(
+    io.to(String(episodeId)).emit(
       "comment",
       "deleting comment:" + comment.comment_id,
     );
@@ -29,10 +29,7 @@ const commentsHandler = (socket, io) => {
 
   socket.on("reply:post", (reply) => {
     console.log(`received reply for comment ${reply.comment_id}`);
-    io.to(`episode:${reply.episode_id}`).emit(
-      "reply:new",
-      "new reply:" + reply.body,
-    );
+    io.to(String(episodeId)).emit("reply:new", "new reply:" + reply.body);
     addReply(reply);
   });
 
@@ -43,13 +40,13 @@ const commentsHandler = (socket, io) => {
 
   socket.on("reaction:add", (reaction) => {
     console.log(``);
-    io.to(`episode:${reaction.episode_id}`).emit(reaction);
+    io.to(String(episodeId)).emit(reaction);
     addReaction(reaction);
   });
 
   socket.on("reaction:remove", (reaction) => {
     console.log(`remove reaction`);
-    io.to(`episode:${reaction.episode_id}`).emit(reaction);
+    io.to(String(episodeId)).emit(reaction);
     removeReaction(reaction.reaction_id);
   });
 

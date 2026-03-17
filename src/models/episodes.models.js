@@ -26,7 +26,7 @@ async function selectCommentsByEpisodeID(episode_id, time) {
     `;
   if (time) {
     queryStr += `
-    AND comments.runtime_seconds BETWEEN GREATEST(0,$2 - 180) AND $2
+    AND comments.runtime_seconds BETWEEN $2 AND $2 + 180
     `;
     queryValues.push(Number(time));
   }
