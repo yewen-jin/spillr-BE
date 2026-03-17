@@ -15,7 +15,7 @@ const {
   fetchShowIdTVDBByName,
   fetchEpisodesTVDBByID,
 } = require("../api/tvDb.js");
-const { sleep } = require("./data-utils.js");
+const { sleep, normalizeToAsciiSpaces } = require("./data-utils.js");
 
 async function cleanData(showName) {
   try {
@@ -96,7 +96,9 @@ async function cleanData(showName) {
         ...episode,
         synopsis:
           episode.synopsis ||
-          (episodeTVDB?.synopsis ? episodeTVDB?.synopsis : null),
+          (episodeTVDB?.synopsis
+            ? normalizeToAsciiSpaces(episodeTVDB?.synopsis)
+            : null),
         episodeIMG_URL:
           episode.episodeIMG_URL ||
           (episodeTVDB?.episodeIMG_URL

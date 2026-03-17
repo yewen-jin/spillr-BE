@@ -50,6 +50,31 @@ function findShowIDByCountry(tvShows, seriesName, countryCode) {
   return tvShows[0]?.show.id;
 }
 
+function normalizeToAsciiSpaces(str) {
+  const map = {
+    "\u2028": " ",
+    "\u2029": " ",
+    "\u00A0": " ",
+    "\u200B": " ",
+    "\u200C": " ",
+    "\u200D": " ",
+    "\u2018": "'",
+    "\u2019": "'",
+    "\u201A": "'",
+    "\u201B": "'",
+    "\u201C": '"',
+    "\u201D": '"',
+    "\u201E": '"',
+    "\u201F": '"',
+    "\u2026": "...",
+  };
+
+  return str.replace(
+    /[\u2028\u2029\u00A0\u200B\u200C\u200D\u2018-\u201F\u2026]/g,
+    (c) => map[c],
+  );
+}
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 module.exports = {
@@ -57,4 +82,5 @@ module.exports = {
   compareDate,
   findShowIDByCountry,
   sleep,
+  normalizeToAsciiSpaces,
 };
