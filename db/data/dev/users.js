@@ -5,7 +5,7 @@ const users = [
     avatar_url: "https://i.pravatar.cc/150?img=1",
     language: "English",
     name: "Priya Sharma",
-    bio: "Professional side-eye giver 👀 I watch so you don’t have to (but you should).Here for bad decisions, dramatic exits, and iconic one-liners.",
+    bio: "Professional side-eye giver I watch so you don’t have to (but you should).Here for bad decisions, dramatic exits, and iconic one-liners.",
   },
   {
     user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",

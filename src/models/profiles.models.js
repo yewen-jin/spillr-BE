@@ -59,4 +59,70 @@ async function selectUserByUsername(username) {
   const { rows } = await db.query(queryStr, [username]);
   return rows[0];
 }
-module.exports = { selectUserByUserId, selectUserByUsername };
+
+async function selectActivityByUser(user_id) {
+  const queryStr = `
+     SELECT
+  c.comment_id,
+  c.user_id,
+  c.body,
+  c.created_at,
+  NULL::int AS reply_id,
+  NULL::int AS reaction_id,
+  ts.name AS tv_show_name,
+  se.season_number,
+  e.episode_number
+FROM comments c
+JOIN episodes e ON c.episode_id = e.episode_id
+JOIN seasons se ON e.season_id = se.season_id
+JOIN tv_shows ts ON se.tv_show_id = ts.tv_show_id
+WHERE c.user_id = $1
+
+UNION ALL
+
+SELECT
+  r.reply_id AS comment_id,
+  r.user_id,
+  r.body,
+  r.created_at,
+  r.reply_id,
+  NULL::int AS reaction_id,
+  ts.name AS tv_show_name,
+  se.season_number,
+  e.episode_number
+FROM replies r
+JOIN episodes e ON r.episode_id = e.episode_id
+JOIN seasons se ON e.season_id = se.season_id
+JOIN tv_shows ts ON se.tv_show_id = ts.tv_show_id
+WHERE r.user_id = $1
+
+UNION ALL
+
+SELECT
+  rx.comment_id,
+  rx.user_id,
+  NULL AS body,
+  rx.created_at,
+  NULL::int AS reply_id,
+  rx.reaction_id,
+  ts.name AS tv_show_name,
+  se.season_number,
+  e.episode_number
+FROM reactions rx
+JOIN episodes e ON rx.episode_id = e.episode_id
+JOIN seasons se ON e.season_id = se.season_id
+JOIN tv_shows ts ON se.tv_show_id = ts.tv_show_id
+WHERE rx.user_id = $1
+
+ORDER BY created_at DESC;
+    
+  `;
+  const { rows } = await db.query(queryStr, [user_id]);
+  return rows;
+}
+
+module.exports = {
+  selectUserByUserId,
+  selectUserByUsername,
+  selectActivityByUser,
+};
