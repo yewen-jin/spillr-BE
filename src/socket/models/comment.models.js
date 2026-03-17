@@ -4,8 +4,10 @@ const {
   doesThisCommentExist,
   doesThisReplyExist,
   doesThisReactionExist,
+  hasReacted,
+  hasVoted,
 } = require("./utils.js");
-const { NotFoundError } = require("../../errors/customError.js");
+const { NotFoundError, ConflictError } = require("../../errors/customError.js");
 
 const insertComment = async (commentObj) => {
   const { episode_id, body, user_id, runtime_seconds, is_spoiler } = commentObj;
@@ -123,23 +125,30 @@ const addReaction = async (reactionObj) => {
     throw new NotFoundError(
       "A reaction must target an episode, comment, or reply",
     );
-  } else {
-    const { rows } = await db.query(
-      `INSERT INTO reactions
+  }
+
+  if (comment_id || reply_id) {
+    const alreadyReacted = await hasReacted(user_id, { comment_id, reply_id });
+    if (alreadyReacted) {
+      throw new ConflictError("User has already reacted to this");
+    }
+  }
+
+  const { rows } = await db.query(
+    `INSERT INTO reactions
     (reaction_type, comment_id, episode_id, reply_id, runtime_seconds, user_id) VALUES
     ($1,$2,$3,$4,$5,$6) RETURNING *`,
-      [
-        reaction_type,
-        comment_id ?? null,
-        episode_id ?? null,
-        reply_id ?? null,
-        runtime_seconds,
-        user_id,
-      ],
-    );
+    [
+      reaction_type,
+      comment_id ?? null,
+      episode_id ?? null,
+      reply_id ?? null,
+      runtime_seconds,
+      user_id,
+    ],
+  );
 
-    return rows[0];
-  }
+  return rows[0];
 };
 
 const removeReaction = async (reaction_id) => {

@@ -7,6 +7,7 @@ const {
   insertComment,
   patchSpoiler,
 } = require("../models/comment.models.js");
+const { addPollVote } = require("../models/poll.models.js");
 
 const commentsHandler = (socket, io, episodeId) => {
   console.log("commentsHandler got connected!");
@@ -38,10 +39,15 @@ const commentsHandler = (socket, io, episodeId) => {
     deleteReply(reply.reply_id);
   });
 
-  socket.on("reaction:add", (reaction) => {
-    console.log(``);
-    io.to(String(episodeId)).emit(reaction);
-    addReaction(reaction);
+  socket.on("reaction:add", async (reaction) => {
+    console.log(`reaction:add received`);
+    try {
+      const newReaction = await addReaction(reaction);
+      io.to(String(episodeId)).emit("reaction:new", newReaction);
+    } catch (err) {
+      console.log("reaction error:", err.message);
+      socket.emit("reaction:error", { msg: err.message });
+    }
   });
 
   socket.on("reaction:remove", (reaction) => {
@@ -53,6 +59,17 @@ const commentsHandler = (socket, io, episodeId) => {
   socket.on("spoiler:mark", (comment) => {
     console.log(`a spoiler notice has been marked`);
     patchSpoiler(comment.comment_id, true);
+  });
+
+  socket.on("poll:vote", async (vote) => {
+    console.log(`poll vote received for poll ${vote.poll_id}`);
+    try {
+      const newVote = await addPollVote(vote);
+      io.to(`episode:${episodeId}`).emit("poll:updated", newVote);
+    } catch (err) {
+      console.log("poll vote error:", err.message);
+      socket.emit("poll:error", { msg: err.message });
+    }
   });
 };
 
