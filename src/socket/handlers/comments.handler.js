@@ -14,8 +14,7 @@ const commentsHandler = (socket, io, episodeId) => {
   socket.on("comment:post", (comment) => {
     console.log(`received comment`);
     console.log(comment);
-    io.to(String(episodeId)).emit("comment:new", "new comment:" + comment.body);
-    comment.episode_id = episodeId;
+    io.to(`episode:${comment.episode_id}`).emit("comment:new", comment); // we will need whole comment object not just comment.body
     insertComment(comment);
   });
 
