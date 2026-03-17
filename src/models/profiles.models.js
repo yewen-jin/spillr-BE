@@ -10,7 +10,7 @@ async function selectUserByUserId(user_id) {
   ) AS subscription_count,
    (SELECT COUNT(*) 
     FROM friends f
-  WHERE f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id
+  WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id) AND f.is_accepted = true
   ) AS friend_count,
    (
     SELECT COALESCE(JSON_AGG(s), '[]'::json)
@@ -20,7 +20,7 @@ async function selectUserByUserId(user_id) {
    (
     SELECT COALESCE(JSON_AGG(f), '[]'::json)
     FROM friends f
-    WHERE f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id
+    WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id) AND f.is_accepted = true
   ) AS friends
    FROM profiles p
    WHERE p.user_id = $1
@@ -30,4 +30,33 @@ async function selectUserByUserId(user_id) {
   return rows[0];
 }
 
-module.exports = { selectUserByUserId };
+async function selectUserByUsername(username) {
+  const queryStr = `
+      SELECT 
+      p.*,
+        (SELECT COUNT(*) 
+    FROM subscriptions s 
+    WHERE s.user_id = p.user_id
+  ) AS subscription_count,
+   (SELECT COUNT(*) 
+    FROM friends f
+  WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id) AND f.is_accepted = true
+  ) AS friend_count,
+   (
+    SELECT COALESCE(JSON_AGG(s), '[]'::json)
+    FROM subscriptions s
+    WHERE s.user_id = p.user_id
+  ) AS subscriptions,
+   (
+    SELECT COALESCE(JSON_AGG(f), '[]'::json)
+    FROM friends f
+    WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id) AND f.is_accepted = true
+  ) AS friends
+   FROM profiles p
+   WHERE p.username = $1
+    
+  `;
+  const { rows } = await db.query(queryStr, [username]);
+  return rows[0];
+}
+module.exports = { selectUserByUserId, selectUserByUsername };
