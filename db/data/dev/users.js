@@ -5,6 +5,7 @@ const users = [
     avatar_url: "https://i.pravatar.cc/150?img=1",
     language: "English",
     name: "Priya Sharma",
+    bio: "Professional side-eye giver 👀 I watch so you don’t have to (but you should).Here for bad decisions, dramatic exits, and iconic one-liners.",
   },
   {
     user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
@@ -12,6 +13,7 @@ const users = [
     avatar_url: "https://i.pravatar.cc/150?img=2",
     language: "English",
     name: "Marcus Johnson",
+    bio: "Reality TV is my full-time personality. From roses to reunions—I break it all down. Hot takes, cold truths, and zero spoilers (unless deserved).",
   },
   {
     user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
@@ -19,6 +21,7 @@ const users = [
     avatar_url: "https://i.pravatar.cc/150?img=3",
     language: "English",
     name: "Jade Williams",
+    bio: " Running on drama, snacks, and questionable contestants.I yell at my screen so you don’t have to.Team Messy™ always.",
   },
   {
     user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
@@ -26,6 +29,7 @@ const users = [
     avatar_url: "https://i.pravatar.cc/150?img=4",
     language: "English",
     name: "Callum Reid",
+    bio: "Reading between the edits and catching what others miss. Game strategy, producer tricks, and cast psychology.Let’s talk about what really happened.",
   },
   {
     user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
@@ -33,6 +37,7 @@ const users = [
     avatar_url: "https://i.pravatar.cc/150?img=5",
     language: "English",
     name: "Amara Osei",
+    bio: "Just a fan who’s way too invested.Laughing, cringing, and commenting in real time.If it’s dramatic, I’m watching.",
   },
 ];
 
