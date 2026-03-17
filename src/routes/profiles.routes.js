@@ -3,10 +3,11 @@ const profilesRouter = express.Router();
 const {
   getUserByUserId,
   getUserByUsername,
+  getUserActivity,
 } = require("../controllers/profiles.controllers.js");
 
 profilesRouter.get("/id/:user_id", getUserByUserId);
 profilesRouter.get("/username/:username", getUserByUsername);
-// profilesRouter.post("/login", postUserLogin);
+profilesRouter.get("/:user_id/history", getUserActivity);
 
 module.exports = { profilesRouter };

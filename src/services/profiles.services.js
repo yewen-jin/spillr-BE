@@ -1,6 +1,7 @@
 const {
   selectUserByUserId,
   selectUserByUsername,
+  selectActivityByUser,
 } = require("../models/profiles.models.js");
 const { NotFoundError } = require("../errors/customError.js");
 
@@ -28,7 +29,20 @@ async function fetchUserByUsernameService(username) {
   }
 }
 
+async function fetchActivityByUserService(user_id) {
+  try {
+    const user = await selectActivityByUser(user_id);
+    if (!user) {
+      throw new NotFoundError(`No user found with id ${user_id}`);
+    }
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   fetchUserByUserIdService,
   fetchUserByUsernameService,
+  fetchActivityByUserService,
 };
