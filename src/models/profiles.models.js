@@ -27,10 +27,22 @@ async function selectUserByUserId(user_id) {
     WHERE s.user_id = p.user_id
   ) AS subscriptions,
    (
-    SELECT COALESCE(JSON_AGG(f), '[]'::json)
-    FROM friends f
-    WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id) AND f.is_accepted = true
-  ) AS friends
+  SELECT COALESCE(JSON_AGG(
+    JSON_BUILD_OBJECT(
+      'friends_id', f.friends_id,
+      'user_id_1', f.user_id_1,
+      'user_id_2', f.user_id_2,
+      'is_accepted', f.is_accepted,
+      'friend_user_id', CASE WHEN f.user_id_1 = p.user_id THEN f.user_id_2 ELSE f.user_id_1 END,
+      'friend_username', fp.username,
+      'friend_avatar_url', fp.avatar_url
+    )
+  ), '[]'::json)
+  FROM friends f
+  JOIN profiles fp ON fp.user_id = CASE WHEN f.user_id_1 = p.user_id THEN f.user_id_2 ELSE f.user_id_1 END
+  WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id) AND f.is_accepted = true
+) AS friends
+  
    FROM profiles p
    WHERE p.user_id = $1
     
@@ -65,11 +77,22 @@ async function selectUserByUsername(username) {
     JOIN tv_shows t ON t.tv_show_id = s.tv_show_id
     WHERE s.user_id = p.user_id
   ) AS subscriptions,
-   (
-    SELECT COALESCE(JSON_AGG(f), '[]'::json)
-    FROM friends f
-    WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id) AND f.is_accepted = true
-  ) AS friends
+  (
+  SELECT COALESCE(JSON_AGG(
+    JSON_BUILD_OBJECT(
+      'friends_id', f.friends_id,
+      'user_id_1', f.user_id_1,
+      'user_id_2', f.user_id_2,
+      'is_accepted', f.is_accepted,
+      'friend_user_id', CASE WHEN f.user_id_1 = p.user_id THEN f.user_id_2 ELSE f.user_id_1 END,
+      'friend_username', fp.username,
+      'friend_avatar_url', fp.avatar_url
+    )
+  ), '[]'::json)
+  FROM friends f
+  JOIN profiles fp ON fp.user_id = CASE WHEN f.user_id_1 = p.user_id THEN f.user_id_2 ELSE f.user_id_1 END
+  WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id) AND f.is_accepted = true
+) AS friends
    FROM profiles p
    WHERE p.username = $1
     
