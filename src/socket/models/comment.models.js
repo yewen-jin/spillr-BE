@@ -7,7 +7,7 @@ const {
   hasReacted,
   hasVoted,
 } = require("./utils.js");
-const { NotFoundError, ConflictError } = require("../../errors/customError.js");
+const { NotFoundError } = require("../../errors/customError.js");
 
 const insertComment = async (commentObj) => {
   const { episode_id, body, user_id, runtime_seconds, is_spoiler } = commentObj;
@@ -130,7 +130,15 @@ const addReaction = async (reactionObj) => {
   if (comment_id || reply_id) {
     const alreadyReacted = await hasReacted(user_id, { comment_id, reply_id });
     if (alreadyReacted) {
-      throw new ConflictError("User has already reacted to this");
+      const { rows } = await db.query(
+        `DELETE FROM reactions
+         WHERE user_id = $1
+         AND ($2::INT IS NULL OR comment_id = $2)
+         AND ($3::INT IS NULL OR reply_id = $3)
+         RETURNING *`,
+        [user_id, comment_id ?? null, reply_id ?? null],
+      );
+      return { toggled: true, removed: rows[0] };
     }
   }
 
@@ -148,7 +156,7 @@ const addReaction = async (reactionObj) => {
     ],
   );
 
-  return rows[0];
+  return { toggled: false, reaction: rows[0] };
 };
 
 const removeReaction = async (reaction_id) => {
