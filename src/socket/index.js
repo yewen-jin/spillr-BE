@@ -1,6 +1,11 @@
 const { Server } = require("socket.io");
 const commentsHandler = require("./handlers/comments.handler");
-const usersHandler = require("./handlers/users.handler");
+const {
+  userJoinRoom,
+  userLeaveRoom,
+  userDisconnect,
+  friendsRoom,
+} = require("./handlers/userRoom.handler.js");
 
 const initiateSocket = (server) => {
   const io = new Server(server);
@@ -12,24 +17,29 @@ const initiateSocket = (server) => {
       io.emit("chat message", msg);
     });
 
-    socket.on("user:connect", (userId) => {
-      console.log(`${userId} joined`);
-      usersHandler(socket, io, userId);
-    });
-
-    socket.on("room:join", (episodeId) => {
+    socket.on("room:join", ({ episodeId, userId }) => {
       socket.join(String(episodeId));
-      console.log(`joined episode room ${episodeId}`);
+      console.log(`${userId} joined episode room ${episodeId}`);
+
+      userJoinRoom(socket, io, episodeId, userId);
+
       commentsHandler(socket, io, episodeId);
     });
 
-    socket.on("room:leave", (episodeId) => {
+    socket.on("room:leave", ({ episodeId, userId }) => {
       socket.leave(String(episodeId));
       console.log(`left episode room ${episodeId}`);
+      userLeaveRoom(socket, io, episodeId, userId);
     });
 
     socket.on("disconnect", () => {
       console.log("A user has disconnected");
+      userDisconnect(socket, io);
+    });
+
+    socket.on("friendsList:load", (friendList) => {
+      console.log("Load friendsList");
+      friendsRoom(socket, io, friendList);
     });
   };
 

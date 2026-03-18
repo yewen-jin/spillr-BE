@@ -19,10 +19,10 @@ const commentsHandler = (socket, io, episodeId) => {
     insertComment(comment);
   });
 
-  socket.on("comment:delete", (comment) => {
+  socket.on("comment:delete", (comment_id) => {
     console.log(`delete comment`);
-    io.to(String(episodeId)).emit("comment:remove", comment);
-    deleteComment(comment);
+    io.to(String(episodeId)).emit("comment:remove", comment_id);
+    deleteComment(comment_id);
   });
 
   socket.on("reply:post", (reply) => {
