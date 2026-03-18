@@ -280,4 +280,161 @@ describe("/api/episodes/:episode_id/polls", () => {
       test("responds with 400 when ?t=x is not a valid number", () => {});
     });
   });
+
+  // Test for user feed endpoint
+
+  describe("GET /api/comments/:user_id/feed", () => {
+    test("returns an array of comment objects with the correct shape", async () => {
+      const userId = "a1b2c3d4-e5f6-7890-abcd-ef1234567890";
+
+      const { body } = await request(app)
+        .get(`/api/comments/${userId}/feed`)
+        .expect(200);
+
+      expect(Array.isArray(body.comments)).toBe(true);
+
+      body.comments.forEach((comment) => {
+        expect(comment).toHaveProperty("comment_id");
+        expect(comment).toHaveProperty("user_id");
+        expect(comment).toHaveProperty("username");
+        expect(comment).toHaveProperty("avatar_url");
+        expect(comment).toHaveProperty("body");
+        expect(comment).toHaveProperty("episode_id");
+        expect(comment).toHaveProperty("runtime_seconds");
+        expect(comment).toHaveProperty("created_at");
+        expect(comment).toHaveProperty("is_live");
+        expect(comment).toHaveProperty("is_spoiler");
+        expect(comment).toHaveProperty("is_friend");
+      });
+    });
+  });
+});
+
+describe("/api/episodes/:episode_id", () => {
+  describe("GET", () => {
+    test("gets the episode for a particular episode id", async () => {
+      const result = await request(app).get("/api/episodes/469092").expect(200);
+      const { body } = result;
+      const { episode } = body;
+
+      expect(typeof episode.episode_id).toBe("number");
+      expect(typeof episode.episode_number).toBe("number");
+      expect(typeof episode.season_id).toBe("number");
+      expect(typeof episode.runtime_total).toBe("number");
+      expect(typeof episode.release_date).toBe("string");
+      expect(typeof episode.release_time).toBe("string");
+      expect(typeof episode.episode_url).toBe("object");
+      expect(typeof episode.is_premier).toBe("boolean");
+      expect(typeof episode.synopsis).toBe("string");
+    });
+  });
+});
+
+describe("/api/seasons/:season_id/episodes", () => {
+  describe("GET", () => {
+    test("gets all episodes for a particular season of a tv-show", async () => {
+      //  	"episodes": [
+      // {
+      // 	"episode_id": 469092,
+      // 	"season_id": 24875,
+      // 	"episode_number": 1,
+      // 	"runtime_total": 30,
+      // 	"release_date": "2010-11-22T00:00:00.000Z",
+      // 	"release_time": "17:00:00",
+      // 	"episode_url": null,
+      // 	"thread_opened": false,
+      // 	"synopsis": "",
+      // 	"is_premier": false
+      // },
+      const result = await request(app)
+        .get("/api/seasons/24875/episodes")
+        .expect(200);
+      const { body } = result;
+      const { episodes } = body;
+      expect(Array.isArray(episodes)).toBe(true);
+      episodes.forEach((episode) => {
+        expect(typeof episode.episode_id).toBe("number");
+        expect(typeof episode.episode_number).toBe("number");
+        expect(typeof episode.season_id).toBe("number");
+        expect(typeof episode.runtime_total).toBe("number");
+        expect(typeof episode.release_date).toBe("string");
+        expect(typeof episode.release_time).toBe("string");
+        expect(typeof episode.episode_url).toBe("object");
+        expect(typeof episode.is_premier).toBe("boolean");
+        expect(typeof episode.synopsis).toBe("string");
+      });
+    });
+  });
+});
+describe("/api/profiles/:user_id", () => {
+  describe("GET", () => {
+    test("gets an user by its user_id and returns its friends-count and subscriptions-count as well as arrays for both.", async () => {
+      // 	"user": {
+      // 		"user_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      // 		"name": "Priya Sharma",
+      // 		"username": "screenqueen",
+      // 		"avatar_url": "https://i.pravatar.cc/150?img=1",
+      // 		"language": "English",
+      // 		"subscription_count": "4",
+      // 		"friend_count": "3",
+      // 		"subscriptions": [
+      // 			{
+      // 				"subscription_id": 1,
+      // 				"user_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      // 				"tv_show_id": 58174
+      // 			},
+      // 			{
+      // 				"subscription_id": 2,
+      // 				"user_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      // 				"tv_show_id": 2950
+      // 			},
+      // 			{
+      // 				"subscription_id": 3,
+      // 				"user_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      // 				"tv_show_id": 40861
+      // 			},
+      // 			{
+      // 				"subscription_id": 4,
+      // 				"user_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      // 				"tv_show_id": 2955
+      // 			}
+      // 		],
+      // 		"friends": [
+      // 			{
+      // 				"friends_id": 1,
+      // 				"user_id_1": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      // 				"user_id_2": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+      // 				"is_accepted": true
+      // 			},
+      // 			{
+      // 				"friends_id": 2,
+      // 				"user_id_1": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      // 				"user_id_2": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+      // 				"is_accepted": true
+      // 			},
+      // 			{
+      // 				"friends_id": 7,
+      // 				"user_id_1": "d4e5f6a7-b8c9-0123-defa-234567890123",
+      // 				"user_id_2": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      // 				"is_accepted": false
+      // 			}
+      // 		]
+      // 	}
+      // }
+      const result = await request(app)
+        .get("/api/profiles/a1b2c3d4-e5f6-7890-abcd-ef1234567890")
+        .expect(200);
+      const { body } = result;
+      const { user } = body;
+      expect(typeof user.user_id).toBe("string");
+      expect(typeof user.name).toBe("string");
+      expect(typeof user.username).toBe("string");
+      expect(typeof user.avatar_url).toBe("string");
+      expect(typeof user.language).toBe("string");
+      expect(typeof user.subscription_count).toBe("string");
+      expect(typeof user.friend_count).toBe("string");
+      expect(typeof user.subscriptions).toBe("object");
+      expect(typeof user.friends).toBe("object");
+    });
+  });
 });

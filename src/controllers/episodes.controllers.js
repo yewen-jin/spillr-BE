@@ -1,6 +1,7 @@
 const {
   fetchCommentsByEpisodeService,
   fetchPollsByEpisodeIDService,
+  fetchEpisodeByIdService,
 } = require("../services/episodes.services.js");
 const { HTTP_STATUS_CODES } = require("../utils/constants.js");
 
@@ -26,7 +27,18 @@ async function getPollsByEpisodeId(req, res, next) {
   }
 }
 
+async function getEpisodeById(req, res, next) {
+  const { episode_id } = req.params;
+  try {
+    const episode = await fetchEpisodeByIdService(episode_id);
+    res.status(HTTP_STATUS_CODES.OK).send({ episode });
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   getCommentsByEpisodeId,
   getPollsByEpisodeId,
+  getEpisodeById,
 };

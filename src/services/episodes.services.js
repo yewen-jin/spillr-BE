@@ -33,9 +33,31 @@ async function fetchPollsByEpisodeIDService(episode_id) {
   }
 }
 
+async function fetchEpisodeByIdService(episode_id) {
+  try {
+    const episode = await selectEpisodeByID(episode_id);
+    if (!episode) {
+      throw new NotFoundError(`Episode with id ${episode_id} not found`);
+    }
+    const now = Date.now();
+    const twoHours = 2 * 60 * 60 * 1000;
+    const airDateTime = new Date(
+      `${episode.release_date}T${episode.release_time}`,
+    );
+
+    return {
+      ...episode,
+      is_premier: Math.abs(airDateTime - now) <= twoHours,
+    };
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   fetchCommentsByEpisodeService,
   fetchPollsByEpisodeIDService,
+  fetchEpisodeByIdService,
 };
 
 // calculate is premier for episodes here, just get in model

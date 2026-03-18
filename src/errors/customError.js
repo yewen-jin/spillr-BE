@@ -31,6 +31,8 @@ class InternalServerError extends CustomError {
     super(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR, message);
   }
 }
+
+module.exports = { NotFoundError, ConflictError };
 module.exports = {
   CustomError,
   NotFoundError,

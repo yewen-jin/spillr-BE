@@ -32,7 +32,8 @@ const seed = async ({
     name VARCHAR(3000),
     username VARCHAR(1000) UNIQUE NOT NULL,
     avatar_url VARCHAR(3000),
-    language VARCHAR(40)
+    language VARCHAR(40),
+    bio VARCHAR(3000)
     ) `);
 
   await db.query(`CREATE TABLE tv_shows(
@@ -146,11 +147,12 @@ const seed = async ({
       user.name,
       user.language,
       user.avatar_url,
+      user.bio,
     ];
   });
 
   let userQuery = format(
-    "INSERT INTO profiles(user_id, username, name, language, avatar_url) VALUES %L RETURNING *",
+    "INSERT INTO profiles(user_id, username, name, language, avatar_url, bio) VALUES %L RETURNING *",
     formattedUsers,
   );
 
@@ -340,6 +342,24 @@ const seed = async ({
   );
 
   await db.query(notificationsQuery);
+
+  // $ will conflict with JS template literal syntax, using $$ instead to escape it
+  let createPolicyQuery = `
+    DO $$
+        DECLARE r RECORD;
+        BEGIN
+          FOR r IN
+            SELECT table_name FROM information_schema.tables
+            WHERE table_schema = 'public' AND table_type = 'BASE TABLE'
+          LOOP
+            EXECUTE format('ALTER TABLE %I ENABLE ROW LEVEL SECURITY;', r.table_name);
+            EXECUTE format('CREATE POLICY allow_read_all ON %I FOR SELECT TO PUBLIC USING (true);', r.table_name);
+          END LOOP;
+        END;
+        $$;
+ `;
+
+  await db.query(createPolicyQuery);
 };
 
 module.exports = seed;

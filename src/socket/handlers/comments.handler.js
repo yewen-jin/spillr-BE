@@ -7,23 +7,21 @@ const {
   insertComment,
   patchSpoiler,
 } = require("../models/comment.models.js");
+const { addPollVote } = require("../models/poll.models.js");
 
-const commentsHandler = (socket, io) => {
+const commentsHandler = (socket, io, episodeId) => {
   console.log("commentsHandler got connected!");
 
   socket.on("comment:post", (comment) => {
     console.log(`received comment`);
     console.log(comment);
-    io.to(`episode:${comment.episode_id}`).emit(
-      "comment:new",
-      "new comment:" + comment.body,
-    );
+    io.to(`episode:${comment.episode_id}`).emit("comment:new", comment); // we will need whole comment object not just comment.body
     insertComment(comment);
   });
 
   socket.on("comment:delete", (comment) => {
     console.log(`delete comment`);
-    io.to(`episode:${comment.episode_id}`).emit(
+    io.to(String(episodeId)).emit(
       "comment",
       "deleting comment:" + comment.comment_id,
     );
@@ -32,10 +30,7 @@ const commentsHandler = (socket, io) => {
 
   socket.on("reply:post", (reply) => {
     console.log(`received reply for comment ${reply.comment_id}`);
-    io.to(`episode:${reply.episode_id}`).emit(
-      "reply:new",
-      "new reply:" + reply.body,
-    );
+    io.to(String(episodeId)).emit("reply:new", "new reply:" + reply.body);
     addReply(reply);
   });
 
@@ -44,21 +39,37 @@ const commentsHandler = (socket, io) => {
     deleteReply(reply.reply_id);
   });
 
-  socket.on("reaction:add", (reaction) => {
-    console.log(``);
-    io.to(`episode:${reaction.episode_id}`).emit(reaction);
-    addReaction(reaction);
+  socket.on("reaction:add", async (reaction) => {
+    console.log(`reaction:add received`);
+    try {
+      const newReaction = await addReaction(reaction);
+      io.to(String(episodeId)).emit("reaction:new", newReaction);
+    } catch (err) {
+      console.log("reaction error:", err.message);
+      socket.emit("reaction:error", { msg: err.message });
+    }
   });
 
   socket.on("reaction:remove", (reaction) => {
     console.log(`remove reaction`);
-    io.to(`episode:${reaction.episode_id}`).emit(reaction);
+    io.to(String(episodeId)).emit(reaction);
     removeReaction(reaction.reaction_id);
   });
 
   socket.on("spoiler:mark", (comment) => {
     console.log(`a spoiler notice has been marked`);
     patchSpoiler(comment.comment_id, true);
+  });
+
+  socket.on("poll:vote", async (vote) => {
+    console.log(`poll vote received for poll ${vote.poll_id}`);
+    try {
+      const newVote = await addPollVote(vote);
+      io.to(`episode:${episodeId}`).emit("poll:updated", newVote);
+    } catch (err) {
+      console.log("poll vote error:", err.message);
+      socket.emit("poll:error", { msg: err.message });
+    }
   });
 };
 
