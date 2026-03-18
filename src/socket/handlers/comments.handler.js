@@ -21,10 +21,7 @@ const commentsHandler = (socket, io, episodeId) => {
 
   socket.on("comment:delete", (comment) => {
     console.log(`delete comment`);
-    io.to(String(episodeId)).emit(
-      "comment",
-      "deleting comment:" + comment.comment_id,
-    );
+    io.to(String(episodeId)).emit("comment:remove", comment);
     deleteComment(comment);
   });
 
@@ -36,6 +33,7 @@ const commentsHandler = (socket, io, episodeId) => {
 
   socket.on("reply:delete", (reply) => {
     console.log(`received reply for comment ${reply.comment_id}`);
+    io.to(String(episodeId)).emit("reply:remove", reply);
     deleteReply(reply.reply_id);
   });
 
