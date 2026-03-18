@@ -77,9 +77,28 @@ async function selectFriendComments(friendIds) {
       comments.created_at,
       comments.is_live,
       comments.is_spoiler,
-      TRUE AS is_friend
+      TRUE AS is_friend,
+      episodes.episode_number,
+      seasons.season_number,
+      tv_shows.name,
+      (SELECT COUNT(*)::int FROM reactions WHERE reactions.comment_id = comments.comment_id) AS reactions_total,
+      COALESCE (
+        (SELECT JSON_BUILD_OBJECT(
+          'angryTotal', COUNT(*) FILTER (WHERE reaction_type = 'angry')::int,
+          'laughingTotal', COUNT(*) FILTER (WHERE reaction_type = 'laughing')::int,
+          'sadTotal', COUNT(*) FILTER (WHERE reaction_type = 'sad')::int,
+          'fireTotal', COUNT(*) FILTER (WHERE reaction_type = 'fire')::int,
+          'deadTotal', COUNT(*) FILTER (WHERE reaction_type = 'dead')::int,
+          'heartTotal', COUNT(*) FILTER (WHERE reaction_type = 'heart')::int
+        ) FROM reactions WHERE reactions.comment_id = comments.comment_id),
+        '{"angryTotal":0,"laughingTotal":0,"sadTotal":0,"fireTotal":0,"deadTotal":0,"heartTotal":0}'::json
+      ) AS "reactionType_total",
+      (SELECT COUNT(*)::int FROM replies WHERE replies.comment_id = comments.comment_id) AS replies_total
    FROM comments
     JOIN profiles ON comments.user_id = profiles.user_id
+    JOIN episodes ON comments.episode_id = episodes.episode_id
+    JOIN seasons ON episodes.season_id = seasons.season_id
+    JOIN tv_shows ON seasons.tv_show_id = tv_shows.tv_show_id
     WHERE comments.user_id = ANY($1)
     ORDER BY comments.created_at DESC;
   `;
@@ -102,9 +121,28 @@ async function selectGeneralComments(friendIds, user_id) {
       comments.created_at,
       comments.is_live,
       comments.is_spoiler,
-      FALSE AS is_friend
+      FALSE AS is_friend,
+      episodes.episode_number,
+      seasons.season_number,
+      tv_shows.name,
+       (SELECT COUNT(*)::int FROM reactions WHERE reactions.comment_id = comments.comment_id) AS reactions_total,
+      COALESCE(
+        (SELECT JSON_BUILD_OBJECT(
+          'angryTotal', COUNT(*) FILTER (WHERE reaction_type = 'angry')::int,
+          'laughingTotal', COUNT(*) FILTER (WHERE reaction_type = 'laughing')::int,
+          'sadTotal', COUNT(*) FILTER (WHERE reaction_type = 'sad')::int,
+          'fireTotal', COUNT(*) FILTER (WHERE reaction_type = 'fire')::int,
+          'deadTotal', COUNT(*) FILTER (WHERE reaction_type = 'dead')::int,
+          'heartTotal', COUNT(*) FILTER (WHERE reaction_type = 'heart')::int
+        ) FROM reactions WHERE reactions.comment_id = comments.comment_id),
+        '{"angryTotal":0,"laughingTotal":0,"sadTotal":0,"fireTotal":0,"deadTotal":0,"heartTotal":0}'::json
+      ) AS "reactionType_total",
+      (SELECT COUNT(*)::int FROM replies WHERE replies.comment_id = comments.comment_id) AS replies_total
     FROM comments
     JOIN profiles ON comments.user_id = profiles.user_id
+    JOIN episodes ON comments.episode_id = episodes.episode_id
+    JOIN seasons ON episodes.season_id = seasons.season_id
+    JOIN tv_shows ON seasons.tv_show_id = tv_shows.tv_show_id
     WHERE comments.user_id != $1
     ${friendIds.length ? "AND comments.user_id != ALL($2)" : ""}
     ORDER BY comments.created_at DESC;
