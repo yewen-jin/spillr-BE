@@ -42,14 +42,19 @@ const commentsHandler = (socket, io, episodeId) => {
   socket.on("reaction:add", async (reaction) => {
     console.log(`reaction:add received`);
     try {
-      const newReaction = await addReaction(reaction);
-      io.to(String(episodeId)).emit("reaction:new", newReaction);
+      const result = await addReaction(reaction);
+      if (result.toggled) {
+        io.to(String(episodeId)).emit("reaction:removed", result.removed);
+      } else {
+        io.to(String(episodeId)).emit("reaction:new", result.reaction);
+      }
     } catch (err) {
       console.log("reaction error:", err.message);
       socket.emit("reaction:error", { msg: err.message });
     }
   });
 
+  //remove reaction if needed for episode reactions
   socket.on("reaction:remove", (reaction) => {
     console.log(`remove reaction`);
     io.to(String(episodeId)).emit(reaction);
