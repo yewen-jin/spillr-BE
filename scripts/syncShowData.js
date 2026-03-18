@@ -1,17 +1,22 @@
 const cleanData = require("../src/utils/data-cleaner");
+const { sleep } = require("../src/utils/data-utils.js");
 const {
   TV_SHOWS_LIST_1,
   TV_SHOWS_LIST_2,
   TV_SHOW_LIST_3,
   TV_SHOW_LIST_4,
   TV_SHOW_LIST_5,
+  TV_SHOW_LIST_6,
+  TV_SHOW_LIST_7,
+  TV_SHOW_LIST_8,
   FILE_PATH_TV_SHOWS,
   FILE_PATH_SEASONS,
   FILE_PATH_EPISODES,
 } = require("../src/utils/constants");
-const writeData = require("../src/utils/data-writer");
+const { writeData, createLog, appendLog } = require("../src/utils/data-writer");
 
 async function main(...showNameLists) {
+  const logFile = createLog();
   const tv_show_list = [];
   const seasons_clean_list = [];
   const episodes_clean_list = [];
@@ -19,13 +24,18 @@ async function main(...showNameLists) {
     for (const showName of showNameList) {
       try {
         const result = await cleanData(showName);
-        if (!result) continue;
+        if (!result) {
+          appendLog(logFile, `'${showName}' is fetched but no result.`);
+          continue;
+        }
         const { tv_show_clean, seasons_clean, episodes_clean } = result;
         tv_show_list.push(tv_show_clean);
         seasons_clean_list.push(seasons_clean);
         episodes_clean_list.push(episodes_clean);
+        appendLog(logFile, `'${showName}' is properly fetched.`);
       } catch (err) {
         console.error(`Error occurred while processing ${showName}:`, err);
+        appendLog(logFile, `Error occurred while processing ${showName}:`, err);
       }
     }
   }
@@ -40,6 +50,11 @@ async function main(...showNameLists) {
   } catch (err) {
     console.error("Error occurred while writing data:", err);
   }
+  try {
+    await sleep(5000);
+  } catch (error) {
+    console.error(error);
+  }
 }
 main(
   TV_SHOWS_LIST_1,
@@ -47,4 +62,7 @@ main(
   TV_SHOW_LIST_3,
   TV_SHOW_LIST_4,
   TV_SHOW_LIST_5,
+  TV_SHOW_LIST_6,
+  TV_SHOW_LIST_7,
+  TV_SHOW_LIST_8,
 );
