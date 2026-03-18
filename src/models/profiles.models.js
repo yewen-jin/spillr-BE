@@ -112,7 +112,9 @@ async function selectActivityByUser(user_id) {
   NULL::int AS reaction_id,
   ts.name AS tv_show_name,
   se.season_number,
-  e.episode_number
+  e.episode_number,
+  (SELECT COUNT(*)::int FROM reactions WHERE reactions.comment_id = c.comment_id) AS reactions_total,
+      (SELECT COUNT(*)::int FROM replies WHERE replies.comment_id = c.comment_id) AS replies_total
 FROM comments c
 JOIN episodes e ON c.episode_id = e.episode_id
 JOIN seasons se ON e.season_id = se.season_id
@@ -130,9 +132,12 @@ SELECT
   NULL::int AS reaction_id,
   ts.name AS tv_show_name,
   se.season_number,
-  e.episode_number
+  e.episode_number,
+  (SELECT COUNT(*)::int FROM reactions WHERE reactions.reply_id = r.reply_id) AS reactions_total,
+      0 AS replies_total
 FROM replies r
-JOIN episodes e ON r.episode_id = e.episode_id
+JOIN comments c ON r.comment_id = c.comment_id
+JOIN episodes e ON c.episode_id = e.episode_id
 JOIN seasons se ON e.season_id = se.season_id
 JOIN tv_shows ts ON se.tv_show_id = ts.tv_show_id
 WHERE r.user_id = $1
@@ -148,8 +153,11 @@ SELECT
   rx.reaction_id,
   ts.name AS tv_show_name,
   se.season_number,
-  e.episode_number
+  e.episode_number,
+  0 AS reactions_total,
+  0 AS replies_total
 FROM reactions rx
+JOIN comments c ON rx.comment_id = c.comment_id
 JOIN episodes e ON rx.episode_id = e.episode_id
 JOIN seasons se ON e.season_id = se.season_id
 JOIN tv_shows ts ON se.tv_show_id = ts.tv_show_id
