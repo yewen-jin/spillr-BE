@@ -18,14 +18,14 @@ const initiateSocket = (server) => {
     });
 
     socket.on("room:join", (episodeId) => {
+      socket.join(String(episodeId));
       console.log(`joined episode room ${episodeId}`);
-      socket.join(`episode:${episodeId}`);
       commentsHandler(socket, io, episodeId);
     });
 
     socket.on("room:leave", (episodeId) => {
+      socket.leave(String(episodeId));
       console.log(`left episode room ${episodeId}`);
-      socket.leave(`episode:${episodeId}`);
     });
 
     socket.on("disconnect", () => {

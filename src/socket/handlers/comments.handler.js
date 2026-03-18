@@ -15,7 +15,7 @@ const commentsHandler = (socket, io, episodeId) => {
   socket.on("comment:post", (comment) => {
     console.log(`received comment`);
     console.log(comment);
-    io.to(`episode:${comment.episode_id}`).emit("comment:new", comment); // we will need whole comment object not just comment.body
+    io.to(String(episodeId)).emit("comment:new", comment); // we will need whole comment object not just comment.body
     insertComment(comment);
   });
 
@@ -30,7 +30,7 @@ const commentsHandler = (socket, io, episodeId) => {
 
   socket.on("reply:post", (reply) => {
     console.log(`received reply for comment ${reply.comment_id}`);
-    io.to(String(episodeId)).emit("reply:new", "new reply:" + reply.body);
+    io.to(String(episodeId)).emit("reply:new", reply);
     addReply(reply);
   });
 
