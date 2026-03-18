@@ -80,7 +80,7 @@ async function selectFriendComments(friendIds) {
       TRUE AS is_friend,
       episodes.episode_number,
       seasons.season_number,
-      tv_shows.name,
+      tv_shows.name AS tv_show_name,
       (SELECT COUNT(*)::int FROM reactions WHERE reactions.comment_id = comments.comment_id) AS reactions_total,
       COALESCE (
         (SELECT JSON_BUILD_OBJECT(
@@ -124,7 +124,7 @@ async function selectGeneralComments(friendIds, user_id) {
       FALSE AS is_friend,
       episodes.episode_number,
       seasons.season_number,
-      tv_shows.name,
+      tv_shows.name AS tv_show_name,
        (SELECT COUNT(*)::int FROM reactions WHERE reactions.comment_id = comments.comment_id) AS reactions_total,
       COALESCE(
         (SELECT JSON_BUILD_OBJECT(
