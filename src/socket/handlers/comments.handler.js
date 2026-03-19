@@ -18,7 +18,10 @@ const commentsHandler = (socket, io, episodeId) => {
 
     const insertedComment = await insertComment(comment);
 
-    io.to(String(episodeId)).emit("comment:new", insertedComment);
+    io.to(String(episodeId)).emit("comment:new", {
+      ...comment,
+      ...insertedComment,
+    });
   });
 
   socket.on("comment:delete", (comment) => {
