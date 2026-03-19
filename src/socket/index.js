@@ -5,6 +5,7 @@ const {
   userLeaveRoom,
   userDisconnect,
   friendsRoom,
+  roomsFriend,
 } = require("./handlers/userRoom.handler.js");
 
 const initiateSocket = (server) => {
@@ -41,8 +42,12 @@ const initiateSocket = (server) => {
       console.log("Load friendsList");
       friendsRoom(socket, io, friendList);
     });
-  };
 
+    socket.on("room:load", (friendList) => {
+      console.log("Load room");
+      roomsFriend(socket, io, friendList);
+    });
+  };
   io.on("connection", onConnection);
 };
 

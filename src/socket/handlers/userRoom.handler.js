@@ -8,7 +8,7 @@ const userJoinRoom = (socket, io, episodeId, userId) => {
 
   userEpisodeMap.set(userId, episodeId);
   console.log(userEpisodeMap);
-  io.to(`watch:${userId}`).emit("friend:join", { userId: episodeId });
+  io.to(`watch:${userId}`).emit("friend:join", { userId, episodeId });
 
   if (!episodeUserMap.has(episodeId)) {
     const users = new Set();
@@ -21,6 +21,7 @@ const userJoinRoom = (socket, io, episodeId, userId) => {
     episodeUserMap.set(episodeId, users);
     console.log(episodeUserMap);
   }
+  io.emit("room:userIn", episodeId);
 
   socket.myUserId = userId;
   socket.myEpisodeId = episodeId;
@@ -29,7 +30,7 @@ const userJoinRoom = (socket, io, episodeId, userId) => {
 const userLeaveRoom = (socket, io, episodeId, userId) => {
   userEpisodeMap.delete(userId);
   console.log(userEpisodeMap);
-  io.to(`watch:${userId}`).emit("friend:leave", { userId: episodeId });
+  io.to(`watch:${userId}`).emit("friend:leave", { userId, episodeId });
 
   const users = episodeUserMap.get(episodeId);
   users.delete(userId);
@@ -40,6 +41,7 @@ const userLeaveRoom = (socket, io, episodeId, userId) => {
     episodeUserMap.delete(episodeId);
     console.log(episodeUserMap);
   }
+  io.emit("room:userOut", episodeId);
 };
 
 const userDisconnect = (socket, io) => {
@@ -57,6 +59,7 @@ const userDisconnect = (socket, io) => {
       episodeUserMap.delete(socket.episodeId);
       console.log(episodeUserMap);
     }
+    io.emit("room:userOut", socket.episodeId);
   }
 };
 
@@ -70,4 +73,23 @@ const friendsRoom = (socket, io, friendsList) => {
   });
 };
 
-module.exports = { userJoinRoom, userLeaveRoom, userDisconnect, friendsRoom };
+const roomsFriend = (socket, io, friendsList) => {
+  const roomsStatus = [];
+
+  episodeUserMap.forEach((episodeId, users) => {
+    const friendsWatching = 0;
+    friendsList.forEach((userId) => {
+      if (users.has(userId)) friendsWatching++;
+    });
+    roomsStatus.push({ episodeId, friendsWatching, userWatching: users.size });
+  });
+  socket.emit("roomList:status", roomsStatus);
+};
+
+module.exports = {
+  userJoinRoom,
+  userLeaveRoom,
+  userDisconnect,
+  friendsRoom,
+  roomsFriend,
+};
