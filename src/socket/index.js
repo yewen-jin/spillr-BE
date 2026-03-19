@@ -44,7 +44,7 @@ const initiateSocket = (server) => {
     });
 
     socket.on("room:load", (friendList) => {
-      console.log("Load room");
+      console.log("Load room", friendList);
       roomsFriend(socket, io, friendList);
     });
   };

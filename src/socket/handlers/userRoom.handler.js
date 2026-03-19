@@ -13,7 +13,7 @@ const userJoinRoom = (socket, io, episodeId, userId) => {
   if (!episodeUserMap.has(episodeId)) {
     const users = new Set();
     users.add(userId);
-    episodeUserMap.set(episodeId, user);
+    episodeUserMap.set(episodeId, users);
     console.log(episodeUserMap);
   } else {
     const users = episodeUserMap.get(episodeId);
@@ -45,27 +45,30 @@ const userLeaveRoom = (socket, io, episodeId, userId) => {
 };
 
 const userDisconnect = (socket, io) => {
-  if (socket.userId && socket.episodeId) {
-    userEpisodeMap.delete(socket.userId);
+  if (socket.myUserId && socket.myEpisodeId) {
+    userEpisodeMap.delete(socket.myUserId);
     console.log(userEpisodeMap);
-    io.to(`watch:${userId}`).emit("friend:disconnect", { userId: episodeId });
+    io.to(`watch:${socket.myUserId}`).emit("friend:disconnect", {
+      userId: socket.myUserId,
+      episodeId: socket.myEpisodeId,
+    });
 
-    const users = episodeUserMap.get(socket.episodeId);
-    users.delete(socket.userId);
+    const users = episodeUserMap.get(socket.myEpisodeId);
+    users.delete(socket.myUserId);
     if (users.size > 0) {
-      episodeUserMap.set(socket.episodeId, users);
+      episodeUserMap.set(socket.myEpisodeId, users);
       console.log(episodeUserMap);
     } else {
-      episodeUserMap.delete(socket.episodeId);
+      episodeUserMap.delete(socket.myEpisodeId);
       console.log(episodeUserMap);
     }
-    io.emit("room:userOut", socket.episodeId);
+    io.emit("room:userOut", socket.myEpisodeId);
   }
 };
 
 const friendsRoom = (socket, io, friendsList) => {
   const friendsStatus = friendsList.map((userId) => {
-    return { userId: userEpisodeMap.get(userId) || "offline" };
+    return { userId, episodeId: userEpisodeMap.get(userId) || "offline" };
   });
   socket.emit("friendsList:status", friendsStatus);
   friendsList.forEach((userId) => {
@@ -76,13 +79,14 @@ const friendsRoom = (socket, io, friendsList) => {
 const roomsFriend = (socket, io, friendsList) => {
   const roomsStatus = [];
 
-  episodeUserMap.forEach((episodeId, users) => {
-    const friendsWatching = 0;
+  episodeUserMap.forEach((users, episodeId) => {
+    let friendsWatching = 0;
     friendsList.forEach((userId) => {
       if (users.has(userId)) friendsWatching++;
     });
     roomsStatus.push({ episodeId, friendsWatching, userWatching: users.size });
   });
+  console.log(roomsStatus);
   socket.emit("roomList:status", roomsStatus);
 };
 
