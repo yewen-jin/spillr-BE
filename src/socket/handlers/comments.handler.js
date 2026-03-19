@@ -65,10 +65,10 @@ const commentsHandler = (socket, io, episodeId) => {
     io.to(String(episodeId)).emit(reaction);
   });
 
-  socket.on("spoiler:mark", (comment) => {
+  socket.on("spoiler:mark", (comment_id) => {
     console.log(`a spoiler notice has been marked`);
     patchSpoiler(comment.comment_id, comment.is_spoiler);
-    io.to(String(episodeId)).emit(comment.is_spoiler);
+    io.to(String(episodeId)).emit("comment:flagged", comment_id);
   });
 
   socket.on("poll:vote", async (vote) => {
