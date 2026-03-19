@@ -63,7 +63,7 @@ const seed = async ({
        release_time TIME,
        episode_url VARCHAR(3000),
        thread_opened BOOL DEFAULT FALSE,
-       synopsis VARCHAR(3000)
+       synopsis VARCHAR(5000)
       )`);
 
   await db.query(`CREATE TABLE subscriptions(

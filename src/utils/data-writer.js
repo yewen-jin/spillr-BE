@@ -10,4 +10,14 @@ async function writeData(path, content) {
   }
 }
 
-module.exports = writeData;
+function createLog() {
+  const logFile = `log-${new Date().toISOString()}.log`;
+  return logFile;
+}
+
+async function appendLog(logFile, ...msg) {
+  const line = `[${new Date().toISOString()}] ${msg}\n`;
+  await fs.appendFile(logFile, line);
+}
+
+module.exports = { writeData, createLog, appendLog };

@@ -13,7 +13,7 @@ const {
   fetchShowIdTVDBByName,
   fetchEpisodesTVDBByID,
 } = require("../api/tvDb.js");
-const { sleep } = require("./data-utils.js");
+const { sleep, normalizeToAsciiSpaces } = require("./data-utils.js");
 
 async function cleanData(showName) {
   try {
@@ -26,7 +26,7 @@ async function cleanData(showName) {
     const episodes = [];
     for (const season of seasons) {
       try {
-        await sleep(30);
+        await sleep(50);
         const seasonEpisodes = await fetchEpisodesBySeasonID(season.season_id);
         episodes.push(seasonEpisodes);
       } catch (error) {
@@ -109,7 +109,9 @@ async function cleanData(showName) {
         ...episode,
         synopsis:
           episode.synopsis ||
-          (episodeTVDB?.synopsis ? episodeTVDB.synopsis : null),
+          (episodeTVDB?.synopsis
+            ? normalizeToAsciiSpaces(episodeTVDB?.synopsis)
+            : null),
         episodeIMG_URL:
           episode.episodeIMG_URL ||
           (episodeTVDB?.episodeIMG_URL
