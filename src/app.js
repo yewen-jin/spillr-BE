@@ -24,6 +24,7 @@ const { episodesRouter } = require("./routes/episodes.routes.js");
 const { commentsRouter } = require("./routes/comments.routes.js");
 const { tvShowRouter } = require("./routes/tv-shows.routes.js");
 const { seasonsRouter } = require("./routes/seasons.routes.js");
+const { profilesRouter } = require("./routes/profiles.routes.js");
 
 app.use("/api/episodes", episodesRouter);
 
@@ -32,6 +33,8 @@ app.use("/api/comments", commentsRouter);
 app.use("/api/tv-shows", tvShowRouter);
 
 app.use("/api/seasons", seasonsRouter);
+
+app.use("/api/profiles", profilesRouter);
 
 app.all(/(.*)/, (req, res) => {
   res.status(HTTP_STATUS_CODES.NOT_FOUND).send({ msg: "Route not found" });

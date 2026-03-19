@@ -12,13 +12,21 @@ const initiateSocket = (server) => {
       io.emit("chat message", msg);
     });
 
-    // socket.on("user:connect", (userId) => {
-    //   usersHandler(socket, io, userId);
-    // });
+    socket.on("user:connect", (userId) => {
+      console.log(`${userId} joined`);
+      usersHandler(socket, io, userId);
+    });
 
-    // socket.on("room:join", (episodeId) => {
-    commentsHandler(socket, io);
-    // });
+    socket.on("room:join", (episodeId) => {
+      socket.join(String(episodeId));
+      console.log(`joined episode room ${episodeId}`);
+      commentsHandler(socket, io, episodeId);
+    });
+
+    socket.on("room:leave", (episodeId) => {
+      socket.leave(String(episodeId));
+      console.log(`left episode room ${episodeId}`);
+    });
 
     socket.on("disconnect", () => {
       console.log("A user has disconnected");

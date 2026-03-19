@@ -53,9 +53,34 @@ const doesThisReactionExist = async (reaction_id) => {
   return true;
 };
 
+const hasReacted = async (user_id, { comment_id, reply_id }) => {
+  if (!comment_id && !reply_id) return false;
+
+  const { rows } = await db.query(
+    `SELECT * FROM reactions 
+     WHERE user_id = $1
+     AND ($2::INT IS NULL OR comment_id = $2)
+     AND ($3::INT IS NULL OR reply_id = $3)`,
+    [user_id, comment_id ?? null, reply_id ?? null],
+  );
+
+  return rows.length > 0;
+};
+
+const hasVoted = async (user_id, poll_id) => {
+  const { rows } = await db.query(
+    `SELECT * FROM poll_votes WHERE user_id = $1 AND poll_id = $2`,
+    [user_id, poll_id],
+  );
+
+  return rows.length > 0;
+};
+
 module.exports = {
   isLive,
   doesThisCommentExist,
   doesThisReplyExist,
   doesThisReactionExist,
+  hasReacted,
+  hasVoted,
 };

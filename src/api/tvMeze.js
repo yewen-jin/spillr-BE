@@ -14,7 +14,7 @@ async function fetchShowIdByName(seriesName) {
     const name = encodeURIComponent(seriesName);
     const url = `${BASE_URL}${SEARCH_SHOWS}${name}`;
     const response = await axios.get(url);
-    return findShowIDByCountry(response.data, "GB");
+    return findShowIDByCountry(response.data, seriesName, "GB");
   } catch (err) {
     console.error("fetch failed:", err);
   }

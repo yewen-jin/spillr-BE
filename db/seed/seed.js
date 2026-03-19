@@ -32,7 +32,8 @@ const seed = async ({
     name VARCHAR(3000),
     username VARCHAR(1000) UNIQUE NOT NULL,
     avatar_url VARCHAR(3000),
-    language VARCHAR(40)
+    language VARCHAR(40),
+    bio VARCHAR(3000)
     ) `);
 
   await db.query(`CREATE TABLE tv_shows(
@@ -62,7 +63,7 @@ const seed = async ({
        release_time TIME,
        episode_url VARCHAR(3000),
        thread_opened BOOL DEFAULT FALSE,
-       synopsis VARCHAR(3000)
+       synopsis VARCHAR(5000)
       )`);
 
   await db.query(`CREATE TABLE subscriptions(
@@ -146,11 +147,12 @@ const seed = async ({
       user.name,
       user.language,
       user.avatar_url,
+      user.bio,
     ];
   });
 
   let userQuery = format(
-    "INSERT INTO profiles(user_id, username, name, language, avatar_url) VALUES %L RETURNING *",
+    "INSERT INTO profiles(user_id, username, name, language, avatar_url, bio) VALUES %L RETURNING *",
     formattedUsers,
   );
 
