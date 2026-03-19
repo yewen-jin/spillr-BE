@@ -11,14 +11,13 @@ const {
 const commentsHandler = (socket, io) => {
   console.log("commentsHandler got connected!");
 
-  socket.on("comment:post", (comment) => {
+  socket.on("comment:post", async (comment) => {
     console.log(`received comment`);
     console.log(comment);
-    io.to(`episode:${comment.episode_id}`).emit(
-      "comment:new",
-      "new comment:" + comment.body,
-    );
-    insertComment(comment);
+
+    const insertedComment = await insertComment(comment);
+
+    io.to(`episode:${comment.episode_id}`).emit("comment:new", insertedComment);
   });
 
   socket.on("comment:delete", (comment) => {
