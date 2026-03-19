@@ -8,15 +8,21 @@ const {
   patchSpoiler,
 } = require("../models/comment.models.js");
 const { addPollVote } = require("../models/poll.models.js");
+const { selectPollsByEpisodeID } = require("../../models/episodes.models.js");
 
 const commentsHandler = (socket, io, episodeId) => {
   console.log("commentsHandler got connected!");
 
-  socket.on("comment:post", (comment) => {
+  socket.on("comment:post", async (comment) => {
     console.log(`received comment`);
     console.log(comment);
-    io.to(String(episodeId)).emit("comment:new", comment); // we will need whole comment object not just comment.body
-    insertComment(comment);
+
+    const insertedComment = await insertComment(comment);
+
+    io.to(String(episodeId)).emit("comment:new", {
+      ...comment,
+      ...insertedComment,
+    });
   });
 
   socket.on("comment:delete", (comment_id) => {
@@ -55,20 +61,24 @@ const commentsHandler = (socket, io, episodeId) => {
   //remove reaction if needed for episode reactions
   socket.on("reaction:remove", (reaction) => {
     console.log(`remove reaction`);
-    io.to(String(episodeId)).emit(reaction);
     removeReaction(reaction.reaction_id);
+    io.to(String(episodeId)).emit(reaction);
   });
 
   socket.on("spoiler:mark", (comment) => {
     console.log(`a spoiler notice has been marked`);
-    patchSpoiler(comment.comment_id, true);
+    patchSpoiler(comment.comment_id, comment.is_spoiler);
+    io.to(String(episodeId)).emit(comment.is_spoiler);
   });
 
   socket.on("poll:vote", async (vote) => {
     console.log(`poll vote received for poll ${vote.poll_id}`);
     try {
-      const newVote = await addPollVote(vote);
-      io.to(`episode:${episodeId}`).emit("poll:updated", newVote);
+      await addPollVote(vote);
+
+      const updatedPolls = await selectPollsByEpisodeID(episodeId);
+
+      io.to(String(episodeId)).emit("poll:update", updatedPolls);
     } catch (err) {
       console.log("poll vote error:", err.message);
       socket.emit("poll:error", { msg: err.message });
