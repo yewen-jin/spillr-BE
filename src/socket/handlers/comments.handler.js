@@ -63,21 +63,22 @@ const commentsHandler = (socket, io, episodeId) => {
     //remove reaction if needed for episode reactions
     socket.on("reaction:remove", (reaction) => {
         console.log(`remove reaction`);
-        io.to(String(episodeId)).emit(reaction);
         removeReaction(reaction.reaction_id);
+        io.to(String(episodeId)).emit(reaction);
     });
 
     socket.on("spoiler:mark", (comment) => {
         console.log(`a spoiler notice has been marked`);
-        io.to(String(episodeId)).emit(comment);
-        patchSpoiler(comment.comment_id, true);
+        patchSpoiler(comment.comment_id, comment.is_spoiler);
+        io.to(String(episodeId)).emit(comment.is_spoiler);
     });
 
     socket.on("poll:vote", async (vote) => {
         console.log(`poll vote received for poll ${vote.poll_id}`);
         try {
             const newVote = await addPollVote(vote);
-            io.to(`episode:${episodeId}`).emit("poll:updated", newVote);
+            socket.emit("poll:udpate", vote);
+            io.to(String(episodeId)).emit("poll:updated", newVote);
         } catch (err) {
             console.log("poll vote error:", err.message);
             socket.emit("poll:error", { msg: err.message });
