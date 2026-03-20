@@ -29,13 +29,17 @@ const initiateSocket = (server) => {
 
     socket.on("room:leave", ({ episodeId, userId }) => {
       socket.leave(String(episodeId));
-      console.log(`left episode room ${episodeId}`);
+      console.log(`${userId} left episode room ${episodeId}`);
       userLeaveRoom(socket, io, episodeId, userId);
+      socket.intentionalLeave = true;
     });
 
     socket.on("disconnect", () => {
       console.log("A user has disconnected");
-      userDisconnect(socket, io);
+      if (!socket.intentionalLeave) {
+        console.log("It is not an intentionalLeave");
+        userDisconnect(socket, io);
+      }
     });
 
     socket.on("friendsList:load", (friendList) => {
@@ -45,6 +49,7 @@ const initiateSocket = (server) => {
 
     socket.on("room:load", (friendList) => {
       console.log("Load room", friendList);
+      friendsRoom(socket, io, friendList);
       roomsFriend(socket, io, friendList);
     });
   };
