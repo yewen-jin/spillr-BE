@@ -6,6 +6,7 @@ const {
   deleteComment,
   insertComment,
   patchSpoiler,
+  insertPoll,
 } = require("../models/comment.models.js");
 const { addPollVote } = require("../models/poll.models.js");
 const { selectPollsByEpisodeID } = require("../../models/episodes.models.js");
@@ -81,6 +82,18 @@ const commentsHandler = (socket, io, episodeId) => {
       io.to(String(episodeId)).emit("poll:update", updatedPolls);
     } catch (err) {
       console.log("poll vote error:", err.message);
+      socket.emit("poll:error", { msg: err.message });
+    }
+  });
+
+  socket.on("poll:create", async (poll) => {
+    try {
+      await insertPoll(poll);
+
+      const newPolls = await selectPollsByEpisodeID(poll.episode_id);
+
+      io.to(String(poll.episode_id)).emit("poll:update", newPolls);
+    } catch (err) {
       socket.emit("poll:error", { msg: err.message });
     }
   });
