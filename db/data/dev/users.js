@@ -43,7 +43,7 @@ const users = [
     user_id: "f6a7b8c9-d0e1-2345-fabc-456789012345",
     username: "3llasious",
     avatar_url:
-      "https://i.pravhttps://static.wikia.nocookie.net/hunterxhunter/images/2/29/Hisoka_Morow_YC_Portrait.png/revision/latest?cb=20190123172039atar.cc/150?img=6",
+      "https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Favatars.alphacoders.com%2Favatars%2Fview%2F246845&ved=0CBYQjRxqFwoTCNi-7PXprpMDFQAAAAAdAAAAABAI&opi=89978449",
     language: "English",
     name: "Ella Itopa",
     bio: "If there's a twist coming, I've already clocked it. Forensic rewatcher, timeline nerd, and certified dramatic irony enthusiast.",
@@ -54,7 +54,7 @@ const users = [
     avatar_url:
       "https://64.media.tumblr.com/56f6451c104784d83a4a5c0fcb1cbc73/5ec6447b83c91faa-78/s1280x1920/685468b3b8163deba53421f284cad1b86a7dfff5.jpg",
     language: "English",
-    name: "Jinson Pg",
+    name: "Jinson PJ",
     bio: "Here for the chaos, staying for the villain arc. If you're not rooting for the wrong person at least once, are you even watching?",
   },
   {
