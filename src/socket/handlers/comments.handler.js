@@ -82,7 +82,7 @@ const commentsHandler = (socket, io, episodeId) => {
       io.to(String(episodeId)).emit("poll:update", updatedPolls);
     } catch (err) {
       console.log("poll vote error:", err.message);
-      socket.emit("poll:error", { msg: err.message });
+      socket.emit("poll:error", err.message);
     }
   });
 
@@ -94,7 +94,7 @@ const commentsHandler = (socket, io, episodeId) => {
 
       io.to(String(poll.episode_id)).emit("poll:update", newPolls);
     } catch (err) {
-      socket.emit("poll:error", { msg: err.message });
+      socket.emit("poll:error", err.message);
     }
   });
 };
