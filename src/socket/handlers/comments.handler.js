@@ -94,7 +94,7 @@ const commentsHandler = (socket, io, episodeId) => {
 
       io.to(String(poll.episode_id)).emit("poll:update", newPolls);
     } catch (err) {
-      socket.emit("poll:error", err.message);
+      socket.emit("poll:error", err);
     }
   });
 };
