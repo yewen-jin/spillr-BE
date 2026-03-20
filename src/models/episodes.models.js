@@ -96,6 +96,7 @@ module.exports = {
   selectEpisodeByID,
   selectPollsByEpisodeID,
   selectEpisodesBySeasonId,
+  insertPoll,
 };
 
 // `SELECT *,
