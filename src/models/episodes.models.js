@@ -64,26 +64,6 @@ async function selectPollsByEpisodeID(episode_id) {
   return rows;
 }
 
-async function insertPoll(poll) {
-  const { poll_name, field_1, field_2, episode_id, user_id } = poll;
-
-  const queryStr = `
-    INSERT INTO polls (poll_name, field_1, field_2, episode_id, user_id)
-    VALUES ($1, $2, $3, $4, $5)
-    RETURNING *;
-  `;
-
-  const { rows } = await db.query(queryStr, [
-    poll_name,
-    field_1,
-    field_2,
-    episode_id,
-    user_id,
-  ]);
-
-  return rows[0];
-}
-
 async function selectEpisodesBySeasonId(season_id) {
   const queryStr = `
   SELECT * FROM episodes WHERE season_id = $1 ORDER BY episode_id ASC`;
@@ -96,7 +76,6 @@ module.exports = {
   selectEpisodeByID,
   selectPollsByEpisodeID,
   selectEpisodesBySeasonId,
-  insertPoll,
 };
 
 // `SELECT *,

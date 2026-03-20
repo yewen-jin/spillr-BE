@@ -6,9 +6,8 @@ const {
   deleteComment,
   insertComment,
   patchSpoiler,
-  insertPoll,
 } = require("../models/comment.models.js");
-const { addPollVote } = require("../models/poll.models.js");
+const { addPollVote, insertPoll } = require("../models/poll.models.js");
 const { selectPollsByEpisodeID } = require("../../models/episodes.models.js");
 
 const commentsHandler = (socket, io, episodeId) => {

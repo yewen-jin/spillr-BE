@@ -19,4 +19,24 @@ const addPollVote = async (voteObj) => {
   return rows[0];
 };
 
-module.exports = { addPollVote };
+async function insertPoll(poll) {
+  const { poll_name, field_1, field_2, episode_id, user_id } = poll;
+
+  const queryStr = `
+    INSERT INTO polls (poll_name, field_1, field_2, episode_id, user_id)
+    VALUES ($1, $2, $3, $4, $5)
+    RETURNING *;
+  `;
+
+  const { rows } = await db.query(queryStr, [
+    poll_name,
+    field_1,
+    field_2,
+    episode_id,
+    user_id,
+  ]);
+
+  return rows[0];
+}
+
+module.exports = { addPollVote, insertPoll };
