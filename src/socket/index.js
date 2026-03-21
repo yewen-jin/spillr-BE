@@ -12,6 +12,7 @@ const initiateSocket = (server) => {
   const io = new Server(server);
   const onConnection = (socket) => {
     console.log("A user connected!");
+    commentsHandler(socket, io);
 
     socket.on("chat message", (msg) => {
       console.log("get message from client: " + msg);
@@ -23,8 +24,6 @@ const initiateSocket = (server) => {
       console.log(`${userId} joined episode room ${episodeId}`);
 
       userJoinRoom(socket, io, episodeId, userId);
-
-      commentsHandler(socket, io, episodeId);
     });
 
     socket.on("room:leave", ({ episodeId, userId }) => {
