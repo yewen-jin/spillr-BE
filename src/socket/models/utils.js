@@ -31,7 +31,7 @@ const doesThisCommentExist = async (comment_id) => {
 };
 
 const doesThisReplyExist = async (reply_id) => {
-  const { rows } = await db.query(`SELECT * FROM reply WHERE reply_id = $1`, [
+  const { rows } = await db.query(`SELECT * FROM replies WHERE reply_id = $1`, [
     reply_id,
   ]);
   if (!rows || rows.length === 0) {
@@ -55,7 +55,7 @@ const hasReacted = async (user_id, { comment_id, reply_id }) => {
   if (!comment_id && !reply_id) return false;
 
   const { rows } = await db.query(
-    `SELECT * FROM reactions 
+    `SELECT * FROM reactions
      WHERE user_id = $1
      AND ($2::INT IS NULL OR comment_id = $2)
      AND ($3::INT IS NULL OR reply_id = $3)`,
