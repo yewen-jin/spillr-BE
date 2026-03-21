@@ -1,5 +1,5 @@
 const db = require("../../db/connection.js");
-const { ConflictError } = require("../errors/customError.js");
+const { ConflictError, NotFoundError } = require("../errors/customError.js");
 
 const {
   doesSubscriptionExist,
@@ -18,4 +18,17 @@ async function addSubscriptiontoDb(user_id, tv_show_id) {
   return rows[0];
 }
 
-module.exports = { addSubscriptiontoDb };
+async function deleteSubscriptionFromDb(user_id, tv_show_id) {
+  const exists = await doesSubscriptionExist(user_id, tv_show_id);
+  if (!exists) throw new NotFoundError(`Subscription not found`);
+
+  const { rows } = await db.query(
+    `DELETE FROM subscriptions
+     WHERE user_id = $1 AND tv_show_id = $2
+     RETURNING *`,
+    [user_id, tv_show_id],
+  );
+  return rows[0];
+}
+
+module.exports = { addSubscriptiontoDb, deleteSubscriptionFromDb };

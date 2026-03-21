@@ -1,5 +1,6 @@
 const {
   addSubscriptiontoProfile,
+  deleteSubscriptionFromProfile,
 } = require("../services/subscriptions.services.js");
 
 async function addSubscription(req, res, next) {
@@ -12,4 +13,14 @@ async function addSubscription(req, res, next) {
   }
 }
 
-module.exports = { addSubscription };
+async function deleteSubscription(req, res, next) {
+  const { user_id, tv_show_id } = req.body;
+  try {
+    await deleteSubscriptionFromProfile(user_id, tv_show_id);
+    res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { addSubscription, deleteSubscription };

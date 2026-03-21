@@ -1,8 +1,13 @@
 const express = require("express");
-const { addSubscription } = require("../controllers/subscriptions.controllers");
+const {
+  addSubscription,
+  deleteSubscription,
+} = require("../controllers/subscriptions.controllers.js");
 
 const subscriptionsRouter = express.Router();
 
 subscriptionsRouter.post("/", addSubscription);
+
+subscriptionsRouter.delete("/", deleteSubscription);
 
 module.exports = { subscriptionsRouter };
