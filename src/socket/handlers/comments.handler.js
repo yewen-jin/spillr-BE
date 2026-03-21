@@ -14,11 +14,8 @@ const commentsHandler = (socket, io) => {
   console.log("commentsHandler got connected!");
 
   socket.on("comment:post", async (comment) => {
-    console.log(`received comment`);
-    console.log(comment);
-
+    console.log(`received comment`, comment);
     const insertedComment = await insertComment(comment);
-
     io.to(String(comment.episode_id)).emit("comment:new", {
       ...comment,
       ...insertedComment,
@@ -26,7 +23,7 @@ const commentsHandler = (socket, io) => {
   });
 
   socket.on("comment:delete", (comment) => {
-    console.log(`delete comment`);
+    console.log(`delete comment`, comment);
     io.to(String(comment.episode_id)).emit(
       "comment:remove",
       comment.comment_id,
@@ -53,12 +50,12 @@ const commentsHandler = (socket, io) => {
   });
 
   socket.on("reaction:add", async (reaction) => {
-    console.log(`reaction:add received`);
+    console.log(`reaction:add received`, reaction);
     try {
       const result = await addReaction(reaction);
       if (result.toggled) {
         io.to(String(reaction.episode_id)).emit(
-          "reaction:removed",
+          "reaction:retract",
           result.removed,
         );
       } else {
@@ -75,27 +72,25 @@ const commentsHandler = (socket, io) => {
 
   //remove reaction if needed for episode reactions
   socket.on("reaction:remove", (reaction) => {
-    console.log(`remove reaction`);
+    console.log(`remove reaction`, reaction);
     removeReaction(reaction.reaction_id);
-    io.to(String(reaction.episode_id)).emit(reaction);
+    io.to(String(reaction.episode_id)).emit("reaction:retract", reaction);
   });
 
   socket.on("spoiler:mark", (comment) => {
     console.log(`a spoiler notice has been marked`);
     patchSpoiler(comment.comment_id, true);
-    io.to(String(comment.episode_id)).emit(
-      "comment:flagged",
-      comment.comment_id,
-    );
+    io.to(String(comment.episode_id)).emit("comment:flagged", {
+      comment_id: comment.comment_id,
+      isSpoiler: true,
+    });
   });
 
   socket.on("poll:vote", async (vote) => {
     console.log(`poll vote received for poll ${vote.poll_id}`);
     try {
       await addPollVote(vote);
-
       const updatedPolls = await selectPollsByEpisodeID(vote.episode_id);
-
       io.to(String(vote.episode_id)).emit("poll:update", updatedPolls);
     } catch (err) {
       console.log("poll vote error:", err.message);
@@ -106,9 +101,7 @@ const commentsHandler = (socket, io) => {
   socket.on("poll:create", async (poll) => {
     try {
       await insertPoll(poll);
-
       const newPolls = await selectPollsByEpisodeID(poll.episode_id);
-
       io.to(String(poll.episode_id)).emit("poll:update", newPolls);
     } catch (err) {
       socket.emit("poll:error", err);
