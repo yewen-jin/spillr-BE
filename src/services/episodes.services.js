@@ -40,14 +40,14 @@ async function fetchEpisodeByIdService(episode_id) {
       throw new NotFoundError(`Episode with id ${episode_id} not found`);
     }
     const now = Date.now();
-    const twoHours = 2 * 60 * 60 * 1000;
+    const twentyFourHours = 24 * 60 * 60 * 1000;
     const airDateTime = new Date(
       `${episode.release_date}T${episode.release_time}`,
     );
 
     return {
       ...episode,
-      is_premier: Math.abs(airDateTime - now) <= twoHours,
+      is_premier: Math.abs(airDateTime - now) <= twentyFourHours,
     };
   } catch (error) {
     throw error;
