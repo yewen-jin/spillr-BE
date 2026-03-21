@@ -66,7 +66,7 @@ async function selectPollsByEpisodeID(episode_id) {
 
 async function selectEpisodesBySeasonId(season_id) {
   const queryStr = `
-  SELECT * FROM episodes WHERE season_id = $1 ORDER BY episode_id ASC`;
+  SELECT * FROM episodes WHERE season_id = $1 ORDER BY episode_number DESC`;
 
   const { rows } = await db.query(queryStr, [season_id]);
   return rows;
