@@ -41,9 +41,7 @@ async function fetchEpisodeByIdService(episode_id) {
     }
     const now = Date.now();
     const twentyFourHours = 24 * 60 * 60 * 1000;
-    const airDateTime = new Date(
-      `${episode.release_date}T${episode.release_time}`,
-    );
+    const airDateTime = new Date(episode.release_date);
 
     return {
       ...episode,

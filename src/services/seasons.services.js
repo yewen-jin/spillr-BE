@@ -12,9 +12,7 @@ async function fetchEpisodesBySeasonIdService(season_id) {
     const twentyFourHours = 24 * 60 * 60 * 1000;
 
     return episodes.map((episode) => {
-      const airDateTime = new Date(
-        `${episode.release_date}T${episode.release_time}`,
-      );
+      const airDateTime = new Date(episode.release_date);
       return {
         ...episode,
         is_premier: Math.abs(airDateTime - now) <= twentyFourHours,

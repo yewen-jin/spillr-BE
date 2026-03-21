@@ -13,9 +13,7 @@ const isLive = async (episode_id) => {
 
   const episode = rows[0];
   const now = new Date();
-  const airDateTime = new Date(
-    `${episode.release_date}T${episode.release_time}`,
-  );
+  const airDateTime = new Date(episode.release_date);
   const twentyFourHours = 24 * 60 * 60 * 1000;
 
   return Math.abs(now - airDateTime) <= twentyFourHours;
