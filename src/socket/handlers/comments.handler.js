@@ -103,7 +103,7 @@ const commentsHandler = (socket, io) => {
       await patchSpoiler(comment.comment_id, true);
       io.to(String(comment.episode_id)).emit("comment:flagged", {
         comment_id: comment.comment_id,
-        isSpoiler: true,
+        isSpoiler: !comment.is_spoiler,
       });
     } catch (err) {
       console.log(`failed to mark spoiler`, err);
