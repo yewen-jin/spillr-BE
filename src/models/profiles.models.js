@@ -131,7 +131,7 @@ SELECT
   r.created_at,
   r.reply_id,
   NULL::int AS reaction_id,
-  NULL::varchar AS reaction_type
+  NULL::varchar AS reaction_type,
   ts.name AS tv_show_name,
   se.season_number,
   e.episode_number,
