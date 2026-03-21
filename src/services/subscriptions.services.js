@@ -1,4 +1,4 @@
-const { addSubscriptiontoDb } = require("../models/subscription.models.js");
+const { addSubscriptiontoDb } = require("../models/subscriptions.model.js");
 const { NotFoundError } = require("../errors/customError.js");
 
 async function addSubscriptiontoProfile(user_id, tv_show_id) {
