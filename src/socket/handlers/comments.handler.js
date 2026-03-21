@@ -15,38 +15,54 @@ const commentsHandler = (socket, io) => {
 
   socket.on("comment:post", async (comment) => {
     console.log(`received comment`, comment);
-    const insertedComment = await insertComment(comment);
-    io.to(String(comment.episode_id)).emit("comment:new", {
-      ...comment,
-      ...insertedComment,
-    });
+    try {
+      const insertedComment = await insertComment(comment);
+      io.to(String(comment.episode_id)).emit("comment:new", {
+        ...comment,
+        ...insertedComment,
+      });
+    } catch (err) {
+      console.log(`failed to post comment`, err);
+    }
   });
 
-  socket.on("comment:delete", (comment) => {
+  socket.on("comment:delete", async (comment) => {
     console.log(`delete comment`, comment);
-    io.to(String(comment.episode_id)).emit(
-      "comment:remove",
-      comment.comment_id,
-    );
-    deleteComment(comment.comment_id);
+    try {
+      await deleteComment(comment.comment_id);
+      io.to(String(comment.episode_id)).emit(
+        "comment:remove",
+        comment.comment_id,
+      );
+    } catch (err) {
+      console.log(`failed to delete comment`, err);
+    }
   });
 
   socket.on("reply:post", async (reply) => {
     console.log(`received reply for comment ${reply.comment_id}`);
-    const insertedReply = await addReply(reply);
-    io.to(String(reply.episode_id)).emit("reply:new", {
-      ...reply,
-      ...insertedReply,
-    });
+    try {
+      const insertedReply = await addReply(reply);
+      io.to(String(reply.episode_id)).emit("reply:new", {
+        ...reply,
+        ...insertedReply,
+      });
+    } catch (err) {
+      console.log(`failed to post reply`, err);
+    }
   });
 
   socket.on("reply:delete", async (reply) => {
     console.log(`received reply for comment ${reply.comment_id}`);
-    const removedReply = await deleteReply(reply.reply_id);
-    io.to(String(reply.episode_id)).emit("reply:remove", {
-      ...reply,
-      ...removedReply,
-    });
+    try {
+      const removedReply = await deleteReply(reply.reply_id);
+      io.to(String(reply.episode_id)).emit("reply:remove", {
+        ...reply,
+        ...removedReply,
+      });
+    } catch (err) {
+      console.log(`failed to delete reply`, err);
+    }
   });
 
   socket.on("reaction:add", async (reaction) => {
@@ -71,19 +87,27 @@ const commentsHandler = (socket, io) => {
   });
 
   //remove reaction if needed for episode reactions
-  socket.on("reaction:remove", (reaction) => {
+  socket.on("reaction:remove", async (reaction) => {
     console.log(`remove reaction`, reaction);
-    removeReaction(reaction.reaction_id);
-    io.to(String(reaction.episode_id)).emit("reaction:retract", reaction);
+    try {
+      const result = await removeReaction(reaction.reaction_id);
+      io.to(String(reaction.episode_id)).emit("reaction:retract", result);
+    } catch (err) {
+      console.log(`failed to remove reaction`, err);
+    }
   });
 
-  socket.on("spoiler:mark", (comment) => {
+  socket.on("spoiler:mark", async (comment) => {
     console.log(`a spoiler notice has been marked`);
-    patchSpoiler(comment.comment_id, true);
-    io.to(String(comment.episode_id)).emit("comment:flagged", {
-      comment_id: comment.comment_id,
-      isSpoiler: true,
-    });
+    try {
+      await patchSpoiler(comment.comment_id, true);
+      io.to(String(comment.episode_id)).emit("comment:flagged", {
+        comment_id: comment.comment_id,
+        isSpoiler: true,
+      });
+    } catch (err) {
+      console.log(`failed to mark spoiler`, err);
+    }
   });
 
   socket.on("poll:vote", async (vote) => {
