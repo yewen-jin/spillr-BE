@@ -34,16 +34,22 @@ const commentsHandler = (socket, io) => {
     deleteComment(comment.comment_id);
   });
 
-  socket.on("reply:post", (reply) => {
+  socket.on("reply:post", async (reply) => {
     console.log(`received reply for comment ${reply.comment_id}`);
-    io.to(String(reply.episode_id)).emit("reply:new", reply);
-    addReply(reply);
+    const insertedReply = await addReply(reply);
+    io.to(String(reply.episode_id)).emit("reply:new", {
+      ...reply,
+      ...insertedReply,
+    });
   });
 
-  socket.on("reply:delete", (reply) => {
+  socket.on("reply:delete", async (reply) => {
     console.log(`received reply for comment ${reply.comment_id}`);
-    io.to(String(reply.episode_id)).emit("reply:remove", reply);
-    deleteReply(reply.reply_id);
+    const removedReply = await deleteReply(reply.reply_id);
+    io.to(String(reply.episode_id)).emit("reply:remove", {
+      ...reply,
+      ...removedReply,
+    });
   });
 
   socket.on("reaction:add", async (reaction) => {
