@@ -18,7 +18,7 @@ async function selectCommentsByEpisodeID(episode_id, time) {
         'deadTotal', COUNT(*) FILTER (WHERE reaction_type = 'dead')::int,
         'heartTotal', COUNT(*) FILTER (WHERE reaction_type = 'heart')::int
       ) FROM reactions WHERE reactions.comment_id = comments.comment_id),
-      '{"angryTotal":0,"laughingTotal":0,"cryingTotal":0,"fireTotal":0,"deadTotal":0,"heartTotal":0}'::json
+      '{"angryTotal":0,"laughingTotal":0,"sadTotal":0,"fireTotal":0,"deadTotal":0,"heartTotal":0}'::json
     ) AS "reactionType_total"
     FROM comments
     JOIN profiles ON profiles.user_id = comments.user_id
