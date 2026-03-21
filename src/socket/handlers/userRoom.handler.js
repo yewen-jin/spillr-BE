@@ -47,7 +47,7 @@ const userLeaveRoom = (socket, io, episodeId, userId) => {
 
 const userDisconnect = (socket, io) => {
   if (socket.myUserId && socket.myEpisodeId) {
-    if (userEpisodeMap > 0) userEpisodeMap.delete(socket.myUserId);
+    if (userEpisodeMap.size > 0) userEpisodeMap.delete(socket.myUserId);
     console.log("userEpisodeMap (after user disconnect):", userEpisodeMap);
     io.to(`watch:${socket.myUserId}`).emit("friend:disconnect", {
       userId: socket.myUserId,
