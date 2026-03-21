@@ -16,9 +16,9 @@ const isLive = async (episode_id) => {
   const airDateTime = new Date(
     `${episode.release_date}T${episode.release_time}`,
   );
-  const twoHours = 2 * 60 * 60 * 1000;
+  const twentyFourHours = 24 * 60 * 60 * 1000;
 
-  return Math.abs(now - airDateTime) <= twoHours;
+  return Math.abs(now - airDateTime) <= twentyFourHours;
 };
 
 const doesThisCommentExist = async (comment_id) => {
