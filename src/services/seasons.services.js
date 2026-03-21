@@ -9,7 +9,7 @@ async function fetchEpisodesBySeasonIdService(season_id) {
     }
 
     const now = Date.now();
-    const twoHours = 2 * 60 * 60 * 1000;
+    const twentyFourHours = 24 * 60 * 60 * 1000;
 
     return episodes.map((episode) => {
       const airDateTime = new Date(
@@ -17,7 +17,7 @@ async function fetchEpisodesBySeasonIdService(season_id) {
       );
       return {
         ...episode,
-        is_premier: Math.abs(airDateTime - now) <= twoHours,
+        is_premier: Math.abs(airDateTime - now) <= twentyFourHours,
       };
     });
   } catch (error) {

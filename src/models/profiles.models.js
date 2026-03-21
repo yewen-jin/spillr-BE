@@ -110,6 +110,7 @@ async function selectActivityByUser(user_id) {
   c.created_at,
   NULL::int AS reply_id,
   NULL::int AS reaction_id,
+  NULL::varchar AS reaction_type
   ts.name AS tv_show_name,
   se.season_number,
   e.episode_number,
@@ -130,6 +131,7 @@ SELECT
   r.created_at,
   r.reply_id,
   NULL::int AS reaction_id,
+  NULL::varchar AS reaction_type
   ts.name AS tv_show_name,
   se.season_number,
   e.episode_number,
@@ -151,6 +153,7 @@ SELECT
   rx.created_at,
   NULL::int AS reply_id,
   rx.reaction_id,
+  rx.reaction_type
   ts.name AS tv_show_name,
   se.season_number,
   e.episode_number,

@@ -25,6 +25,9 @@ const { commentsRouter } = require("./routes/comments.routes.js");
 const { tvShowRouter } = require("./routes/tv-shows.routes.js");
 const { seasonsRouter } = require("./routes/seasons.routes.js");
 const { profilesRouter } = require("./routes/profiles.routes.js");
+const { subscriptionsRouter } = require("./routes/subscriptions.routes.js");
+
+app.use("/api/subscriptions", subscriptionsRouter);
 
 app.use("/api/episodes", episodesRouter);
 
