@@ -7,4 +7,4 @@ const checkUserExists = async (db, user_id) => {
   return rows[0];
 };
 
-module.exports = checkUserExists;
+module.exports = { checkUserExists };
