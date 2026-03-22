@@ -6,6 +6,8 @@ const {
 } = require("../models/profiles.models.js");
 const { NotFoundError } = require("../errors/customError.js");
 
+const { checkUserExists } = require("../utils/checkUserExists.js");
+
 async function fetchUserByUserIdService(user_id) {
   try {
     const user = await selectUserByUserId(user_id);
@@ -43,14 +45,13 @@ async function fetchActivityByUserService(user_id) {
 }
 
 async function fetchFriendRequestsByUserSL(user_id) {
-  const isUser = checkUserExists(user_id);
-
+  const isUser = await checkUserExists(user_id);
   if (isUser) {
     try {
-      const requests = await fetchFriendRequestsByUser;
+      const requests = await fetchFriendRequestsByUser(user_id);
       return requests;
     } catch (err) {
-      next(err);
+      throw err;
     }
   } else {
     throw new NotFoundError(`No user found with id ${user_id}`);
