@@ -173,8 +173,28 @@ ORDER BY created_at DESC;
   return rows;
 }
 
+async function fetchFriendRequestsByUser(user_id) {
+  const queryStr = `
+    SELECT
+  friends.friends_id,
+  friends.user_id_1,
+  friends.user_id_2,
+  friends.is_accepted,
+  profiles.username AS requester_username,
+  profiles.avatar_url AS requester_avatar_url
+FROM friends
+JOIN profiles ON profiles.user_id = friends.user_id_1
+WHERE friends.user_id_2 = $1
+AND friends.is_accepted = false
+ORDER BY friends.friends_id DESC
+  `;
+  const { rows } = await db.query(queryStr, [user_id]);
+  return rows;
+}
+
 module.exports = {
   selectUserByUserId,
   selectUserByUsername,
   selectActivityByUser,
+  fetchFriendRequestsByUser,
 };

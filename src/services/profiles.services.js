@@ -41,8 +41,25 @@ async function fetchActivityByUserService(user_id) {
   }
 }
 
+async function fetchFriendRequestsByUserSL(user_id) {
+  const isUser = checkUserExists(user_id);
+
+  if (isUser) {
+    try {
+      const requests = await fetchFriendRequestsByUser;
+
+      return requests;
+    } catch (err) {
+      next(err);
+    }
+  } else {
+    throw new NotFoundError(`No user found with id ${user_id}`);
+  }
+}
+
 module.exports = {
   fetchUserByUserIdService,
   fetchUserByUsernameService,
   fetchActivityByUserService,
+  fetchFriendRequestsByUserSL,
 };

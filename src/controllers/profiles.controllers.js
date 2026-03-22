@@ -3,6 +3,7 @@ const {
   fetchUserByUserIdService,
   fetchUserByUsernameService,
   fetchActivityByUserService,
+  fetchFriendRequestsByUserSL,
 } = require("../services/profiles.services.js");
 
 async function getUserByUserId(req, res, next) {
@@ -34,8 +35,19 @@ async function getUserActivity(req, res, next) {
   }
 }
 
+async function getFriendRequests(req, res, next) {
+  const { user_id } = req.params;
+  try {
+    const requests = await fetchFriendRequestsByUserSL(user_id);
+    res.status(HTTP_STATUS_CODES.OK).send({ user });
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   getUserByUserId,
   getUserByUsername,
   getUserActivity,
+  getFriendRequests,
 };
