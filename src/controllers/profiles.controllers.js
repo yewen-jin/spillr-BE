@@ -39,7 +39,7 @@ async function getFriendRequests(req, res, next) {
   const { user_id } = req.params;
   try {
     const requests = await fetchFriendRequestsByUserSL(user_id);
-    res.status(HTTP_STATUS_CODES.OK).send({ user });
+    res.status(HTTP_STATUS_CODES.OK).send({ requests });
   } catch (err) {
     next(err);
   }
