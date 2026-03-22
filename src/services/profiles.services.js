@@ -2,6 +2,7 @@ const {
   selectUserByUserId,
   selectUserByUsername,
   selectActivityByUser,
+  fetchFriendRequestsByUser,
 } = require("../models/profiles.models.js");
 const { NotFoundError } = require("../errors/customError.js");
 
@@ -47,7 +48,6 @@ async function fetchFriendRequestsByUserSL(user_id) {
   if (isUser) {
     try {
       const requests = await fetchFriendRequestsByUser;
-
       return requests;
     } catch (err) {
       next(err);
