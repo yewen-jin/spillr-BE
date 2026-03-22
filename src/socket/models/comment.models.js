@@ -78,7 +78,10 @@ const addReply = async (replyObj) => {
     "episode_id",
   ];
 
-  const missingField = requiredFields.find((required) => !replyObj[required]);
+  const missingField = requiredFields.find(
+    (required) =>
+      replyObj[required] === undefined || replyObj[required] === null,
+  );
 
   if (missingField) {
     throw new Error(`${missingField} is required in request body`);
