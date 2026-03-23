@@ -40,7 +40,7 @@ async function selectUserByUserId(user_id) {
   ), '[]'::json)
   FROM friends f
   JOIN profiles fp ON fp.user_id = CASE WHEN f.user_id_1 = p.user_id THEN f.user_id_2 ELSE f.user_id_1 END
-  WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id) AND f.is_accepted = true
+  WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id)
 ) AS friends
   
    FROM profiles p
@@ -91,7 +91,7 @@ async function selectUserByUsername(username) {
   ), '[]'::json)
   FROM friends f
   JOIN profiles fp ON fp.user_id = CASE WHEN f.user_id_1 = p.user_id THEN f.user_id_2 ELSE f.user_id_1 END
-  WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id) AND f.is_accepted = true
+  WHERE (f.user_id_1 = p.user_id OR f.user_id_2 = p.user_id)
 ) AS friends
    FROM profiles p
    WHERE p.username = $1
