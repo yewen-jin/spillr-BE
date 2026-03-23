@@ -6,12 +6,14 @@ const {
   doesThisReactionExist,
   hasReacted,
   hasVoted,
+  addReactionNotification,
+  addReplyNotification,
 } = require("./utils.js");
 const { NotFoundError } = require("../../errors/customError.js");
 
 const insertComment = async (commentObj) => {
   const { episode_id, body, user_id, runtime_seconds, is_spoiler } = commentObj;
-  console.log(commentObj);
+
   const requiredFields = ["episode_id", "body", "user_id", "runtime_seconds"];
 
   const missingField = requiredFields.find((required) => !commentObj[required]);
@@ -94,7 +96,12 @@ const addReply = async (replyObj) => {
     ($1,$2,$3,$4,$5) RETURNING *`,
       [comment_id, user_id, body, episode_id, runtime_seconds],
     );
-    return rows[0];
+
+    const newReply = rows[0];
+
+    await addReplyNotification(newReply.reply_id);
+
+    return newReply;
   } else {
     throw new NotFoundError(`Comment with id ${comment_id} not found`);
   }
@@ -159,7 +166,9 @@ const addReaction = async (reactionObj) => {
     ],
   );
 
-  return { toggled: false, reaction: rows[0] };
+  const newReaction = rows[0];
+  await addReactionNotification(newReaction.reaction_id, comment_id, reply_id);
+  return { toggled: false, reaction: newReaction };
 };
 
 const removeReaction = async (reaction_id) => {

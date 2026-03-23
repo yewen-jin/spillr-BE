@@ -26,6 +26,7 @@ const { tvShowRouter } = require("./routes/tv-shows.routes.js");
 const { seasonsRouter } = require("./routes/seasons.routes.js");
 const { profilesRouter } = require("./routes/profiles.routes.js");
 const { subscriptionsRouter } = require("./routes/subscriptions.routes.js");
+const { notificationsRouter } = require("./routes/notifications.routes.js");
 
 app.use("/api/subscriptions", subscriptionsRouter);
 
@@ -38,6 +39,8 @@ app.use("/api/tv-shows", tvShowRouter);
 app.use("/api/seasons", seasonsRouter);
 
 app.use("/api/profiles", profilesRouter);
+
+app.use("/api/notifications", notificationsRouter);
 
 app.all(/(.*)/, (req, res) => {
   res.status(HTTP_STATUS_CODES.NOT_FOUND).send({ msg: "Route not found" });

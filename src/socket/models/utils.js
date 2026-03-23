@@ -83,6 +83,39 @@ const checkUserExists = async (db, user_id) => {
   return rows[0];
 };
 
+const addReactionNotification = async (reaction_id, comment_id, reply_id) => {
+  if (comment_id) {
+    await db.query(
+      `INSERT INTO notifications (user_id, reaction_id, status)
+      SELECT c.user_id, re.reaction_id, 'unread'
+      FROM reactions re
+      JOIN comments c ON re.comment_id = c.comment_id
+      WHERE re.reaction_id = $1`,
+      [reaction_id],
+    );
+  } else if (reply_id) {
+    await db.query(
+      `INSERT INTO notifications (user_id, reaction_id, status)
+      SELECT r.user_id, re.reaction_id, 'unread'
+      FROM reactions re
+      JOIN replies r ON re.reply_id = r.reply_id
+      WHERE re.reaction_id = $1`,
+      [reaction_id],
+    );
+  }
+};
+
+const addReplyNotification = async (reply_id) => {
+  await db.query(
+    `INSERT INTO notifications (user_id, reply_id, status)
+    SELECT c.user_id, r.reply_id, 'unread'
+    FROM replies r
+    JOIN comments c ON r.comment_id = c.comment_id
+    WHERE r.reply_id = $1`,
+    [reply_id],
+  );
+};
+
 module.exports = {
   isLive,
   doesThisCommentExist,
@@ -91,4 +124,6 @@ module.exports = {
   hasReacted,
   hasVoted,
   checkUserExists,
+  addReactionNotification,
+  addReplyNotification,
 };
