@@ -86,20 +86,20 @@ const checkUserExists = async (db, user_id) => {
 const addReactionNotification = async (reaction_id, comment_id, reply_id) => {
   if (comment_id) {
     await db.query(
-      `INSERT INTO notifications (user_id, reaction_id, status)
-      SELECT c.user_id, re.reaction_id, 'unread'
-      FROM reactions re
-      JOIN comments c ON re.comment_id = c.comment_id
-      WHERE re.reaction_id = $1`,
+      `INSERT INTO notifications (user_id, reaction_id, status, notification_type)
+      SELECT comments.user_id, reactions.reaction_id, 'unread', 'reaction_to_comment'
+      FROM reactions
+      JOIN comments ON reactions.comment_id = comments.comment_id
+      WHERE reactions.reaction_id = $1`,
       [reaction_id],
     );
   } else if (reply_id) {
     await db.query(
-      `INSERT INTO notifications (user_id, reaction_id, status)
-      SELECT r.user_id, re.reaction_id, 'unread'
-      FROM reactions re
-      JOIN replies r ON re.reply_id = r.reply_id
-      WHERE re.reaction_id = $1`,
+      `INSERT INTO notifications (user_id, reaction_id, status, notification_type)
+      SELECT replies.user_id, reactions.reaction_id, 'unread', 'reaction_to_reply'
+      FROM reactions
+      JOIN replies ON reactions.reply_id = replies.reply_id
+      WHERE reactions.reaction_id = $1`,
       [reaction_id],
     );
   }
@@ -107,11 +107,11 @@ const addReactionNotification = async (reaction_id, comment_id, reply_id) => {
 
 const addReplyNotification = async (reply_id) => {
   await db.query(
-    `INSERT INTO notifications (user_id, reply_id, status)
-    SELECT c.user_id, r.reply_id, 'unread'
-    FROM replies r
-    JOIN comments c ON r.comment_id = c.comment_id
-    WHERE r.reply_id = $1`,
+    `INSERT INTO notifications (user_id, reply_id, status, notification_type)
+    SELECT comments.user_id, replies.reply_id, 'unread', 'reply_to_comment'
+    FROM replies
+    JOIN comments ON replies.comment_id = comments.comment_id
+    WHERE replies.reply_id = $1`,
     [reply_id],
   );
 };

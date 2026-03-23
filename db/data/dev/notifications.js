@@ -5,6 +5,7 @@ const notifications = [
     status: "read",
     created_at: "2024-03-01T20:09:00.000Z",
     user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    notification_type: "reply_to_comment",
   },
   {
     reply_id: 2,
@@ -12,6 +13,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-01T20:10:00.000Z",
     user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    notification_type: "reply_to_comment",
   },
   {
     reply_id: 3,
@@ -19,6 +21,7 @@ const notifications = [
     status: "read",
     created_at: "2024-03-01T20:17:00.000Z",
     user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    notification_type: "reply_to_comment",
   },
   {
     reply_id: 4,
@@ -26,6 +29,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-01T20:24:00.000Z",
     user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    notification_type: "reply_to_comment",
   },
   {
     reply_id: 5,
@@ -33,6 +37,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-01T20:25:00.000Z",
     user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    notification_type: "reply_to_comment",
   },
   {
     reply_id: 6,
@@ -40,6 +45,7 @@ const notifications = [
     status: "read",
     created_at: "2024-03-08T20:07:00.000Z",
     user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    notification_type: "reply_to_comment",
   },
   {
     reply_id: 7,
@@ -47,6 +53,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-08T20:13:00.000Z",
     user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
+    notification_type: "reply_to_comment",
   },
   {
     reply_id: 8,
@@ -54,6 +61,7 @@ const notifications = [
     status: "read",
     created_at: "2024-03-08T20:19:00.000Z",
     user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
+    notification_type: "reply_to_comment",
   },
   {
     reply_id: 9,
@@ -61,6 +69,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-08T20:27:00.000Z",
     user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    notification_type: "reply_to_comment",
   },
   {
     reply_id: 10,
@@ -68,6 +77,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-08T20:28:00.000Z",
     user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    notification_type: "reply_to_comment",
   },
   {
     reply_id: null,
@@ -75,6 +85,7 @@ const notifications = [
     status: "read",
     created_at: "2024-03-01T20:09:00.000Z",
     user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    notification_type: "reaction_to_comment",
   },
   {
     reply_id: null,
@@ -82,6 +93,7 @@ const notifications = [
     status: "read",
     created_at: "2024-03-01T20:10:00.000Z",
     user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    notification_type: "reaction_to_comment",
   },
   {
     reply_id: null,
@@ -89,6 +101,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-01T20:16:00.000Z",
     user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    notification_type: "reaction_to_comment",
   },
   {
     reply_id: null,
@@ -96,6 +109,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-01T20:17:00.000Z",
     user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    notification_type: "reaction_to_comment",
   },
   {
     reply_id: null,
@@ -103,6 +117,7 @@ const notifications = [
     status: "read",
     created_at: "2024-03-01T20:23:00.000Z",
     user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    notification_type: "reaction_to_comment",
   },
   {
     reply_id: null,
@@ -110,6 +125,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-08T20:07:00.000Z",
     user_id: "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    notification_type: "reaction_to_comment",
   },
   {
     reply_id: null,
@@ -117,6 +133,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-08T20:19:00.000Z",
     user_id: "e5f6a7b8-c9d0-1234-efab-345678901234",
+    notification_type: "reaction_to_comment",
   },
   {
     reply_id: null,
@@ -124,6 +141,7 @@ const notifications = [
     status: "read",
     created_at: "2024-03-15T20:09:00.000Z",
     user_id: "d4e5f6a7-b8c9-0123-defa-234567890123",
+    notification_type: "reaction_to_comment",
   },
   {
     reply_id: null,
@@ -131,6 +149,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-15T20:34:00.000Z",
     user_id: "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    notification_type: "reaction_to_comment",
   },
   {
     reply_id: null,
@@ -138,6 +157,7 @@ const notifications = [
     status: "unread",
     created_at: "2024-03-22T20:31:00.000Z",
     user_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    notification_type: "reaction_to_comment",
   },
 ];
 

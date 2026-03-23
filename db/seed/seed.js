@@ -138,6 +138,7 @@ const seed = async ({
       user_id UUID REFERENCES profiles(user_id) ON DELETE CASCADE,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       status VARCHAR(50) NOT NULL
+      notification_type VARCHAR(50) NOT NULL
       )`);
 
   const formattedUsers = users.map((user) => {
