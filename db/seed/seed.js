@@ -79,6 +79,11 @@ const seed = async ({
       is_accepted BOOL DEFAULT FALSE
       )`);
 
+  await db.query(`
+  CREATE UNIQUE INDEX unique_friendship 
+  ON friends (LEAST(user_id_1, user_id_2), GREATEST(user_id_1, user_id_2))
+`);
+
   await db.query(`CREATE TABLE comments(
       comment_id SERIAL PRIMARY KEY NOT NULL,
       user_id UUID REFERENCES profiles(user_id) ON DELETE CASCADE,
