@@ -7,6 +7,7 @@ const fetchNotificationsForThisUserId = async (user_id) => {
       profiles.username AS actor_username,
       profiles.avatar_url AS actor_avatar_url,
       profiles.user_id AS actor_id,
+      episodes.episode_id,
       CASE 
         WHEN notifications.notification_type = 'reply_to_comment' THEN comments.body
         WHEN notifications.notification_type = 'reaction_to_comment' THEN comments.body
