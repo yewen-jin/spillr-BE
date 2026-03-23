@@ -137,7 +137,7 @@ const seed = async ({
       reply_id INT REFERENCES replies(reply_id) ON DELETE CASCADE,
       user_id UUID REFERENCES profiles(user_id) ON DELETE CASCADE,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      status VARCHAR(50) NOT NULL
+      status VARCHAR(50) NOT NULL,
       notification_type VARCHAR(50) NOT NULL
       )`);
 
@@ -334,31 +334,32 @@ const seed = async ({
       notification.status,
       notification.created_at,
       notification.user_id,
+      notification.notification_type,
     ];
   });
 
   let notificationsQuery = format(
-    "INSERT INTO notifications(reply_id, reaction_id, status, created_at, user_id) VALUES %L RETURNING *",
+    "INSERT INTO notifications(reply_id, reaction_id, status, created_at, user_id, notification_type) VALUES %L RETURNING *",
     formattedNotifications,
   );
-
   await db.query(notificationsQuery);
 
   // $ will conflict with JS template literal syntax, using $$ instead to escape it
   let createPolicyQuery = `
-    DO $$
-        DECLARE r RECORD;
-        BEGIN
-          FOR r IN
-            SELECT table_name FROM information_schema.tables
-            WHERE table_schema = 'public' AND table_type = 'BASE TABLE'
-          LOOP
-            EXECUTE format('ALTER TABLE %I ENABLE ROW LEVEL SECURITY;', r.table_name);
-            EXECUTE format('CREATE POLICY allow_read_all ON %I FOR SELECT TO PUBLIC USING (true);', r.table_name);
-          END LOOP;
-        END;
-        $$;
- `;
+  DO $$
+    DECLARE r RECORD;
+    BEGIN
+      FOR r IN
+        SELECT table_name FROM information_schema.tables
+        WHERE table_schema = 'public' AND table_type = 'BASE TABLE'
+      LOOP
+        EXECUTE format('ALTER TABLE %I ENABLE ROW LEVEL SECURITY;', r.table_name);
+        EXECUTE format('DROP POLICY IF EXISTS allow_read_all ON %I;', r.table_name);
+        EXECUTE format('CREATE POLICY allow_read_all ON %I FOR SELECT TO PUBLIC USING (true);', r.table_name);
+      END LOOP;
+    END;
+  $$;
+`;
 
   await db.query(createPolicyQuery);
 };
