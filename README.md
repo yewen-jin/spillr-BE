@@ -3,6 +3,7 @@
 ## setting up environmental files:
 
 add the following 3 environmental files.
+
 ```
 .env.test #this should be PGDATABASE=spillr_test
 .env.dev  #this should be PGDATABASE=spillr
@@ -28,3 +29,7 @@ npm run data-sync
 ```
 
 data will be added to `/db/data/dev` and saved as tv-shows.js, seasons.js and episodes.js for direct usage
+
+## front-end repo
+
+[→ View Frontend Repo](https://github.com/Ines1299/SpillR-app)
